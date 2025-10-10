@@ -61,6 +61,14 @@ public class Motorista {
         this.cnhMotorista = cnhMotorista;
     }
 
+    public DisponibilidadeMotorista getDisponibilidadeMotorista() {
+        return disponibilidadeMotorista;
+    }
+
+    public List<PeriodoIndisponivel> getFeriasMotorista() {
+        return feriasMotorista;
+    }
+
     /*public void addRotaMotorista(Rota rota){
         this.rotasMotorista.add(rota);
     }*/
