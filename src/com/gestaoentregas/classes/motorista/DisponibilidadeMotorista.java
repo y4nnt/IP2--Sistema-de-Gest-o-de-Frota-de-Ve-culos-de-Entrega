@@ -1,5 +1,3 @@
-package com.gestaoEntregas.classes.Motorista;
-
 public enum DisponibilidadeMotorista {
     DISPONIVEL(0),
     INDISPONIVEL(1);
