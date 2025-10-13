@@ -1,3 +1,5 @@
+package com.gestaoentregas.classes.veiculo;
+
 public enum StatusVeiculo {
     DISPONIVEL(0),
     INDISPONIVEL(1);

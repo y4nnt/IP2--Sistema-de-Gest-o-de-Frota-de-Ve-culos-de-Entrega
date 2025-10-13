@@ -1,3 +1,5 @@
+package com.gestaoentregas.classes.motorista;
+
 import java.time.LocalDate;
 
 public class PeriodoIndisponivel {

@@ -1,3 +1,4 @@
+package com.gestaoentregas.classes.veiculo;
 import java.util.ArrayList;
 import java.util.List;
 
