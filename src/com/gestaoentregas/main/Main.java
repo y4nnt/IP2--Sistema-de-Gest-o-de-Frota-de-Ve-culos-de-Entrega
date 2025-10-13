@@ -1,6 +1,7 @@
-package com.gestaoEntregas.main;
+package com.gestaoentregas.main;
 
-import com.gestaoEntregas.classes.Motorista.*;
+import com.gestaoentregas.classes.motorista.*;
+import com.gestaoentregas.classes.veiculo.*;
 
 
 import java.time.LocalDate;
