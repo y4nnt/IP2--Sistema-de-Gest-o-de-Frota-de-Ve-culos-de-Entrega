@@ -13,6 +13,7 @@ public class Motorista {
     // private List<Rota> rotasMotorista; // Tirar o comentário quando Rota existir
     // private List<Entrega> historicoEntregaMotorista; // Tirar o comentário quando Entrega existir
     private List<PeriodoIndisponivel> feriasMotorista;
+    private int idMotorista;
 
     public Motorista(String nomeMotorista, String telefoneMotorista, String cpfMotorista, String cnhMotorista) {
         if(nomeMotorista == null || telefoneMotorista == null || cpfMotorista == null || cnhMotorista == null){
@@ -68,6 +69,10 @@ public class Motorista {
     public List<PeriodoIndisponivel> getFeriasMotorista() {
         return feriasMotorista;
     }
+
+    public int getIdMotorista() {return idMotorista;}
+
+    public void setIdMotorista(int idMotorista) {this.idMotorista = idMotorista;}
 
     /*public void addRotaMotorista(Rota rota){
         this.rotasMotorista.add(rota);

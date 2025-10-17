@@ -2,12 +2,13 @@ package com.gestaoentregas.classes.veiculo;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Veiculo {  
+public class Veiculo {
     private String placaVeiculo;
     private String modeloVeiculo;
     private double capacidadeVeiculo;
     private StatusVeiculo statusVeiculo; 
     private List<String> historicoManutecaoVeiculo;
+    private int idVeiculo;
     //private List<Entrega> historicoEntregaVeiculo; esperando criar a classe entrega
 
 
@@ -57,6 +58,11 @@ public class Veiculo {
     public void addManutencao(String manutencao) {
         this.historicoManutecaoVeiculo.add(manutencao);
     }
+
+    public int getIdVeiculo() {return this.idVeiculo; }
+
+    public void setIdVeiculo(int idVeiculo) {this.idVeiculo = idVeiculo;}
+
 
     /*public void addEntrega(String entrega) {
         this.historicoEntregaVeiculo.add(entrega);
