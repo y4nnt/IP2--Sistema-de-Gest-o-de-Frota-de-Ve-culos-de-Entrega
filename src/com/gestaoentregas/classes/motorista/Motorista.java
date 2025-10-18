@@ -3,6 +3,7 @@ package com.gestaoentregas.classes.motorista;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import com.gestaoentregas.classes.entrega.*;
 
 public class Motorista {
     private String nomeMotorista;
@@ -10,8 +11,8 @@ public class Motorista {
     private String cpfMotorista;
     private String cnhMotorista;
     private DisponibilidadeMotorista disponibilidadeMotorista;
-    // private List<Rota> rotasMotorista; // Tirar o comentário quando Rota existir
-    // private List<Entrega> historicoEntregaMotorista; // Tirar o comentário quando Entrega existir
+    private List<Rota> rotasMotorista;
+    private List<Entrega> historicoEntregaMotorista;
     private List<PeriodoIndisponivel> feriasMotorista;
     private int idMotorista;
 
@@ -74,13 +75,13 @@ public class Motorista {
 
     public void setIdMotorista(int idMotorista) {this.idMotorista = idMotorista;}
 
-    /*public void addRotaMotorista(Rota rota){
+    public void addRotaMotorista(Rota rota){
         this.rotasMotorista.add(rota);
-    }*/
+    }
 
-    /*public void addEntregaMotorista (Entrega entrega){
+    public void addEntregaMotorista (Entrega entrega){
         this.historicoEntregaMotorista.add(entrega);
-    }*/
+    }
 
     public void addFerias(LocalDate inicio, LocalDate fim){
         PeriodoIndisponivel ferias = new PeriodoIndisponivel(inicio, fim, "Férias");
