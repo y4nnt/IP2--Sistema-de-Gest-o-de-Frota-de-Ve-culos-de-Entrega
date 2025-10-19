@@ -1,4 +1,6 @@
-package com.gestaoentregas.classes.veiculomotorista;
+package com.gestaoentregas.repositorios;
+
+import com.gestaoentregas.classes.veiculomotorista.VeiculoMotorista;
 
 public class RepositorioVeiculoMotoristaArray implements IRepositorioVeiculoMotorista {
     private VeiculoMotorista[] lista;

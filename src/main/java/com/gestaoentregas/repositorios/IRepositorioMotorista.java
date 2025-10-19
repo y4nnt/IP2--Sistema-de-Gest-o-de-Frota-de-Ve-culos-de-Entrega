@@ -1,4 +1,6 @@
-package com.gestaoentregas.classes.motorista;
+package com.gestaoentregas.repositorios;
+
+import com.gestaoentregas.classes.motorista.Motorista;
 
 public interface IRepositorioMotorista {
     void cadastrarMotorista(Motorista motorista);

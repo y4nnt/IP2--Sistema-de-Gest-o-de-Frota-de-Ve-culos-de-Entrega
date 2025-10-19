@@ -1,4 +1,7 @@
-package com.gestaoentregas.classes.veiculo;
+package com.gestaoentregas.controladores;
+
+import com.gestaoentregas.repositorios.IRepositorioVeiculo;
+import com.gestaoentregas.classes.veiculo.Veiculo;
 
 public class ControladorVeiculo {
     private IRepositorioVeiculo repositorioVeiculo;

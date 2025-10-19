@@ -1,4 +1,6 @@
-package com.gestaoentregas.classes.motorista;
+package com.gestaoentregas.repositorios;
+
+import com.gestaoentregas.classes.motorista.Motorista;
 
 public class RepositorioMotoristaArray implements IRepositorioMotorista {
     private Motorista[] motoristas;

@@ -1,7 +1,11 @@
-package com.gestaoentregas.classes.veiculomotorista;
+package com.gestaoentregas.controladores;
 
 import com.gestaoentregas.classes.motorista.*;
 import com.gestaoentregas.classes.veiculo.*;
+import com.gestaoentregas.repositorios.IRepositorioVeiculoMotorista;
+import com.gestaoentregas.classes.veiculomotorista.VeiculoMotorista;
+import com.gestaoentregas.repositorios.IRepositorioMotorista;
+import com.gestaoentregas.repositorios.IRepositorioVeiculo;
 
 public class ControladorVeiculoMotorista {
     private IRepositorioVeiculoMotorista repositorioAssociacoes;

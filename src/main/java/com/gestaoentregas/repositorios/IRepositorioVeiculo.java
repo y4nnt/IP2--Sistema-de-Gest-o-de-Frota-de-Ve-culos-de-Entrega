@@ -1,4 +1,6 @@
-package com.gestaoentregas.classes.veiculo;
+package com.gestaoentregas.repositorios;
+
+import com.gestaoentregas.classes.veiculo.Veiculo;
 
 public interface IRepositorioVeiculo {
     void cadastrarVeiculo(Veiculo veiculo);
