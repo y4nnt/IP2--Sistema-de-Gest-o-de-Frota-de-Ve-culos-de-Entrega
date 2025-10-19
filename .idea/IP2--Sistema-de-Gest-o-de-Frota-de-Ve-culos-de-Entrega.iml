@@ -3,9 +3,14 @@
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
     <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-context-support:6.2.11" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-beans:6.2.11" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-context:6.2.11" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.angus:jakarta.mail:2.0.4" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-core:6.2.11" level="project" />
   </component>
 </module>

@@ -45,12 +45,17 @@ public class Entrega {
     public void atualizarStatus(StatusEntrega novoStatus) {
         this.statusEntrega = novoStatus;
 
-        if (statusEntrega == StatusEntrega.EM_TRANSITO){
-            alerta.enviarEmailSimples(emailComprador, null, null);
-        }
-        if (novoStatus == StatusEntrega.ENTREGUE) {
+        if (novoStatus == StatusEntrega.EM_TRANSITO){
+            alerta.enviarEmailSimples(emailComprador, "Pedido em rota de entrega", "Boa notícia! Seu pedido já está em rota de entrega, fique atento(a) que já, já ele chega em seu endereço! \n\nAtt, EntregasPOO");
+        } else if (novoStatus == StatusEntrega.ENTREGUE){
             this.dataHoraEntrega = LocalDateTime.now();
+            alerta.enviarEmailSimples(emailComprador, "Pedido entregue", "Eba! Seu pedido foi entregue, aproveite! \n\nAtt, EntregasPOO");
+        } else if (novoStatus == StatusEntrega.CANCELADA){
+            alerta.enviarEmailSimples(emailComprador, "Pedido cancelado", "Que pena! Seu pedido foi cancelado, sinta-se a vontade para sempre tornar a utilizar nossos serviços. \n\nAtt, EntregasPOO");
         }
+
+
+
     }
 
     public String getCodEntrega() {
