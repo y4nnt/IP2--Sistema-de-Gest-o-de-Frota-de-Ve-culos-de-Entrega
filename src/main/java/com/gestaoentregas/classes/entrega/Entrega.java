@@ -1,5 +1,7 @@
 package com.gestaoentregas.classes.entrega;
 
+import com.gestaoentregas.classes.Alerta;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,14 +18,17 @@ public class Entrega {
     private String observacoesEntrega;
     private List<Produto> produtos; // Relacionamento com a nova classe Produto
     private LocalDateTime dataHoraEntrega;
+    private Alerta alerta;
+    private String emailComprador;
 
-    public Entrega(String codEntrega, Rota rota, String observacoes, String problemas, StatusEntrega status) {
+    public Entrega(String codEntrega, Rota rota, String observacoes, String problemas, StatusEntrega status,  String emailComprador) {
         this.codEntrega = codEntrega;
         this.rotaEntrega = rota;
         this.observacoesEntrega = observacoes;
         this.produtos = new ArrayList<>();
         this.statusEntrega = status;
         this.dataHoraEntrega = null;
+        this.emailComprador = emailComprador;
 
         if (problemas != null && !problemas.trim().isEmpty()) {
             this.statusEntrega = StatusEntrega.PROBLEMA;
@@ -39,6 +44,10 @@ public class Entrega {
 
     public void atualizarStatus(StatusEntrega novoStatus) {
         this.statusEntrega = novoStatus;
+
+        if (statusEntrega == StatusEntrega.EM_TRANSITO){
+            alerta.enviarEmailSimples(emailComprador, null, null);
+        }
         if (novoStatus == StatusEntrega.ENTREGUE) {
             this.dataHoraEntrega = LocalDateTime.now();
         }

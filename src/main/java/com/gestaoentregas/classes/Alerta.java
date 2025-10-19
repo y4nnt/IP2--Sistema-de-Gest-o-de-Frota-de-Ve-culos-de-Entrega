@@ -32,8 +32,8 @@ public class Alerta {
         SimpleMailMessage message = new SimpleMailMessage();
         message.setFrom(remetente);
         message.setTo(para);
-        message.setSubject(assunto);
-        message.setText(texto);
+        message.setSubject("Pedido em rota de entrega");
+        message.setText("Boa notícia! Seu pedido está em rota de entrega e deve chegar logo, logo! \nFique atento para recebê-lo e aproveite!");
 
         mailSender.send(message);
         System.out.println("Email simples enviado para " + para);
