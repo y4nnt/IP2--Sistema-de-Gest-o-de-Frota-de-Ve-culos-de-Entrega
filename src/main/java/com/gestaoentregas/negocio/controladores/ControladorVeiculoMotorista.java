@@ -1,4 +1,4 @@
-package com.gestaoentregas.negocio;
+package com.gestaoentregas.negocio.controladores;
 
 import com.gestaoentregas.dados.beans.motorista.Motorista;
 import com.gestaoentregas.dados.repositorios.IRepositorioVeiculoMotorista;
@@ -6,6 +6,9 @@ import com.gestaoentregas.dados.beans.veiculo.Veiculo;
 import com.gestaoentregas.dados.beans.VeiculoMotorista;
 import com.gestaoentregas.dados.repositorios.IRepositorioMotorista;
 import com.gestaoentregas.dados.repositorios.IRepositorioVeiculo;
+import com.gestaoentregas.excecoes.CException;
+import com.gestaoentregas.excecoes.MIException;
+import com.gestaoentregas.excecoes.VIException;
 
 public class ControladorVeiculoMotorista {
     private IRepositorioVeiculoMotorista repositorioAssociacoes;
@@ -20,30 +23,27 @@ public class ControladorVeiculoMotorista {
         this.repositorioVeiculo = repoVeiculo;
     }
 
-    public void associar(int idMotorista, int idVeiculo) {
+    public void associar(int idMotorista, int idVeiculo) throws MIException, VIException, CException {
         Motorista motorista = repositorioMotorista.buscarMotorista(idMotorista);
         Veiculo veiculo = repositorioVeiculo.buscarVeiculo(idVeiculo);
 
-        if (motorista == null || veiculo == null) {
-            System.out.println("Motorista ou veículo não encontrado!");
-            return;
-        }
-
-        if (repositorioAssociacoes.buscarPorVeiculo(idVeiculo) != null) {
-            System.out.println("Este veículo já está associado a outro motorista!");
-            return;
+        if (motorista == null) {
+            throw new MIException();
+        } else if (veiculo == null) {
+            throw new VIException();
+        } else if (repositorioAssociacoes.buscarPorVeiculo(idVeiculo) != null) {
+            throw new CException();
         }
 
         VeiculoMotorista nova = new VeiculoMotorista(motorista, veiculo);
         repositorioAssociacoes.cadastrar(nova);
-        System.out.println("Associação criada com sucesso!");
     }
 
     public void desassociar(int idVeiculo) {
         repositorioAssociacoes.removerPorVeiculo(idVeiculo);
     }
 
-    /* Mema coisa (vê no repositórioVeiculoMotorista)
+    /* Mesma coisa (vê no repositórioVeiculoMotorista)
     public void listarAssociacoes() {
         VeiculoMotorista[] lista = repositorioAssociacoes.listar();
         if (lista.length == 0) {
