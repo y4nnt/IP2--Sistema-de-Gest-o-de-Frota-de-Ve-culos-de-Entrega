@@ -1,6 +1,6 @@
-package com.gestaoentregas.repositorios;
+package com.gestaoentregas.dados.repositorios;
 
-import com.gestaoentregas.classes.veiculo.Veiculo;
+import com.gestaoentregas.dados.beans.veiculo.Veiculo;
 
 public interface IRepositorioVeiculo {
     void cadastrarVeiculo(Veiculo veiculo);

@@ -1,9 +1,11 @@
-package com.gestaoentregas.classes.motorista;
+package com.gestaoentregas.dados.beans.motorista;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import com.gestaoentregas.classes.entrega.*;
+
+import com.gestaoentregas.dados.beans.entrega.Entrega;
+import com.gestaoentregas.dados.beans.entrega.Rota;
 
 public class Motorista {
     private String nomeMotorista;

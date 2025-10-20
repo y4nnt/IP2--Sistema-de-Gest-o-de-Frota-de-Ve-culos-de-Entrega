@@ -1,9 +1,10 @@
-package com.gestaoentregas.classes.entrega;
+package com.gestaoentregas.dados.beans.entrega;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import com.gestaoentregas.classes.motorista.*;
+
+import com.gestaoentregas.dados.beans.motorista.Motorista;
 
 public class Rota {
     private String origemRota;

@@ -12,5 +12,7 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-context:6.2.11" level="project" />
     <orderEntry type="library" name="Maven: org.eclipse.angus:jakarta.mail:2.0.4" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-core:6.2.11" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-autoconfigure:3.5.6" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot:3.5.6" level="project" />
   </component>
 </module>

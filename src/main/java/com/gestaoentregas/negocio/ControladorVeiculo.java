@@ -1,7 +1,7 @@
-package com.gestaoentregas.controladores;
+package com.gestaoentregas.negocio;
 
-import com.gestaoentregas.repositorios.IRepositorioVeiculo;
-import com.gestaoentregas.classes.veiculo.Veiculo;
+import com.gestaoentregas.dados.repositorios.IRepositorioVeiculo;
+import com.gestaoentregas.dados.beans.veiculo.Veiculo;
 
 public class ControladorVeiculo {
     private IRepositorioVeiculo repositorioVeiculo;

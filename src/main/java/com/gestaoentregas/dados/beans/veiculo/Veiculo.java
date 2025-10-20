@@ -1,4 +1,5 @@
-package com.gestaoentregas.classes.veiculo;
+package com.gestaoentregas.dados.beans.veiculo;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -6,7 +7,7 @@ public class Veiculo {
     private String placaVeiculo;
     private String modeloVeiculo;
     private double capacidadeVeiculo;
-    private StatusVeiculo statusVeiculo; 
+    private StatusVeiculo statusVeiculo;
     private List<String> historicoManutecaoVeiculo;
     private int idVeiculo;
     //private List<Entrega> historicoEntregaVeiculo; esperando criar a classe entrega

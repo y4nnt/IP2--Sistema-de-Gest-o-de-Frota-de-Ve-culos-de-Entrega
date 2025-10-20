@@ -1,11 +1,11 @@
-package com.gestaoentregas.controladores;
+package com.gestaoentregas.negocio;
 
-import com.gestaoentregas.classes.motorista.*;
-import com.gestaoentregas.classes.veiculo.*;
-import com.gestaoentregas.repositorios.IRepositorioVeiculoMotorista;
-import com.gestaoentregas.classes.veiculomotorista.VeiculoMotorista;
-import com.gestaoentregas.repositorios.IRepositorioMotorista;
-import com.gestaoentregas.repositorios.IRepositorioVeiculo;
+import com.gestaoentregas.dados.beans.motorista.Motorista;
+import com.gestaoentregas.dados.repositorios.IRepositorioVeiculoMotorista;
+import com.gestaoentregas.dados.beans.veiculo.Veiculo;
+import com.gestaoentregas.dados.beans.VeiculoMotorista;
+import com.gestaoentregas.dados.repositorios.IRepositorioMotorista;
+import com.gestaoentregas.dados.repositorios.IRepositorioVeiculo;
 
 public class ControladorVeiculoMotorista {
     private IRepositorioVeiculoMotorista repositorioAssociacoes;
@@ -43,6 +43,7 @@ public class ControladorVeiculoMotorista {
         repositorioAssociacoes.removerPorVeiculo(idVeiculo);
     }
 
+    /* Mema coisa (vê no repositórioVeiculoMotorista)
     public void listarAssociacoes() {
         VeiculoMotorista[] lista = repositorioAssociacoes.listar();
         if (lista.length == 0) {
@@ -52,5 +53,5 @@ public class ControladorVeiculoMotorista {
                 System.out.println(vm);
             }
         }
-    }
+    } */
 }

@@ -1,4 +1,4 @@
-package com.gestaoentregas.classes.motorista;
+package com.gestaoentregas.dados.beans.motorista;
 
 import java.time.LocalDate;
 

@@ -1,6 +1,7 @@
-package com.gestaoentregas.classes;
+package com.gestaoentregas.servico;
 
-import com.gestaoentregas.classes.entrega.Entrega;
+// A importação da 'Entrega' não é mais necessária aqui
+// import com.gestaoentregas.dados.beans.entrega.Entrega;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.mail.SimpleMailMessage;
@@ -14,16 +15,25 @@ import java.io.File;
 
 @Service
 public class Alerta {
-    Entrega entrega;
 
-    public Alerta(Entrega entrega) {
-        this.entrega = entrega;
+    // --- ERRO 1 CORRIGIDO ---
+    // Removido o campo "Entrega entrega;".
+    // O serviço de Alerta não deve guardar o estado de UMA entrega.
+
+    // --- MELHORIA (Injeção de Construtor) ---
+    private final JavaMailSender mailSender; // Tornamos final
+    private final String remetente = "yanntavares123@gmail.com";
+
+    // O Spring irá automaticamente injetar o JavaMailSender aqui
+    @Autowired
+    public Alerta(JavaMailSender mailSender) {
+        this.mailSender = mailSender;
     }
 
-    @Autowired
-    private JavaMailSender mailSender;
+    // --- ERRO 2 CORRIGIDO ---
+    // Removido o construtor "public Alerta(Entrega entrega)"
+    // que estava causando a falha.
 
-    private String remetente = "entregas.poo@gmail.com"; // Defina seu email remetente aqui
 
     /**
      * Método 1: Envio de texto simples
@@ -41,22 +51,15 @@ public class Alerta {
 
     /**
      * Método 2: Envio de email com HTML
-     * * @param para Destinatário
-     * @param assunto Assunto do email
-     * @param conteudoHtml O corpo do email formatado em HTML
      */
     public void enviarEmailComHtml(String para, String assunto, String conteudoHtml) {
         try {
             MimeMessage message = mailSender.createMimeMessage();
-
-            // O 'true' indica que este é um email multipart (necessário para HTML)
             MimeMessageHelper helper = new MimeMessageHelper(message, true, "UTF-8");
 
             helper.setFrom(remetente);
             helper.setTo(para);
             helper.setSubject(assunto);
-
-            // O segundo parâmetro 'true' indica que o texto é HTML
             helper.setText(conteudoHtml, true);
 
             mailSender.send(message);
@@ -64,38 +67,29 @@ public class Alerta {
 
         } catch (MessagingException e) {
             System.err.println("Erro ao enviar email HTML: " + e.getMessage());
-            // Lide com a exceção (ex: logar, lançar uma exceção customizada)
         }
     }
 
     /**
      * Método 3: Envio de email com Anexo (e HTML)
-     * * @param para Destinatário
-     * @param assunto Assunto
-     * @param texto O corpo do email (pode ser HTML ou texto)
-     * @param caminhoDoAnexo O caminho completo para o arquivo (ex: "C:/docs/meu_arquivo.pdf")
      */
     public void enviarEmailComAnexo(String para, String assunto, String texto, String caminhoDoAnexo) {
+        // ... (Seu código aqui está perfeito)
         try {
             MimeMessage message = mailSender.createMimeMessage();
-
-            // O 'true' indica que é multipart
             MimeMessageHelper helper = new MimeMessageHelper(message, true, "UTF-8");
 
             helper.setFrom(remetente);
             helper.setTo(para);
             helper.setSubject(assunto);
-            helper.setText(texto, true); // Supondo que o texto também é HTML
+            helper.setText(texto, true);
 
-            // Adicionando o anexo
             FileSystemResource file = new FileSystemResource(new File(caminhoDoAnexo));
             if (file.exists()) {
-                // Você pode dar um nome diferente para o anexo no email
                 String nomeAnexo = file.getFilename();
                 helper.addAttachment(nomeAnexo, file);
             } else {
                 System.err.println("Arquivo de anexo não encontrado em: " + caminhoDoAnexo);
-                // Decida se quer enviar o email mesmo sem o anexo ou falhar
             }
 
             mailSender.send(message);
@@ -106,5 +100,3 @@ public class Alerta {
         }
     }
 }
-
-

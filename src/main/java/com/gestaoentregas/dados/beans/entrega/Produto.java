@@ -1,4 +1,4 @@
-package com.gestaoentregas.classes.entrega;
+package com.gestaoentregas.dados.beans.entrega;
 
 
 public class Produto {

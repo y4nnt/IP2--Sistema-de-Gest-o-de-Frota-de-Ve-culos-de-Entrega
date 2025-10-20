@@ -1,34 +1,72 @@
-package com.gestaoentregas.main;
+package com.gestaoentregas.main; // Pacote raiz do seu projeto
 
-import com.gestaoentregas.classes.motorista.*;
-import com.gestaoentregas.classes.veiculo.*;
+// IMPORTS NECESSÁRIOS
+import com.gestaoentregas.dados.beans.entrega.Entrega;
+import com.gestaoentregas.dados.beans.entrega.Entrega.StatusEntrega;
+import com.gestaoentregas.dados.beans.entrega.Rota; // Precisei supor que essa classe existe
+import com.gestaoentregas.servico.EntregaService; // O SERVIÇO QUE VOCÊ CRIOU
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner; // 1. IMPORTE O COMMANDLINERUNNER
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class Main implements CommandLineRunner { // 2. IMPLEMENTE A INTERFACE
+
+    // 3. INJETE O SERVIÇO (igual fizemos no EntregaService)
+    // O Spring vai encontrar o @Service do EntregaService e injetá-lo aqui.
+    private final EntregaService entregaService;
+
+    @Autowired
+    public Main(EntregaService entregaService) {
+        this.entregaService = entregaService;
+    }
 
 
-import java.time.LocalDate;
-
-public class Main {
+    // 4. O MÉTODO MAIN TRADICIONAL
+    // A única responsabilidade dele é iniciar o Spring. NÃO COLOQUE LÓGICA AQUI.
     public static void main(String[] args) {
-        PeriodoIndisponivel ferias = new PeriodoIndisponivel(LocalDate.of(2025, 8, 1),
-                LocalDate.of(2025, 9, 1),
-                null);
-        Motorista motorista = new Motorista("José",
-                "81 99126-2475",
-                "709.106.064-47",
-                "123.456.789");
+        SpringApplication.run(Main.class, args);
+    }
 
-        System.out.println(motorista.toString());
 
-        motorista.addFerias(ferias.getDataInicio(), ferias.getDataFim());
+    // 5. O MÉTODO "RUN"
+    // Este método será executado automaticamente DEPOIS que o Spring
+    // já estiver pronto e todas as injeções (@Autowired) tiverem funcionado.
+    // É AQUI QUE VOCÊ COLOCA SUA LÓGICA DE TESTE!
+    @Override
+    public void run(String... args) throws Exception {
 
-        System.out.println(motorista.toString());
+        System.out.println("==================================================");
+        System.out.println(">>> APLICAÇÃO INICIADA. EXECUTANDO TESTE DE EMAIL...");
+        System.out.println("==================================================");
 
-        ferias.contem(LocalDate.of(2025, 8, 10));
+        // 6. Vamos criar os objetos de dados (POJOs) para o teste
+        // (Estou supondo que sua classe Rota tem um construtor simples)
+        Rota rotaTeste = null;
 
-        if(!motorista.estaDisponivel(LocalDate.of(2025, 8, 3))){
-            System.out.println("Não está disponível!");
-        }
-        else{
-            System.out.println("Está disponível!");
-        }
+        Entrega minhaEntregaTeste = new Entrega(
+                "ID-987654",
+                rotaTeste,
+                "Deixar com o porteiro.",
+                null, // Sem problemas
+                StatusEntrega.PENDENTE,
+                "lucasandrade16.2006@gmail.com" // <<< COLOQUE SEU EMAIL AQUI PARA TESTAR
+        );
+
+        System.out.println(">>> Entrega de teste criada. Status atual: " + minhaEntregaTeste.getStatusEntrega());
+
+        // 7. AGORA VAMOS USAR O SERVIÇO!
+        //    Esta chamada irá:
+        //    1. Mudar o status da entrega para EM_TRANSITO
+        //    2. Chamar o 'alertaService'
+        //    3. Enviar o email para o destinatário que você definiu acima.
+        System.out.println(">>> Atualizando status para EM_TRANSITO e enviando email...");
+
+        entregaService.atualizarStatusDaEntrega(minhaEntregaTeste, StatusEntrega.EM_TRANSITO);
+
+        System.out.println(">>> Status atualizado para: " + minhaEntregaTeste.getStatusEntrega());
+        System.out.println(">>> Teste concluído. Verifique sua caixa de entrada!");
+        System.out.println("==================================================");
     }
 }

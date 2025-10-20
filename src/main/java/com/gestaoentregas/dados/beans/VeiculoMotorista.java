@@ -1,6 +1,6 @@
-package com.gestaoentregas.classes.veiculomotorista;
-import com.gestaoentregas.classes.motorista.*;
-import com.gestaoentregas.classes.veiculo.*;
+package com.gestaoentregas.dados.beans;
+import com.gestaoentregas.dados.beans.motorista.Motorista;
+import com.gestaoentregas.dados.beans.veiculo.Veiculo;
 
 public class VeiculoMotorista {
     private Motorista motoristaEntrega;

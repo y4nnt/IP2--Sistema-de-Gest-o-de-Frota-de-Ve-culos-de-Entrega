@@ -1,7 +1,7 @@
-package com.gestaoentregas.controladores;
+package com.gestaoentregas.negocio;
 
-import com.gestaoentregas.repositorios.IRepositorioMotorista;
-import com.gestaoentregas.classes.motorista.Motorista;
+import com.gestaoentregas.dados.repositorios.IRepositorioMotorista;
+import com.gestaoentregas.dados.beans.motorista.Motorista;
 
 public class ControladorMotorista {
     private IRepositorioMotorista repositorioMotorista;

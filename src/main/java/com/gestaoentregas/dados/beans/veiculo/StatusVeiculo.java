@@ -1,12 +1,12 @@
-package com.gestaoentregas.classes.motorista;
+package com.gestaoentregas.dados.beans.veiculo;
 
-public enum DisponibilidadeMotorista {
+public enum StatusVeiculo {
     DISPONIVEL(0),
     INDISPONIVEL(1);
 
     private final int codigo;
 
-    DisponibilidadeMotorista(int codigo) {
+    StatusVeiculo(int codigo) {
         this.codigo = codigo;
     }
 
@@ -14,8 +14,8 @@ public enum DisponibilidadeMotorista {
         return this.codigo;
     }
 
-    public static DisponibilidadeMotorista fromCodigo(int codigo) {
-        for (DisponibilidadeMotorista status : values()) {
+    public static StatusVeiculo fromCodigo(int codigo) {
+        for (StatusVeiculo status : values()) {
             if (status.getCodigo() == codigo) {
                 return status;
             }
