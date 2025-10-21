@@ -13,11 +13,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class Main implements CommandLineRunner { // 2. IMPLEMENTE A INTERFACE
 
-    // 3. INJETE O SERVIÇO (igual fizemos no EntregaService)
-    // O Spring vai encontrar o @Service do EntregaService e injetá-lo aqui.
+    @Autowired
     private final EntregaService entregaService;
 
-    @Autowired
     public Main(EntregaService entregaService) {
         this.entregaService = entregaService;
     }

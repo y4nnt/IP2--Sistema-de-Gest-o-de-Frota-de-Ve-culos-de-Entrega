@@ -8,13 +8,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class EntregaService {
 
-    // 1. Injetando o Alerta no Serviço (a forma correta)
-    private final Alerta alertaService;
-
     @Autowired
-    public EntregaService(Alerta alertaService) {
-        this.alertaService = alertaService;
-    }
+        private Alerta alertaService;
 
     /**
      * Este método agora contém a LÓGICA DE NEGÓCIO.

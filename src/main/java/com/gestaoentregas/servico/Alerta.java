@@ -16,24 +16,13 @@ import java.io.File;
 @Service
 public class Alerta {
 
-    // --- ERRO 1 CORRIGIDO ---
-    // Removido o campo "Entrega entrega;".
-    // O serviço de Alerta não deve guardar o estado de UMA entrega.
-
-    // --- MELHORIA (Injeção de Construtor) ---
     private final JavaMailSender mailSender; // Tornamos final
     private final String remetente = "yanntavares123@gmail.com";
 
-    // O Spring irá automaticamente injetar o JavaMailSender aqui
     @Autowired
     public Alerta(JavaMailSender mailSender) {
         this.mailSender = mailSender;
     }
-
-    // --- ERRO 2 CORRIGIDO ---
-    // Removido o construtor "public Alerta(Entrega entrega)"
-    // que estava causando a falha.
-
 
     /**
      * Método 1: Envio de texto simples
@@ -46,7 +35,6 @@ public class Alerta {
         message.setText(texto);
 
         mailSender.send(message);
-        System.out.println("Email simples enviado para " + para);
     }
 
     /**
