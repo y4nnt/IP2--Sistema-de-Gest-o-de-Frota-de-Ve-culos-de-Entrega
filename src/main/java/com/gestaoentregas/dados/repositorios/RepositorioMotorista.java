@@ -7,19 +7,19 @@ import java.util.ArrayList;
 public class RepositorioMotorista implements IRepositorioMotorista {
     private ArrayList<Motorista> motoristas;
 
-    private static ArrayList<RepositorioMotorista> repositorioMotorista;
+    private static RepositorioMotorista repositorioMotorista;
 
     private RepositorioMotorista() {
         this.motoristas = new ArrayList<>();
     }
 
-    public static ArrayList<RepositorioMotorista> getInstance() {
+    public static RepositorioMotorista getInstance() {
         // Se a instância ainda não foi criada...
         if (repositorioMotorista == null) {
             // ...cria a única instância
-            repositorioMotorista = new ArrayList<RepositorioMotorista>();
+            repositorioMotorista = new RepositorioMotorista();
         }
-        // Retorna a instância que já existe ou acabou de ser criada
+        // Retorna a instância que  já existe ou acabou de ser criada
         return repositorioMotorista;
     }
 
@@ -32,10 +32,10 @@ public class RepositorioMotorista implements IRepositorioMotorista {
     public Motorista buscarMotorista(int id) {
         Motorista motorista = null;
         int i = procurarIndice(id);
-        if (i != 0) {
+        if (i != -1) {
             motorista = this.motoristas.get(i);
         }
-        return motorista; // não encontrado
+        return motorista;
     }
 
     @Override
@@ -49,8 +49,7 @@ public class RepositorioMotorista implements IRepositorioMotorista {
     @Override
     public void removerMotorista(int id) {
         int i = procurarIndice(id);
-        // substitui o elemento removido pelo último
-        if (i != 0) {
+        if (i != -1) {
             this.motoristas.remove(i);
         }
     }
@@ -63,7 +62,7 @@ public class RepositorioMotorista implements IRepositorioMotorista {
                 indice = i;
             }
         }
-        return indice; // não encontrado
+        return indice;
     }
 
 }

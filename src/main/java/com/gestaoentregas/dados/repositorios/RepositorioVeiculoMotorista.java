@@ -7,17 +7,17 @@ import java.util.ArrayList;
 public class RepositorioVeiculoMotorista implements IRepositorioVeiculoMotorista {
     private ArrayList<VeiculoMotorista> veiculosmotoristas;
 
-    private static ArrayList<RepositorioVeiculoMotorista> repositorioVeiculoMotorista;
+    private static RepositorioVeiculoMotorista repositorioVeiculoMotorista;
 
-    private RepositorioVeiculoMotorista(int tamanho) {
+    private RepositorioVeiculoMotorista() {
         this.veiculosmotoristas = new ArrayList<>();
     }
 
-    public static ArrayList<RepositorioVeiculoMotorista> getInstance() {
+    public static RepositorioVeiculoMotorista getInstance() {
         // Se a instância ainda não foi criada...
         if (repositorioVeiculoMotorista == null) {
             // ...cria a única instância
-            repositorioVeiculoMotorista = new ArrayList<RepositorioVeiculoMotorista>();
+            repositorioVeiculoMotorista = new RepositorioVeiculoMotorista();
         }
         // Retorna a instância que já existe ou acabou de ser criada
         return repositorioVeiculoMotorista;

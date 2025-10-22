@@ -7,17 +7,17 @@ import java.util.ArrayList;
 public class RepositorioVeiculo implements IRepositorioVeiculo {
     private ArrayList<Veiculo> veiculos;
 
-    private static ArrayList<RepositorioVeiculo> repositorioVeiculo;
+    private static RepositorioVeiculo repositorioVeiculo;
 
     private RepositorioVeiculo() {
         this.veiculos = new ArrayList<>();
     }
 
-    public static ArrayList<RepositorioVeiculo> getInstance() {
+    public static RepositorioVeiculo getInstance() {
         // Se a instância ainda não foi criada...
         if (repositorioVeiculo == null) {
             // ...cria a única instância
-            repositorioVeiculo = new ArrayList<RepositorioVeiculo>();
+            repositorioVeiculo = new RepositorioVeiculo();
         }
         // Retorna a instância que já existe ou acabou de ser criada
         return repositorioVeiculo;
@@ -27,14 +27,15 @@ public class RepositorioVeiculo implements IRepositorioVeiculo {
     public void cadastrarVeiculo(Veiculo veiculo) {
         veiculos.add(veiculo);
     }
+
     @Override
     public Veiculo buscarVeiculo(int id) {
         Veiculo veiculo = null;
         int i = procurarIndice(id);
-        if (i != 0) {
+        if (i != -1) {
             veiculo = this.veiculos.get(i);
         }
-        return veiculo; // não encontrado
+        return veiculo;
     }
 
     @Override
@@ -48,11 +49,12 @@ public class RepositorioVeiculo implements IRepositorioVeiculo {
     @Override
     public void removerVeiculo(int id) {
         int i = procurarIndice(id);
-        // substitui o elemento removido pelo último
-        if (i != 0) {
+
+        if (i != -1) {
             this.veiculos.remove(i);
         }
     }
+
     private int procurarIndice(int id) {
         int indice = -1;
         for (int i = 0; i < this.veiculos.size(); i++) {
@@ -60,7 +62,7 @@ public class RepositorioVeiculo implements IRepositorioVeiculo {
                 indice = i;
             }
         }
-        return indice; // não encontrado
+        return indice;
     }
 
 }

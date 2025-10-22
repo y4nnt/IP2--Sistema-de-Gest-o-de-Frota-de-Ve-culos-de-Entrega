@@ -12,13 +12,15 @@ public class Rota {
     private double distanciaKm;
     private LocalDateTime tempoEstimado;
     private List<String> pontosParada;
+    private int idRota;
 
-    public Rota(String origem, String destino, double distancia, LocalDateTime tempoEstimado) {
+    public Rota(String origem, String destino, double distancia, LocalDateTime tempoEstimado, int idRota) {
         this.origemRota = origem;
         this.destinoRota = destino;
         this.distanciaKm = distancia;
         this.tempoEstimado = tempoEstimado;
         this.pontosParada = new ArrayList<>();
+        this.idRota = idRota;
     }
 
     public void addParada(String parada) {
@@ -49,6 +51,10 @@ public class Rota {
 
     public List<String> getPontosParada() {
         return pontosParada;
+    }
+
+    public int getIdRota() {
+        return idRota;
     }
 
     @Override
