@@ -1,6 +1,6 @@
 package com.gestaoentregas.main; // Pacote raiz do seu projeto
 
-// IMPORTS NECESSÁRIOS
+/*// IMPORTS NECESSÁRIOS
 import com.gestaoentregas.dados.beans.entrega.Entrega;
 import com.gestaoentregas.dados.beans.entrega.Entrega.StatusEntrega;
 import com.gestaoentregas.dados.beans.entrega.Rota; // Precisei supor que essa classe existe
@@ -67,4 +67,4 @@ public class Main implements CommandLineRunner { // 2. IMPLEMENTE A INTERFACE
         System.out.println(">>> Teste concluído. Verifique sua caixa de entrada!");
         System.out.println("==================================================");
     }
-}
+}*/

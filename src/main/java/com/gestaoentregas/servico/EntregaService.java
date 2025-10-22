@@ -4,7 +4,7 @@ import com.gestaoentregas.dados.beans.entrega.Entrega;
 import com.gestaoentregas.dados.beans.entrega.Entrega.StatusEntrega;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+/*
 @Service
 public class EntregaService {
 
@@ -15,7 +15,7 @@ public class EntregaService {
      * Este método agora contém a LÓGICA DE NEGÓCIO.
      * Ele recebe a entrega, atualiza o status E envia o alerta.
      */
-    public void atualizarStatusDaEntrega(Entrega entrega, StatusEntrega novoStatus) {
+    /*public void atualizarStatusDaEntrega(Entrega entrega, StatusEntrega novoStatus) {
 
         // 1. Atualiza o objeto de dados
         entrega.atualizarStatus(novoStatus);
@@ -49,4 +49,4 @@ public class EntregaService {
         // return novaEntrega;
         return null; // Apenas exemplo
     }
-}
+}*/

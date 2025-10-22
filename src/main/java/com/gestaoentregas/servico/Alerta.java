@@ -1,5 +1,5 @@
 package com.gestaoentregas.servico;
-
+/*
 // A importação da 'Entrega' não é mais necessária aqui
 // import com.gestaoentregas.dados.beans.entrega.Entrega;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +27,7 @@ public class Alerta {
     /**
      * Método 1: Envio de texto simples
      */
-    public void enviarEmailSimples(String para, String assunto, String texto) {
+    /*public void enviarEmailSimples(String para, String assunto, String texto) {
         SimpleMailMessage message = new SimpleMailMessage();
         message.setFrom(remetente);
         message.setTo(para);
@@ -40,7 +40,7 @@ public class Alerta {
     /**
      * Método 2: Envio de email com HTML
      */
-    public void enviarEmailComHtml(String para, String assunto, String conteudoHtml) {
+    /*public void enviarEmailComHtml(String para, String assunto, String conteudoHtml) {
         try {
             MimeMessage message = mailSender.createMimeMessage();
             MimeMessageHelper helper = new MimeMessageHelper(message, true, "UTF-8");
@@ -61,7 +61,7 @@ public class Alerta {
     /**
      * Método 3: Envio de email com Anexo (e HTML)
      */
-    public void enviarEmailComAnexo(String para, String assunto, String texto, String caminhoDoAnexo) {
+    /*public void enviarEmailComAnexo(String para, String assunto, String texto, String caminhoDoAnexo) {
         // ... (Seu código aqui está perfeito)
         try {
             MimeMessage message = mailSender.createMimeMessage();
@@ -87,4 +87,4 @@ public class Alerta {
             System.err.println("Erro ao enviar email com anexo: " + e.getMessage());
         }
     }
-}
+}*/
