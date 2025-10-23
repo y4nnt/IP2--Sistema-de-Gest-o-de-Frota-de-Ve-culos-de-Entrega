@@ -25,7 +25,7 @@ public class Manutencao {
         return dataManutencao;
     }
 
-    public void addFerias(LocalDate inicio, LocalDate fim){
+    public void addManutencao(LocalDate inicio, LocalDate fim){
         PeriodoIndisponivelVeiculo manutencao = new PeriodoIndisponivelVeiculo(inicio, fim, "Manutenção");
         this.dataManutencao.add(manutencao);
     }
