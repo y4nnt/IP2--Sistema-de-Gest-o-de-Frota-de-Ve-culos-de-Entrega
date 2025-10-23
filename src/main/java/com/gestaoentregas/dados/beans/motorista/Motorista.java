@@ -13,8 +13,6 @@ public class Motorista {
     private String cpfMotorista;
     private String cnhMotorista;
     private DisponibilidadeMotorista disponibilidadeMotorista;
-    private List<Rota> rotasMotorista;
-    private List<Entrega> historicoEntregaMotorista;
     private List<PeriodoIndisponivel> feriasMotorista;
     private int idMotorista;
 
@@ -28,8 +26,6 @@ public class Motorista {
         this.cpfMotorista = cpfMotorista;
         this.cnhMotorista = cnhMotorista;
         this.disponibilidadeMotorista = DisponibilidadeMotorista.INDISPONIVEL;
-        //this.rotasMotorista = new ArrayList<>();
-        //this.historicoEntregaMotorista = new ArrayList<>();
         this.feriasMotorista = new ArrayList<>();
     }
 
@@ -53,7 +49,7 @@ public class Motorista {
         return cpfMotorista;
     }
 
-    public void setCpfMotorista(String cpfMotorista) {
+    private void setCpfMotorista(String cpfMotorista) {
         this.cpfMotorista = cpfMotorista;
     }
 
@@ -76,14 +72,6 @@ public class Motorista {
     public int getIdMotorista() {return idMotorista;}
 
     public void setIdMotorista(int idMotorista) {this.idMotorista = idMotorista;}
-
-    public void addRotaMotorista(Rota rota){
-        this.rotasMotorista.add(rota);
-    }
-
-    public void addEntregaMotorista (Entrega entrega){
-        this.historicoEntregaMotorista.add(entrega);
-    }
 
     public void addFerias(LocalDate inicio, LocalDate fim){
         PeriodoIndisponivel ferias = new PeriodoIndisponivel(inicio, fim, "Férias");

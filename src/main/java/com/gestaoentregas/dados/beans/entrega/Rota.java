@@ -41,7 +41,8 @@ public class Rota {
     }
 
     public void atualizarTempoEstimado(double distancia, Motorista motorista) {
-        System.out.println("Tempo estimado atualizado com base na distância e nas qualidades do motorista.");
+        this.distanciaKm = distancia;
+        this.veiculoMotoristaRota.setMotoristaEntrega(motorista);
     }
 
     public VeiculoMotorista getVeiculoMotoristaRota() {
@@ -52,8 +53,16 @@ public class Rota {
         return origemRota;
     }
 
+    public void setOrigemRota(String origemRota) {
+        this.origemRota = origemRota;
+    }
+
     public String getDestinoRota() {
         return destinoRota;
+    }
+
+    public void setDestinoRota(String destinoRota) {
+        this.destinoRota = destinoRota;
     }
 
     public List<String> getPontosParada() {

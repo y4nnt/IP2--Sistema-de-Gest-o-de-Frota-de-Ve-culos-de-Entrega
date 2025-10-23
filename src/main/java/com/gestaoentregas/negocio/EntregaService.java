@@ -1,9 +1,5 @@
-package com.gestaoentregas.servico; // Ou um pacote de "serviços"
+package com.gestaoentregas.negocio; // Ou um pacote de "serviços"
 
-import com.gestaoentregas.dados.beans.entrega.Entrega;
-import com.gestaoentregas.dados.beans.entrega.Entrega.StatusEntrega;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 /*
 @Service
 public class EntregaService {

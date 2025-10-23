@@ -50,12 +50,14 @@ public class Entrega {
         if (novoStatus == StatusEntrega.ENTREGUE) {
             this.dataHoraEntrega = LocalDateTime.now();
         }
-
-        // --- REMOVIDA A LÓGICA DE EMAIL ---
     }
 
     public String getCodEntrega() {
         return codEntrega;
+    }
+
+    public void setCodEntrega(String codEntrega) {
+        this.codEntrega = codEntrega;
     }
 
     public StatusEntrega getStatusEntrega() {
@@ -66,14 +68,53 @@ public class Entrega {
         return emailComprador;
     }
 
+    public void setEmailComprador(String emailComprador) {
+        this.emailComprador = emailComprador;
+    }
+
     public Rota getRotaEntrega() {
         return rotaEntrega;
+    }
+
+    public void setRotaEntrega(Rota rotaEntrega) {
+        this.rotaEntrega = rotaEntrega;
+    }
+
+    public String getObservacoesEntrega() {
+        return observacoesEntrega;
+    }
+
+    public void setObservacoesEntrega(String observacoesEntrega) {
+        this.observacoesEntrega = observacoesEntrega;
+    }
+
+    public String getProblemasEntrega() {
+        return problemasEntrega;
+    }
+
+    public void setProblemasEntrega(String problemasEntrega) {
+        this.problemasEntrega = problemasEntrega;
+    }
+
+    public List<Produto> getProdutos() {
+        return produtos;
+    }
+
+    public void setProdutos(List<Produto> produtos) {
+        this.produtos = produtos;
+    }
+
+    public LocalDateTime getDataHoraEntrega() {
+        return dataHoraEntrega;
+    }
+
+    public void setDataHoraEntrega(LocalDateTime dataHoraEntrega) {
+        this.dataHoraEntrega = dataHoraEntrega;
     }
 
 
     @Override
     public String toString() {
-        // ... seu toString() está ótimo ...
         return super.toString();
     }
 }

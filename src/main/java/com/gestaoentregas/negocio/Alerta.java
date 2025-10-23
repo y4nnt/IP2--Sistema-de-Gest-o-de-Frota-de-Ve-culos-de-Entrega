@@ -1,4 +1,4 @@
-package com.gestaoentregas.servico;
+package com.gestaoentregas.negocio;
 /*
 // A importação da 'Entrega' não é mais necessária aqui
 // import com.gestaoentregas.dados.beans.entrega.Entrega;
