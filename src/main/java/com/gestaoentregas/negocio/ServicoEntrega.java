@@ -48,4 +48,12 @@ public class ServicoEntrega {
         }
         return entrega;
     }
+
+    public void cancelarEntrega(Entrega entrega, Entrega.StatusEntrega novoStatus) throws EIException {
+        Entrega entrega1 = buscarEntrega(entrega.getCodEntrega());
+        if(entrega1.getStatusEntrega() == Entrega.StatusEntrega.EM_TRANSITO){
+            throw new EIException ("A entrega não pode ser cancelada em trânsito");
+        }
+        entrega.atualizarStatus(novoStatus);
+    }
 }

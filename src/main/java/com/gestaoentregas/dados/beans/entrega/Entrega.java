@@ -6,6 +6,7 @@ import java.util.List;
 
 public class Entrega {
 
+
     public enum StatusEntrega {
         PENDENTE, EM_TRANSITO, ENTREGUE, CANCELADA, PROBLEMA
     }
@@ -64,6 +65,11 @@ public class Entrega {
     public String getEmailComprador() {
         return emailComprador;
     }
+
+    public Rota getRotaEntrega() {
+        return rotaEntrega;
+    }
+
 
     @Override
     public String toString() {

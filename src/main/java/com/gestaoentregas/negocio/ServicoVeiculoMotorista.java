@@ -1,6 +1,8 @@
 package com.gestaoentregas.negocio;
 
+import com.gestaoentregas.dados.beans.motorista.DisponibilidadeMotorista;
 import com.gestaoentregas.dados.beans.motorista.Motorista;
+import com.gestaoentregas.dados.beans.veiculo.StatusVeiculo;
 import com.gestaoentregas.dados.repositorios.*;
 import com.gestaoentregas.dados.beans.veiculo.Veiculo;
 import com.gestaoentregas.dados.beans.VeiculoMotorista;
@@ -24,9 +26,9 @@ public class ServicoVeiculoMotorista {
         Motorista motorista = repositorioMotorista.buscarMotorista(idMotorista);
         Veiculo veiculo = repositorioVeiculo.buscarVeiculo(idVeiculo);
 
-        if (motorista == null) {
+        if (motorista == null || motorista.getDisponibilidadeMotorista() == DisponibilidadeMotorista.INDISPONIVEL) {
             throw new MIException();
-        } else if (veiculo == null) {
+        } else if (veiculo == null || veiculo.getStatusVeiculo() == StatusVeiculo.INDISPONIVEL) {
             throw new VIException();
         } else if (repositorioAssociacoes.buscarPorVeiculo(idVeiculo) != null) {
             throw new CException();
