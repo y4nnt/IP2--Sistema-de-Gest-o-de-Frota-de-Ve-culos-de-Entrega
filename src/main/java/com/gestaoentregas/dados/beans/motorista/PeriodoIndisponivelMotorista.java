@@ -2,12 +2,12 @@ package com.gestaoentregas.dados.beans.motorista;
 
 import java.time.LocalDate;
 
-public class PeriodoIndisponivel {
+public class PeriodoIndisponivelMotorista {
     private LocalDate dataInicio;
     private LocalDate dataFim;
     private String motivo;
 
-    public PeriodoIndisponivel(LocalDate inicio, LocalDate fim, String motivo){
+    public PeriodoIndisponivelMotorista(LocalDate inicio, LocalDate fim, String motivo){
         this.dataInicio = inicio;
         this.dataFim = fim;
         this.motivo = motivo;

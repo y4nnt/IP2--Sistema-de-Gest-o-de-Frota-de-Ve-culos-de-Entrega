@@ -4,16 +4,13 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.gestaoentregas.dados.beans.entrega.Entrega;
-import com.gestaoentregas.dados.beans.entrega.Rota;
-
 public class Motorista {
     private String nomeMotorista;
     private String telefoneMotorista;
     private String cpfMotorista;
     private String cnhMotorista;
     private DisponibilidadeMotorista disponibilidadeMotorista;
-    private List<PeriodoIndisponivel> feriasMotorista;
+    private List<PeriodoIndisponivelMotorista> feriasMotorista;
     private int idMotorista;
 
     public Motorista(String nomeMotorista, String telefoneMotorista, String cpfMotorista, String cnhMotorista) {
@@ -65,7 +62,7 @@ public class Motorista {
         return disponibilidadeMotorista;
     }
 
-    public List<PeriodoIndisponivel> getFeriasMotorista() {
+    public List<PeriodoIndisponivelMotorista> getFeriasMotorista() {
         return feriasMotorista;
     }
 
@@ -74,7 +71,7 @@ public class Motorista {
     public void setIdMotorista(int idMotorista) {this.idMotorista = idMotorista;}
 
     public void addFerias(LocalDate inicio, LocalDate fim){
-        PeriodoIndisponivel ferias = new PeriodoIndisponivel(inicio, fim, "Férias");
+        PeriodoIndisponivelMotorista ferias = new PeriodoIndisponivelMotorista(inicio, fim, "Férias");
         this.feriasMotorista.add(ferias);
     }
 
@@ -82,7 +79,7 @@ public class Motorista {
     // se em alguma das ferias do motorista, existe a data
     // procurada no metodo estaDisponivel
     public boolean estaDisponivel(LocalDate data){
-        for(PeriodoIndisponivel ferias : this.feriasMotorista){
+        for(PeriodoIndisponivelMotorista ferias : this.feriasMotorista){
             if(ferias.contem(data)){
                 return false;
             }
@@ -102,7 +99,7 @@ public class Motorista {
 
         // Informações de lista
 
-        for(PeriodoIndisponivel ferias : this.feriasMotorista){
+        for(PeriodoIndisponivelMotorista ferias : this.feriasMotorista){
             sb.append(String.format("| %-15s | %d/%d/%d até %d/%d/%d", "Férias",
                     ferias.getDataInicio().getDayOfMonth(),
                     ferias.getDataInicio().getMonthValue(),

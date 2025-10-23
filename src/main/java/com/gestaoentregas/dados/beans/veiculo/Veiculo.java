@@ -8,7 +8,7 @@ public class Veiculo {
     private String modeloVeiculo;
     private double capacidadeVeiculo;
     private StatusVeiculo statusVeiculo;
-    private List<String> historicoManutecaoVeiculo;
+    private List<Manutencao> historicoManutecaoVeiculo;
     private int idVeiculo;
     //private List<Entrega> historicoEntregaVeiculo; esperando criar a classe entrega
 
@@ -52,21 +52,16 @@ public class Veiculo {
         this.statusVeiculo = statusVeiculo;
     }
 
-    public List<String> getHistoricoManutecaoVeiculo() {
+    public List<Manutencao> getHistoricoManutecaoVeiculo() {
         return this.historicoManutecaoVeiculo;
     }
 
-    public void addManutencao(String manutencao) {
+    public void addManutencao(Manutencao manutencao) {
         this.historicoManutecaoVeiculo.add(manutencao);
     }
 
     public int getIdVeiculo() {return this.idVeiculo; }
 
     public void setIdVeiculo(int idVeiculo) {this.idVeiculo = idVeiculo;}
-
-
-    /*public void addEntrega(String entrega) {
-        this.historicoEntregaVeiculo.add(entrega);
-    }*/
 
 }
