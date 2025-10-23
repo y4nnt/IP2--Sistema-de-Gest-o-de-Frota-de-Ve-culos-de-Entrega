@@ -29,7 +29,6 @@ public class Entrega {
         this.dataHoraEntrega = null;
         this.emailComprador = emailComprador;
         this.produtos = new ArrayList<>();
-        this.idEntrega = idEntrega;
 
 
         if (problemas != null && !problemas.trim().isEmpty()) {
@@ -52,6 +51,10 @@ public class Entrega {
         }
 
         // --- REMOVIDA A LÓGICA DE EMAIL ---
+    }
+
+    public Rota getRotaEntrega() {
+        return rotaEntrega;
     }
 
     public String getCodEntrega() {
