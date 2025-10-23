@@ -60,13 +60,13 @@ https://github.com/y4nnt/IP2--Sistema-de-Gest-o-de-Frota-de-Ve-culos-de-Entrega.
 * Nícolas Gabriel Nunes Marques - nicolas.gabriel@ufrpe.br - nicolasg22132@gmail.com
 
 ## Diagrama de classes
-![UML Sistema de Gestão de Frota de Veículos de Entrega](https://github.com/user-attachments/assets/ff5803d1-f2d2-454c-a1ed-1f94bebd9523)
+![UML Sistema de Gestão de Frota de Veículos de Entrega](https://github.com/user-attachments/assets/3d9d4657-ee8c-4eb7-a842-fdcadb91ff01)
 
 ## Modelo navegacional
 ![Modelo Navegacional](https://github.com/user-attachments/assets/a9b6f2ca-12ba-4b53-abe1-73c74a88ee43)
 
 ### Documentos originais
-[UML](https://github.com/user-attachments/files/22988020/UML.Sistema.de.Gestao.de.Frota.de.Veiculos.de.Entrega.drawio.pdf)
+[UML](https://github.com/user-attachments/files/23071167/UML.Sistema.de.Gestao.de.Frota.de.Veiculos.de.Entrega.drawio.pdf)
 
 [Modelo Navegacional](https://github.com/user-attachments/files/23070253/Modelo.Navegacional.drawio.pdf)
 
