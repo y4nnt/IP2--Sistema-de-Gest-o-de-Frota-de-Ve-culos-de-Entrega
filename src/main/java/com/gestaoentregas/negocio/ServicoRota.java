@@ -1,15 +1,16 @@
-package com.gestaoentregas.negocio.controladores;
+package com.gestaoentregas.negocio;
 
 import com.gestaoentregas.dados.beans.entrega.Rota;
 import com.gestaoentregas.dados.repositorios.IRepositorioRota;
+import com.gestaoentregas.dados.repositorios.RepositorioRota;
 import com.gestaoentregas.excecoes.RCException;
 import com.gestaoentregas.excecoes.RIException;
 
-public class ControladorRota {
-    private IRepositorioRota repositorioRota;
+public class ServicoRota {
+    private final IRepositorioRota repositorioRota;
 
-    public ControladorRota(IRepositorioRota repositorioRota){
-        this.repositorioRota = repositorioRota;
+    public ServicoRota(){
+        this.repositorioRota = RepositorioRota.getInstance();
     }
 
     public void cadastrarRota(Rota rota) throws RCException{
@@ -18,14 +19,6 @@ public class ControladorRota {
         } else{
             throw new RCException();
         }
-    }
-
-    public Rota buscarRota(int idRota) throws RIException{
-        Rota rota = repositorioRota.buscarRota(idRota);
-        if(rota == null){
-            throw new RIException();
-        }
-        return rota;
     }
 
     public void atualizarRota(Rota rota) throws RIException{
@@ -42,5 +35,13 @@ public class ControladorRota {
         } else{
             throw new RIException();
         }
+    }
+
+    public Rota buscarRota(int idRota) throws RIException{
+        Rota rota = repositorioRota.buscarRota(idRota);
+        if(rota == null){
+            throw new RIException();
+        }
+        return rota;
     }
 }

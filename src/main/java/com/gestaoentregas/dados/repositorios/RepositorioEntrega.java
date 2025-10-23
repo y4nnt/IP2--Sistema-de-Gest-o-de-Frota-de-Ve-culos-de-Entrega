@@ -36,7 +36,6 @@ public class RepositorioEntrega implements IRepositorioEntrega{
         }
     }
 
-
     @Override
     public void removerEntrega(String codEntrega) {
         int i = procurarIndice(codEntrega);

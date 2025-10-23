@@ -1,6 +1,6 @@
 package com.gestaoentregas.excecoes;
 
-public class EIException extends RuntimeException {
+public class EIException extends Exception {
     public EIException() {
         super("Entrega indisponível.");
     }

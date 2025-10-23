@@ -22,6 +22,7 @@ public class RepositorioProduto implements IRepositorioProduto{
         // Retorna a instância que já existe ou acabou de ser criada
         return repositorioProduto;
     }
+
     @Override
     public void cadastrarProduto(Produto produto) {
         produtos.add(produto);
@@ -34,7 +35,6 @@ public class RepositorioProduto implements IRepositorioProduto{
             this.produtos.set(i, produto);
         }
     }
-
 
     @Override
     public void removerProduto(String codProduto) {

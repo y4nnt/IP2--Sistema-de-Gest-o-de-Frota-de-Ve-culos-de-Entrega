@@ -29,16 +29,6 @@ public class RepositorioVeiculo implements IRepositorioVeiculo {
     }
 
     @Override
-    public Veiculo buscarVeiculo(int id) {
-        Veiculo veiculo = null;
-        int i = procurarIndice(id);
-        if (i != -1) {
-            veiculo = this.veiculos.get(i);
-        }
-        return veiculo;
-    }
-
-    @Override
     public void atualizarVeiculo(Veiculo veiculo) {
         int i = procurarIndice(veiculo.getIdVeiculo());
         if (i != -1) {
@@ -53,6 +43,16 @@ public class RepositorioVeiculo implements IRepositorioVeiculo {
         if (i != -1) {
             this.veiculos.remove(i);
         }
+    }
+
+    @Override
+    public Veiculo buscarVeiculo(int id) {
+        Veiculo veiculo = null;
+        int i = procurarIndice(id);
+        if (i != -1) {
+            veiculo = this.veiculos.get(i);
+        }
+        return veiculo;
     }
 
     private int procurarIndice(int id) {

@@ -1,15 +1,16 @@
-package com.gestaoentregas.negocio.controladores;
+package com.gestaoentregas.negocio;
 
 import com.gestaoentregas.dados.beans.entrega.Produto;
 import com.gestaoentregas.dados.repositorios.IRepositorioProduto;
+import com.gestaoentregas.dados.repositorios.RepositorioProduto;
 import com.gestaoentregas.excecoes.PCException;
 import com.gestaoentregas.excecoes.PIException;
 
-public class ControladorProduto {
-    private IRepositorioProduto repositorioProduto;
+public class ServicoProduto {
+    private final IRepositorioProduto repositorioProduto;
 
-    public ControladorProduto(IRepositorioProduto repositorioProduto) {
-        this.repositorioProduto = repositorioProduto;
+    public ServicoProduto() {
+        this.repositorioProduto = RepositorioProduto.getInstance();
     }
 
     public void cadastrarProduto(Produto produto) throws PCException {
@@ -18,14 +19,6 @@ public class ControladorProduto {
         } else{
             throw new PCException();
         }
-    }
-
-    public Produto buscarProduto(String codigo) throws PIException{
-        Produto produto = repositorioProduto.buscarProduto(codigo);
-        if(produto == null){
-            throw new PIException();
-        }
-        return produto;
     }
 
     public void atualizarProduto(Produto produto) throws PIException{
@@ -42,5 +35,13 @@ public class ControladorProduto {
         } else{
             throw new PIException();
         }
+    }
+
+    public Produto buscarProduto(String codigo) throws PIException{
+        Produto produto = repositorioProduto.buscarProduto(codigo);
+        if(produto == null){
+            throw new PIException();
+        }
+        return produto;
     }
 }

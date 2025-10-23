@@ -1,6 +1,6 @@
 package com.gestaoentregas.excecoes;
 
-public class RIException extends RuntimeException {
+public class RIException extends Exception {
     public RIException() {
         super("Rota indisponível.");
     }

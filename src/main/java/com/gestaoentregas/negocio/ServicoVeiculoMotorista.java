@@ -1,26 +1,23 @@
-package com.gestaoentregas.negocio.controladores;
+package com.gestaoentregas.negocio;
 
 import com.gestaoentregas.dados.beans.motorista.Motorista;
-import com.gestaoentregas.dados.repositorios.IRepositorioVeiculoMotorista;
+import com.gestaoentregas.dados.repositorios.*;
 import com.gestaoentregas.dados.beans.veiculo.Veiculo;
 import com.gestaoentregas.dados.beans.VeiculoMotorista;
-import com.gestaoentregas.dados.repositorios.IRepositorioMotorista;
-import com.gestaoentregas.dados.repositorios.IRepositorioVeiculo;
 import com.gestaoentregas.excecoes.CException;
+import com.gestaoentregas.excecoes.CIException;
 import com.gestaoentregas.excecoes.MIException;
 import com.gestaoentregas.excecoes.VIException;
 
-public class ControladorVeiculoMotorista {
-    private IRepositorioVeiculoMotorista repositorioAssociacoes;
-    private IRepositorioMotorista repositorioMotorista;
-    private IRepositorioVeiculo repositorioVeiculo;
+public class ServicoVeiculoMotorista {
+    private final IRepositorioVeiculoMotorista repositorioAssociacoes;
+    private final IRepositorioMotorista repositorioMotorista;
+    private final IRepositorioVeiculo repositorioVeiculo;
 
-    public ControladorVeiculoMotorista(IRepositorioVeiculoMotorista repoAssoc,
-                                       IRepositorioMotorista repoMotorista,
-                                       IRepositorioVeiculo repoVeiculo) {
-        this.repositorioAssociacoes = repoAssoc;
-        this.repositorioMotorista = repoMotorista;
-        this.repositorioVeiculo = repoVeiculo;
+    public ServicoVeiculoMotorista() {
+        this.repositorioAssociacoes = RepositorioVeiculoMotorista.getInstance();
+        this.repositorioMotorista = RepositorioMotorista.getInstance();
+        this.repositorioVeiculo = RepositorioVeiculo.getInstance();
     }
 
     public void associar(int idMotorista, int idVeiculo) throws MIException, VIException, CException {
@@ -39,8 +36,13 @@ public class ControladorVeiculoMotorista {
         repositorioAssociacoes.cadastrar(nova);
     }
 
-    public void desassociar(int idVeiculo) {
-        repositorioAssociacoes.removerPorVeiculo(idVeiculo);
+    public void desassociar(int idVeiculo) throws CIException {
+        if (repositorioVeiculo.buscarVeiculo(idVeiculo) != null) {
+            repositorioAssociacoes.removerPorVeiculo(idVeiculo);
+        } else{
+            throw new CIException();
+        }
+
     }
 
     /* Mesma coisa (vê no repositórioVeiculoMotorista)

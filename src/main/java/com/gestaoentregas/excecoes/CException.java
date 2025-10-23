@@ -1,6 +1,6 @@
 package com.gestaoentregas.excecoes;
 
-public class CException extends RuntimeException {
+public class CException extends Exception {
 
     public CException() {
         super("Associação já cadastrada.");

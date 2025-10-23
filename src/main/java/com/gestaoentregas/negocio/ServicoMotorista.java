@@ -1,15 +1,16 @@
-package com.gestaoentregas.negocio.controladores;
+package com.gestaoentregas.negocio;
 
 import com.gestaoentregas.dados.repositorios.IRepositorioMotorista;
 import com.gestaoentregas.dados.beans.motorista.Motorista;
+import com.gestaoentregas.dados.repositorios.RepositorioMotorista;
 import com.gestaoentregas.excecoes.MCException;
 import com.gestaoentregas.excecoes.MIException;
 
-public class ControladorMotorista {
-    private IRepositorioMotorista repositorioMotorista;
+public class ServicoMotorista {
+    private final IRepositorioMotorista repositorioMotorista;
 
-    public ControladorMotorista(IRepositorioMotorista repositorioMotorista) {
-        this.repositorioMotorista = repositorioMotorista;
+    public ServicoMotorista() {
+        this.repositorioMotorista = RepositorioMotorista.getInstance();
     }
 
     public void cadastrarMotorista(Motorista motorista) throws MCException {
@@ -18,14 +19,6 @@ public class ControladorMotorista {
         } else {
             throw new MCException();
         }
-    }
-
-    public Motorista buscarMotorista(int id) throws MIException {
-        Motorista motorista = repositorioMotorista.buscarMotorista(id);
-        if (motorista == null) {
-            throw new MIException();
-        }
-        return motorista;
     }
 
     public void atualizarMotorista(Motorista motorista) throws MIException {
@@ -42,5 +35,13 @@ public class ControladorMotorista {
         } else {
             throw new MIException();
         }
+    }
+
+    public Motorista buscarMotorista(int id) throws MIException {
+        Motorista motorista = repositorioMotorista.buscarMotorista(id);
+        if (motorista == null) {
+            throw new MIException();
+        }
+        return motorista;
     }
 }

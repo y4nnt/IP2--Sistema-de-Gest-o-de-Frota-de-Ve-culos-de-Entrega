@@ -1,6 +1,6 @@
 package com.gestaoentregas.excecoes;
 
-public class ECException extends RuntimeException {
+public class ECException extends Exception {
     public ECException() {
         super("Entrega já cadastrada.");
     }

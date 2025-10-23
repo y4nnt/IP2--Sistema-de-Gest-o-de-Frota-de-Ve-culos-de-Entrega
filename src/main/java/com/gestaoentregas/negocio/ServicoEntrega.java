@@ -1,15 +1,16 @@
-package com.gestaoentregas.negocio.controladores;
+package com.gestaoentregas.negocio;
 
 import com.gestaoentregas.dados.beans.entrega.Entrega;
 import com.gestaoentregas.dados.repositorios.IRepositorioEntrega;
+import com.gestaoentregas.dados.repositorios.RepositorioEntrega;
 import com.gestaoentregas.excecoes.ECException;
 import com.gestaoentregas.excecoes.EIException;
 
-public class ControladorEntrega {
-    private IRepositorioEntrega repositorioEntrega;
+public class ServicoEntrega {
+    private final IRepositorioEntrega repositorioEntrega;
 
-    public ControladorEntrega(IRepositorioEntrega repositorioEntrega) {
-        this.repositorioEntrega = repositorioEntrega;
+    public ServicoEntrega() {
+        this.repositorioEntrega = RepositorioEntrega.getInstance();
     }
 
     public void cadastrarEntrega(Entrega entrega) throws ECException{
@@ -18,14 +19,6 @@ public class ControladorEntrega {
         } else{
             throw new ECException();
         }
-    }
-
-    public Entrega buscarEntrega(String codigo) throws EIException {
-        Entrega entrega = repositorioEntrega.buscarEntrega(codigo);
-        if(entrega == null){
-            throw new EIException();
-        }
-        return entrega;
     }
 
     public void atualizarEntrega(Entrega entrega) throws EIException {
@@ -42,5 +35,13 @@ public class ControladorEntrega {
         } else {
             throw new EIException();
         }
+    }
+
+    public Entrega buscarEntrega(String codigo) throws EIException {
+        Entrega entrega = repositorioEntrega.buscarEntrega(codigo);
+        if(entrega == null){
+            throw new EIException();
+        }
+        return entrega;
     }
 }

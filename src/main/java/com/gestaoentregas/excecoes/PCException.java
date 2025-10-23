@@ -1,6 +1,6 @@
 package com.gestaoentregas.excecoes;
 
-public class PCException extends RuntimeException {
+public class PCException extends Exception {
     public PCException() {
         super("Produto já cadastrado.");
     }

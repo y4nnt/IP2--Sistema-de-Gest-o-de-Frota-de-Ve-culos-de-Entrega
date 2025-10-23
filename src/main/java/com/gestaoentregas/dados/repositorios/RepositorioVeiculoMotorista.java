@@ -1,6 +1,7 @@
 package com.gestaoentregas.dados.repositorios;
 
 import com.gestaoentregas.dados.beans.VeiculoMotorista;
+import com.gestaoentregas.excecoes.CIException;
 
 import java.util.ArrayList;
 

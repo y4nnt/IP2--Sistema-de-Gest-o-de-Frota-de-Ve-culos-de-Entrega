@@ -1,6 +1,6 @@
 package com.gestaoentregas.excecoes;
 
-public class RCException extends RuntimeException {
+public class RCException extends Exception {
     public RCException() {
         super("Rota já cadastrada.");
     }

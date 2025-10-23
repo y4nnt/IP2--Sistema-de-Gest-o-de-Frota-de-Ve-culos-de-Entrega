@@ -1,15 +1,16 @@
-package com.gestaoentregas.negocio.controladores;
+package com.gestaoentregas.negocio;
 
 import com.gestaoentregas.dados.repositorios.IRepositorioVeiculo;
 import com.gestaoentregas.dados.beans.veiculo.Veiculo;
+import com.gestaoentregas.dados.repositorios.RepositorioVeiculo;
 import com.gestaoentregas.excecoes.VCException;
 import com.gestaoentregas.excecoes.VIException;
 
-public class ControladorVeiculo {
-    private IRepositorioVeiculo repositorioVeiculo;
+public class ServicoVeiculo {
+    private final IRepositorioVeiculo repositorioVeiculo;
 
-    public ControladorVeiculo(IRepositorioVeiculo repositorioVeiculo) {
-        this.repositorioVeiculo = repositorioVeiculo;
+    public ServicoVeiculo() {
+        this.repositorioVeiculo = RepositorioVeiculo.getInstance();
     }
 
     public void cadastrarVeiculo(Veiculo veiculo) throws VCException {
@@ -18,14 +19,6 @@ public class ControladorVeiculo {
         } else {
             throw new VCException();
         }
-    }
-
-    public Veiculo buscarVeiculo(int id) throws VIException {
-        Veiculo veiculo = repositorioVeiculo.buscarVeiculo(id);
-        if (veiculo == null) {
-            throw new VIException();
-        }
-        return veiculo;
     }
 
     public void atualizarVeiculo(Veiculo veiculo) throws VIException {
@@ -42,5 +35,13 @@ public class ControladorVeiculo {
         } else {
             throw new VIException();
         }
+    }
+
+    public Veiculo buscarVeiculo(int id) throws VIException {
+        Veiculo veiculo = repositorioVeiculo.buscarVeiculo(id);
+        if (veiculo == null) {
+            throw new VIException();
+        }
+        return veiculo;
     }
 }

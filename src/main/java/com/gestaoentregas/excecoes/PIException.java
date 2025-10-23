@@ -1,6 +1,6 @@
 package com.gestaoentregas.excecoes;
 
-public class PIException extends RuntimeException {
+public class PIException extends Exception {
     public PIException() {
         super("Produto indisponível.");
     }

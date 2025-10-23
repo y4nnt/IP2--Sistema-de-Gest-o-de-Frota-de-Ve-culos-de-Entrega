@@ -29,16 +29,6 @@ public class RepositorioMotorista implements IRepositorioMotorista {
     }
 
     @Override
-    public Motorista buscarMotorista(int id) {
-        Motorista motorista = null;
-        int i = procurarIndice(id);
-        if (i != -1) {
-            motorista = this.motoristas.get(i);
-        }
-        return motorista;
-    }
-
-    @Override
     public void atualizarMotorista(Motorista motorista) {
         int i = procurarIndice(motorista.getIdMotorista());
         if (i != -1) {
@@ -52,6 +42,16 @@ public class RepositorioMotorista implements IRepositorioMotorista {
         if (i != -1) {
             this.motoristas.remove(i);
         }
+    }
+
+    @Override
+    public Motorista buscarMotorista(int id) {
+        Motorista motorista = null;
+        int i = procurarIndice(id);
+        if (i != -1) {
+            motorista = this.motoristas.get(i);
+        }
+        return motorista;
     }
 
     // busca o índice do motorista pelo ID
