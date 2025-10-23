@@ -20,7 +20,7 @@ public class Entrega {
     private String emailComprador;
 
 
-    public Entrega(String codEntrega, Rota rota, String observacoes, String problemas, StatusEntrega status, String emailComprador, int  idEntrega) {
+    public Entrega(String codEntrega, Rota rota, String observacoes, String problemas, StatusEntrega status, String emailComprador) {
         this.codEntrega = codEntrega;
         this.rotaEntrega = rota;
         this.observacoesEntrega = observacoes;
@@ -30,9 +30,10 @@ public class Entrega {
         this.emailComprador = emailComprador;
         this.produtos = new ArrayList<>();
 
+
         if (problemas != null && !problemas.trim().isEmpty()) {
             this.statusEntrega = StatusEntrega.PROBLEMA;
-            //é dever da gui imprimir na tela
+            //É dever da gui imprimir na tela
         }
     }
 
@@ -49,6 +50,7 @@ public class Entrega {
             this.dataHoraEntrega = LocalDateTime.now();
         }
 
+        // --- REMOVIDA A LÓGICA DE EMAIL ---
     }
 
     public String getCodEntrega() {

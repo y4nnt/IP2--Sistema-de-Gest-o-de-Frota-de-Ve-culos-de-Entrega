@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.gestaoentregas.dados.beans.VeiculoMotorista;
 import com.gestaoentregas.dados.beans.motorista.Motorista;
 
 public class Rota {
@@ -12,13 +13,15 @@ public class Rota {
     private double distanciaKm;
     private LocalDateTime tempoEstimado;
     private List<String> pontosParada;
+    private VeiculoMotorista veiculoMotoristaRota;
     private int idRota;
 
-    public Rota(String origem, String destino, double distancia, LocalDateTime tempoEstimado, int idRota) {
+    public Rota(String origem, String destino, double distancia, LocalDateTime tempoEstimado, VeiculoMotorista veiculoMotorista, int idRota) {
         this.origemRota = origem;
         this.destinoRota = destino;
         this.distanciaKm = distancia;
         this.tempoEstimado = tempoEstimado;
+        this.veiculoMotoristaRota = veiculoMotorista;
         this.pontosParada = new ArrayList<>();
         this.idRota = idRota;
     }
@@ -39,6 +42,10 @@ public class Rota {
 
     public void atualizarTempoEstimado(double distancia, Motorista motorista) {
         System.out.println("Tempo estimado atualizado com base na distância e nas qualidades do motorista.");
+    }
+
+    public VeiculoMotorista getVeiculoMotoristaRota() {
+        return veiculoMotoristaRota;
     }
 
     public String getOrigemRota() {
