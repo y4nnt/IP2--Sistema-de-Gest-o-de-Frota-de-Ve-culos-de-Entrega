@@ -28,7 +28,7 @@ public class ServicoVeiculoMotorista {
 
         if (motorista == null || motorista.getDisponibilidadeMotorista() == DisponibilidadeMotorista.INDISPONIVEL) {
             throw new MIException();
-        } else if (veiculo == null || veiculo.getStatusVeiculo() == StatusVeiculo.INDISPONIVEL) {
+        } else if (veiculo == null || veiculo.getStatusVeiculo() == StatusVeiculo.EM_MANUTENCAO) {
             throw new VIException();
         } else if (repositorioAssociacoes.buscarPorVeiculo(idVeiculo) != null) {
             throw new CException();

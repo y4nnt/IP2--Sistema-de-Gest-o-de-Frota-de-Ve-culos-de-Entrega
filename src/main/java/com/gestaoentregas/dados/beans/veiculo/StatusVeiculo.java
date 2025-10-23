@@ -2,7 +2,8 @@ package com.gestaoentregas.dados.beans.veiculo;
 
 public enum StatusVeiculo {
     DISPONIVEL(0),
-    INDISPONIVEL(1);
+    INDISPONIVEL(1),
+    EM_MANUTENCAO(2);
 
     private final int codigo;
 
