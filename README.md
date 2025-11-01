@@ -63,12 +63,14 @@ https://github.com/y4nnt/IP2--Sistema-de-Gest-o-de-Frota-de-Ve-culos-de-Entrega.
 ![UML Sistema de Gestão de Frota de Veículos de Entrega (1)](https://github.com/user-attachments/assets/fc983c38-71ca-467f-977c-e1f2522aa02e)
 
 ## Modelo navegacional
-![Modelo Navegacional](https://github.com/user-attachments/assets/a9b6f2ca-12ba-4b53-abe1-73c74a88ee43)
+![Modelo Navegacional](https://github.com/user-attachments/assets/67bef25f-b008-4a2a-b87c-766611c143cf)
+
 
 ### Documentos originais
 [UML](https://github.com/user-attachments/files/23109854/UML.Sistema.de.Gestao.de.Frota.de.Veiculos.de.Entrega.drawio.1.pdf)
 
-[Modelo Navegacional](https://github.com/user-attachments/files/23070253/Modelo.Navegacional.drawio.pdf)
+[Modelo Navegacional](https://github.com/user-attachments/files/23287172/Modelo.Navegacional.pdf)
+
 
 
 
