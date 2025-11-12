@@ -40,11 +40,9 @@ public class ServicoVeiculoMotorista {
 
     public void desassociar(int idVeiculo) throws CIException {
         if (repositorioVeiculo.buscarVeiculo(idVeiculo) != null) {
-            repositorioAssociacoes.removerPorVeiculo(idVeiculo);
-        } else{
             throw new CIException();
         }
-
+        repositorioAssociacoes.removerPorVeiculo(idVeiculo);
     }
 
     /* Mesma coisa (vê no repositórioVeiculoMotorista)

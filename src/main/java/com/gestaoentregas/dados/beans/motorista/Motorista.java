@@ -9,19 +9,17 @@ public class Motorista {
     private String telefoneMotorista;
     private String cpfMotorista;
     private String cnhMotorista;
+    private int idadeMotorista;
     private DisponibilidadeMotorista disponibilidadeMotorista;
     private List<PeriodoIndisponivelMotorista> feriasMotorista;
     private int idMotorista;
 
-    public Motorista(String nomeMotorista, String telefoneMotorista, String cpfMotorista, String cnhMotorista) {
-        if(nomeMotorista == null || telefoneMotorista == null || cpfMotorista == null || cnhMotorista == null){
-            throw new IllegalArgumentException("Os parâmetros não podem ser nulos!");
-        }
-
+    public Motorista(String nomeMotorista, String telefoneMotorista, String cpfMotorista, String cnhMotorista, int idadeMotorista) {
         this.nomeMotorista = nomeMotorista;
         this.telefoneMotorista = telefoneMotorista;
         this.cpfMotorista = cpfMotorista;
         this.cnhMotorista = cnhMotorista;
+        this.idadeMotorista = idadeMotorista;
         this.disponibilidadeMotorista = DisponibilidadeMotorista.INDISPONIVEL;
         this.feriasMotorista = new ArrayList<>();
     }
@@ -56,6 +54,14 @@ public class Motorista {
 
     public void setCnhMotorista(String cnhMotorista) {
         this.cnhMotorista = cnhMotorista;
+    }
+
+    public int getIdadeMotorista() {
+        return idadeMotorista;
+    }
+
+    public void setIdadeMotorista(int idadeMotorista) {
+        this.idadeMotorista = idadeMotorista;
     }
 
     public DisponibilidadeMotorista getDisponibilidadeMotorista() {

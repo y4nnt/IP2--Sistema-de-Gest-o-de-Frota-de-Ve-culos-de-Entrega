@@ -3,6 +3,7 @@ package com.gestaoentregas.negocio;
 import com.gestaoentregas.dados.repositorios.IRepositorioMotorista;
 import com.gestaoentregas.dados.beans.motorista.Motorista;
 import com.gestaoentregas.dados.repositorios.RepositorioMotorista;
+import com.gestaoentregas.excecoes.IIException;
 import com.gestaoentregas.excecoes.MCException;
 import com.gestaoentregas.excecoes.MIException;
 
@@ -13,28 +14,29 @@ public class ServicoMotorista {
         this.repositorioMotorista = RepositorioMotorista.getInstance();
     }
 
-    public void cadastrarMotorista(Motorista motorista) throws MCException {
-        if (repositorioMotorista.buscarMotorista(motorista.getIdMotorista()) == null) {
-            repositorioMotorista.cadastrarMotorista(motorista);
-        } else {
+    public void cadastrarMotorista(Motorista motorista) throws MCException, IIException {
+        //CONDIÇÃO DE ERRO VERIFICADA PRIMEIRO (GUARD CAUSE)
+        if (repositorioMotorista.buscarMotorista(motorista.getIdMotorista()) != null) {
             throw new MCException();
+        } else if (repositorioMotorista.buscarMotorista(motorista.getIdMotorista()).getIdadeMotorista() >= 18){
+            throw new IIException();
         }
+        repositorioMotorista.cadastrarMotorista(motorista);
     }
 
+
     public void atualizarMotorista(Motorista motorista) throws MIException {
-        if (repositorioMotorista.buscarMotorista(motorista.getIdMotorista()) != null) {
-            repositorioMotorista.atualizarMotorista(motorista);
-        } else {
+        if (repositorioMotorista.buscarMotorista(motorista.getIdMotorista()) == null) {
             throw new MIException();
         }
+        repositorioMotorista.atualizarMotorista(motorista);
     }
 
     public void removerMotorista(int id) throws MIException {
-        if (repositorioMotorista.buscarMotorista(id) != null) {
-            repositorioMotorista.removerMotorista(id);
-        } else {
+        if (repositorioMotorista.buscarMotorista(id) == null) {
             throw new MIException();
         }
+        repositorioMotorista.removerMotorista(id);
     }
 
     public Motorista buscarMotorista(int id) throws MIException {

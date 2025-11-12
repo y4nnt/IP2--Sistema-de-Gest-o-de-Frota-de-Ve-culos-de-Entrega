@@ -1,10 +1,10 @@
-package com.gestaoentregas.main; // Pacote raiz do seu projeto
+package com.gestaoentregas; // Pacote raiz do seu projeto
 
-/*// IMPORTS NECESSÁRIOS
+// IMPORTS NECESSÁRIOS
 import com.gestaoentregas.dados.beans.entrega.Entrega;
 import com.gestaoentregas.dados.beans.entrega.Entrega.StatusEntrega;
 import com.gestaoentregas.dados.beans.entrega.Rota; // Precisei supor que essa classe existe
-import com.gestaoentregas.servico.EntregaService; // O SERVIÇO QUE VOCÊ CRIOU
+import com.gestaoentregas.negocio.EntregaService; // O SERVIÇO QUE VOCÊ CRIOU
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner; // 1. IMPORTE O COMMANDLINERUNNER
 import org.springframework.boot.SpringApplication;
@@ -67,4 +67,4 @@ public class Main implements CommandLineRunner { // 2. IMPLEMENTE A INTERFACE
         System.out.println(">>> Teste concluído. Verifique sua caixa de entrada!");
         System.out.println("==================================================");
     }
-}*/
+}

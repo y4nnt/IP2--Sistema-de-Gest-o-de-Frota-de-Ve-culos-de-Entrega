@@ -1,6 +1,10 @@
 package com.gestaoentregas.negocio; // Ou um pacote de "serviços"
 
-/*
+
+import com.gestaoentregas.dados.beans.entrega.Entrega;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 @Service
 public class EntregaService {
 
@@ -11,7 +15,7 @@ public class EntregaService {
      * Este método agora contém a LÓGICA DE NEGÓCIO.
      * Ele recebe a entrega, atualiza o status E envia o alerta.
      */
-    /*public void atualizarStatusDaEntrega(Entrega entrega, StatusEntrega novoStatus) {
+    public void atualizarStatusDaEntrega(Entrega entrega, Entrega.StatusEntrega novoStatus) {
 
         // 1. Atualiza o objeto de dados
         entrega.atualizarStatus(novoStatus);
@@ -21,17 +25,17 @@ public class EntregaService {
         // 2. Coloca a lógica de notificação AQUI
         String email = entrega.getEmailComprador();
 
-        if (novoStatus == StatusEntrega.EM_TRANSITO) {
+        if (novoStatus == Entrega.StatusEntrega.EM_TRANSITO) {
             alertaService.enviarEmailSimples(email,
                     "Pedido em rota de entrega",
                     "Boa notícia! Seu pedido já está em rota de entrega, fique atento(a) que já, já ele chega em seu endereço! \n\nAtt, EntregasPOO");
 
-        } else if (novoStatus == StatusEntrega.ENTREGUE) {
+        } else if (novoStatus == Entrega.StatusEntrega.ENTREGUE) {
             alertaService.enviarEmailSimples(email,
                     "Pedido entregue",
                     "Eba! Seu pedido foi entregue, aproveite! \n\nAtt, EntregasPOO");
 
-        } else if (novoStatus == StatusEntrega.CANCELADA) {
+        } else if (novoStatus == Entrega.StatusEntrega.CANCELADA) {
             alertaService.enviarEmailSimples(email,
                     "Pedido cancelado",
                     "Que pena! Seu pedido foi cancelado, sinta-se a vontade para sempre tornar a utilizar nossos serviços. \n\nAtt, EntregasPOO");
@@ -45,4 +49,4 @@ public class EntregaService {
         // return novaEntrega;
         return null; // Apenas exemplo
     }
-}*/
+}

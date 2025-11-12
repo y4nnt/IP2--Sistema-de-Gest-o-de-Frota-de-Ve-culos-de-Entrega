@@ -1,7 +1,5 @@
 package com.gestaoentregas.negocio;
-/*
-// A importação da 'Entrega' não é mais necessária aqui
-// import com.gestaoentregas.dados.beans.entrega.Entrega;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.mail.SimpleMailMessage;
@@ -27,7 +25,7 @@ public class Alerta {
     /**
      * Método 1: Envio de texto simples
      */
-    /*public void enviarEmailSimples(String para, String assunto, String texto) {
+    public void enviarEmailSimples(String para, String assunto, String texto) {
         SimpleMailMessage message = new SimpleMailMessage();
         message.setFrom(remetente);
         message.setTo(para);
@@ -56,7 +54,7 @@ public class Alerta {
         } catch (MessagingException e) {
             System.err.println("Erro ao enviar email HTML: " + e.getMessage());
         }
-    }
+    }*/
 
     /**
      * Método 3: Envio de email com Anexo (e HTML)
@@ -75,6 +73,7 @@ public class Alerta {
             FileSystemResource file = new FileSystemResource(new File(caminhoDoAnexo));
             if (file.exists()) {
                 String nomeAnexo = file.getFilename();
+
                 helper.addAttachment(nomeAnexo, file);
             } else {
                 System.err.println("Arquivo de anexo não encontrado em: " + caminhoDoAnexo);
@@ -86,5 +85,5 @@ public class Alerta {
         } catch (MessagingException e) {
             System.err.println("Erro ao enviar email com anexo: " + e.getMessage());
         }
-    }
-}*/
+    }*/
+}

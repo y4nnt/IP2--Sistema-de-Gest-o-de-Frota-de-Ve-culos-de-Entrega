@@ -14,27 +14,24 @@ public class ServicoRota {
     }
 
     public void cadastrarRota(Rota rota) throws RCException{
-        if(repositorioRota.buscarRota(rota.getIdRota()) == null){
-            repositorioRota.cadastrarRota(rota);
-        } else{
-            throw new RCException();
+        if(repositorioRota.buscarRota(rota.getIdRota()) != null){
+            throw new  RCException();
         }
+        repositorioRota.cadastrarRota(rota);
     }
 
     public void atualizarRota(Rota rota) throws RIException{
-        if(repositorioRota.buscarRota(rota.getIdRota()) != null){
-            repositorioRota.atualizarRota(rota);
-        } else{
-            throw new RIException();
+        if(repositorioRota.buscarRota(rota.getIdRota()) == null){
+            throw new  RIException();
         }
+        repositorioRota.atualizarRota(rota);
     }
 
     public void removerRota(int idRota) throws RIException{
         if(repositorioRota.buscarRota(idRota) != null){
-            repositorioRota.removerRota(idRota);
-        } else{
-            throw new RIException();
+            throw new  RIException();
         }
+        repositorioRota.removerRota(idRota);
     }
 
     public Rota buscarRota(int idRota) throws RIException{

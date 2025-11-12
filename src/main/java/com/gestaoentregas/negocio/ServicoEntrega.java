@@ -15,30 +15,26 @@ public class ServicoEntrega {
     }
 
     public void cadastrarEntrega(Entrega entrega) throws ECException, ENCException{
-        if(repositorioEntrega.buscarEntrega(entrega.getCodEntrega()).getRotaEntrega() == null && repositorioEntrega.buscarEntrega(entrega.getCodEntrega()).getRotaEntrega().getVeiculoMotoristaRota() == null){
+        if(repositorioEntrega.buscarEntrega(entrega.getCodEntrega()).getRotaEntrega() == null || repositorioEntrega.buscarEntrega(entrega.getCodEntrega()).getRotaEntrega().getVeiculoMotoristaRota() == null){
             throw new ENCException();
-        } else if(repositorioEntrega.buscarEntrega(entrega.getCodEntrega()) == null){
-            repositorioEntrega.cadastrarEntrega(entrega);
-        } else{
+        } else if(repositorioEntrega.buscarEntrega(entrega.getCodEntrega()) != null){
             throw new ECException();
         }
-
+        repositorioEntrega.cadastrarEntrega(entrega);
     }
 
     public void atualizarEntrega(Entrega entrega) throws EIException {
-        if (repositorioEntrega.buscarEntrega(entrega.getCodEntrega()) != null) {
-            repositorioEntrega.atualizarEntrega(entrega);
-        } else {
+        if (repositorioEntrega.buscarEntrega(entrega.getCodEntrega()) == null) {
             throw new EIException();
         }
+        repositorioEntrega.atualizarEntrega(entrega);
     }
 
     public void removerEntrega(String codigo) throws EIException {
-        if (repositorioEntrega.buscarEntrega(codigo) != null && repositorioEntrega.buscarEntrega(codigo).getStatusEntrega() != Entrega.StatusEntrega.EM_TRANSITO) {
-            repositorioEntrega.removerEntrega(codigo);
-        } else {
+        if (repositorioEntrega.buscarEntrega(codigo) == null || repositorioEntrega.buscarEntrega(codigo).getStatusEntrega() == Entrega.StatusEntrega.EM_TRANSITO) {
             throw new EIException();
         }
+        repositorioEntrega.removerEntrega(codigo);
     }
 
     public Entrega buscarEntrega(String codigo) throws EIException {
