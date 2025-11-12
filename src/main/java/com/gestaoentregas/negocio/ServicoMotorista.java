@@ -3,6 +3,7 @@ package com.gestaoentregas.negocio;
 import com.gestaoentregas.dados.repositorios.IRepositorioMotorista;
 import com.gestaoentregas.dados.beans.motorista.Motorista;
 import com.gestaoentregas.dados.repositorios.RepositorioMotorista;
+import com.gestaoentregas.excecoes.DIException;
 import com.gestaoentregas.excecoes.IIException;
 import com.gestaoentregas.excecoes.MCException;
 import com.gestaoentregas.excecoes.MIException;
@@ -14,12 +15,14 @@ public class ServicoMotorista {
         this.repositorioMotorista = RepositorioMotorista.getInstance();
     }
 
-    public void cadastrarMotorista(Motorista motorista) throws MCException, IIException {
+    public void cadastrarMotorista(Motorista motorista) throws MCException, IIException, DIException {
         //CONDIÇÃO DE ERRO VERIFICADA PRIMEIRO (GUARD CAUSE)
         if (repositorioMotorista.buscarMotorista(motorista.getIdMotorista()) != null) {
             throw new MCException();
         } else if (repositorioMotorista.buscarMotorista(motorista.getIdMotorista()).getIdadeMotorista() >= 18){
             throw new IIException();
+        } else if (repositorioMotorista.buscarMotorista(motorista.getIdMotorista()).getCnhMotorista() == null) {
+            throw new DIException("Cnh do motorista não pode ser nula.");
         }
         repositorioMotorista.cadastrarMotorista(motorista);
     }
