@@ -49,7 +49,7 @@ public class Main implements CommandLineRunner { // 2. IMPLEMENTE A INTERFACE
                 "Deixar com o porteiro.",
                 null, // Sem problemas
                 StatusEntrega.PENDENTE,
-                "lucasandrade16.2006@gmail.com" // <<< COLOQUE SEU EMAIL AQUI PARA TESTAR
+                "nicolasg22132@gmail.com" // <<< COLOQUE SEU EMAIL AQUI PARA TESTAR
         );
 
         System.out.println(">>> Entrega de teste criada. Status atual: " + minhaEntregaTeste.getStatusEntrega());
