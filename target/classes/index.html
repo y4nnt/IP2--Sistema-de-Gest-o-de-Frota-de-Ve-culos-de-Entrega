@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mapa</title>
+    <style>
+        /* Reset básico */
+        html, body { height: 100%; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+
+        #map { height: 100%; width: 100%; }
+
+        /* Card flutuante */
+        .controls-card {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            width: 320px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .controls-card h3 { margin: 0 0 5px 0; color: #333; font-size: 18px; }
+
+        /* Botão */
+        button#btn-ir {
+            padding: 12px;
+            background-color: #1a73e8;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+        button#btn-ir:hover { background-color: #1557b0; }
+
+        /* Estilo para os containers onde o Google vai injetar os inputs */
+        .picker-container {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 0; /* O componente do Google preenche tudo */
+            background: #f8f9fa;
+        }
+
+        /* Ajuste fino para o componente do Google (Web Component) */
+        gmp-place-picker {
+            width: 100%;
+        }
+    </style>
+
+    <script>
+        (g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({
+            key: "AIzaSyCctsO8y-NjmHdr_0TcjqDyyO_1LZaHUqA", // <--- COLOQUE SUA CHAVE AQUI
+            v: "3.57",
+        });
+    </script>
+</head>
+<body>
+
+<div class="controls-card">
+    <h3>Traçar Rota</h3>
+
+    <div id="container-origem" class="picker-container"></div>
+    <div id="container-destino" class="picker-container"></div>
+
+    <button id="btn-ir" onclick="calcularRota()">CALCULAR ROTA</button>
+</div>
+
+<div id="map"></div>
+
+<script>
+    let map, directionsService, directionsRenderer;
+    let pickerOrigem, pickerDestino; // Guardam os objetos dos inputs
+
+    async function initMap() {
+        // 1. Importar bibliotecas
+        const { Map } = await google.maps.importLibrary("maps");
+        const { DirectionsService, DirectionsRenderer } = await google.maps.importLibrary("routes");
+        const { PlaceAutocompleteElement } = await google.maps.importLibrary("places");
+
+        // 2. Inicializar Mapa (Sem mapId para evitar erro de WebGL no JavaFX)
+        map = new Map(document.getElementById('map'), {
+            center: {lat: -8.0578381, lng: -34.8828969},
+            zoom: 13,
+            disableDefaultUI: false, // Pode deixar true ou false
+            mapTypeId: 'roadmap',    // Garante o mapa padrão 2D
+        });
+
+        directionsService = new DirectionsService();
+        directionsRenderer = new DirectionsRenderer();
+        directionsRenderer.setMap(map);
+
+        // 3. Criar e Injetar os Novos Componentes de Autocomplete
+        // Origem
+        pickerOrigem = new PlaceAutocompleteElement();
+        pickerOrigem.id = "input-origem";
+        pickerOrigem.placeholder = "Digite a origem..."; // Texto de ajuda
+        document.getElementById("container-origem").appendChild(pickerOrigem);
+
+        // Destino
+        pickerDestino = new PlaceAutocompleteElement();
+        pickerDestino.id = "input-destino";
+        pickerDestino.placeholder = "Digite o destino...";
+        document.getElementById("container-destino").appendChild(pickerDestino);
+
+        // Listener opcional: Logar o que foi escolhido
+        pickerOrigem.addEventListener("gmp-places-select", async ({ place }) => {
+            await place.fetchFields({ fields: ["displayName", "formattedAddress", "location"] });
+            console.log("Origem escolhida:", place.displayName);
+        });
+    }
+
+    function calcularRota() {
+        // No novo modelo, pegamos o objeto 'place' direto do componente
+        const placeOrigem = pickerOrigem.value;
+        const placeDestino = pickerDestino.value;
+
+        // Validação: O usuário selecionou algo da lista?
+        if (!placeOrigem || !placeDestino) {
+            alert("Por favor, selecione os endereços na lista suspensa.");
+            return;
+        }
+
+        // O Google Directions aceita: String, LatLng ou Place Objeto
+        // Vamos tentar passar o endereço formatado ou o location
+
+        // Extração segura dos dados (dependendo do que o componente carregou)
+        const origemQuery = placeOrigem.formattedAddress || placeOrigem.displayName;
+        const destinoQuery = placeDestino.formattedAddress || placeDestino.displayName;
+
+        if (!origemQuery || !destinoQuery) {
+            // Fallback: tenta pegar o texto digitado se não for objeto completo
+            // (embora o novo componente force a escolha)
+            alert("Endereço inválido.");
+            return;
+        }
+
+        const request = {
+            origin: origemQuery,
+            destination: destinoQuery,
+            travelMode: 'DRIVING'
+        };
+
+        directionsService.route(request)
+            .then((result) => {
+                directionsRenderer.setDirections(result);
+
+                // Enviar para o Java (Se a ponte existir)
+                if (window.appJava && result.routes.length > 0) {
+                    const distancia = result.routes[0].legs[0].distance.text;
+                    window.appJava.processarRota(origemQuery, destinoQuery, distancia);
+                }
+            })
+            .catch((e) => {
+                alert("Erro ao traçar rota: " + e.message);
+                console.error(e);
+            });
+    }
+
+    initMap();
+</script>
+</body>
+</html>
