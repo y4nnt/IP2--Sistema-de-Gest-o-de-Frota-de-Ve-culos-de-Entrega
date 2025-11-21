@@ -6,12 +6,14 @@ import com.gestaoentregas.dados.repositorios.RepositorioVeiculo;
 import com.gestaoentregas.excecoes.PlException;
 import com.gestaoentregas.excecoes.VCException;
 import com.gestaoentregas.excecoes.VIException;
+import org.springframework.stereotype.Service;
 
+@Service
 public class ServicoVeiculo {
-    private final IRepositorioVeiculo repositorioVeiculo;
+    private final RepositorioVeiculo repositorioVeiculo;
 
-    public ServicoVeiculo() {
-        this.repositorioVeiculo = RepositorioVeiculo.getInstance();
+    public ServicoVeiculo(RepositorioVeiculo repositorioVeiculo) {
+        this.repositorioVeiculo = repositorioVeiculo;
     }
 
     public void cadastrarVeiculo(Veiculo veiculo) throws VCException, PlException {

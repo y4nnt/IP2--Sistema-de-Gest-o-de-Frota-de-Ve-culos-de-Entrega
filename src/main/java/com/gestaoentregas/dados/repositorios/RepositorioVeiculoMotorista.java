@@ -2,26 +2,17 @@ package com.gestaoentregas.dados.repositorios;
 
 import com.gestaoentregas.dados.beans.VeiculoMotorista;
 import com.gestaoentregas.excecoes.CIException;
+import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 
+@Repository
 public class RepositorioVeiculoMotorista implements IRepositorioVeiculoMotorista {
     private ArrayList<VeiculoMotorista> veiculosmotoristas;
 
-    private static RepositorioVeiculoMotorista repositorioVeiculoMotorista;
-
     private RepositorioVeiculoMotorista() {
         this.veiculosmotoristas = new ArrayList<>();
-    }
-
-    public static RepositorioVeiculoMotorista getInstance() {
-        // Se a instância ainda não foi criada...
-        if (repositorioVeiculoMotorista == null) {
-            // ...cria a única instância
-            repositorioVeiculoMotorista = new RepositorioVeiculoMotorista();
-        }
-        // Retorna a instância que já existe ou acabou de ser criada
-        return repositorioVeiculoMotorista;
     }
 
     @Override

@@ -7,12 +7,14 @@ import com.gestaoentregas.excecoes.DIException;
 import com.gestaoentregas.excecoes.IIException;
 import com.gestaoentregas.excecoes.MCException;
 import com.gestaoentregas.excecoes.MIException;
+import org.springframework.stereotype.Service;
 
+@Service
 public class ServicoMotorista {
-    private final IRepositorioMotorista repositorioMotorista;
+    private final RepositorioMotorista repositorioMotorista;
 
-    public ServicoMotorista() {
-        this.repositorioMotorista = RepositorioMotorista.getInstance();
+    public ServicoMotorista(RepositorioMotorista repositorioMotorista) {
+        this.repositorioMotorista = repositorioMotorista;
     }
 
     public void cadastrarMotorista(Motorista motorista) throws MCException, IIException, DIException {

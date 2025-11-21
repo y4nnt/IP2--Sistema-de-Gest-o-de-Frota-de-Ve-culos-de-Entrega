@@ -1,27 +1,19 @@
 package com.gestaoentregas.dados.repositorios;
 
 import com.gestaoentregas.dados.beans.entrega.Rota;
+import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 
+@Repository
 public class RepositorioRota implements IRepositorioRota {
     private ArrayList<Rota> rotas;
-
-    private static RepositorioRota repositorioRotas;
 
     private RepositorioRota() {
         this.rotas = new ArrayList<>();
     }
 
-    public static RepositorioRota getInstance() {
-        // Se a instância ainda não foi criada...
-        if (repositorioRotas == null) {
-            // ...cria a única instância
-            repositorioRotas = new RepositorioRota();
-        }
-        // Retorna a instância que  já existe ou acabou de ser criada
-        return repositorioRotas;
-    }
 
     @Override
     public void cadastrarRota(Rota rota) {

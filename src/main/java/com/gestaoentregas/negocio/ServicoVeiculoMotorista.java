@@ -10,16 +10,18 @@ import com.gestaoentregas.excecoes.CException;
 import com.gestaoentregas.excecoes.CIException;
 import com.gestaoentregas.excecoes.MIException;
 import com.gestaoentregas.excecoes.VIException;
+import org.springframework.stereotype.Service;
 
+@Service
 public class ServicoVeiculoMotorista {
-    private final IRepositorioVeiculoMotorista repositorioAssociacoes;
-    private final IRepositorioMotorista repositorioMotorista;
-    private final IRepositorioVeiculo repositorioVeiculo;
+    private final RepositorioVeiculoMotorista repositorioAssociacoes;
+    private final RepositorioMotorista repositorioMotorista;
+    private final RepositorioVeiculo repositorioVeiculo;
 
-    public ServicoVeiculoMotorista() {
-        this.repositorioAssociacoes = RepositorioVeiculoMotorista.getInstance();
-        this.repositorioMotorista = RepositorioMotorista.getInstance();
-        this.repositorioVeiculo = RepositorioVeiculo.getInstance();
+    public ServicoVeiculoMotorista(RepositorioVeiculoMotorista repositorioVeiculoMotorista, RepositorioMotorista repositorioMotorista, RepositorioVeiculo repositorioVeiculo) {
+        this.repositorioAssociacoes = repositorioVeiculoMotorista;
+        this.repositorioMotorista = repositorioMotorista;
+        this.repositorioVeiculo = repositorioVeiculo;
     }
 
     public void associar(int idMotorista, int idVeiculo) throws MIException, VIException, CException {

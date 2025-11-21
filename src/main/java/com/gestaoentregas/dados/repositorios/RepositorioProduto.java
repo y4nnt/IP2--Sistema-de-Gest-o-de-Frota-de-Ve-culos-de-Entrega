@@ -1,27 +1,19 @@
 package com.gestaoentregas.dados.repositorios;
 
 import com.gestaoentregas.dados.beans.entrega.Produto;
+import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 
+@Repository
 public class RepositorioProduto implements IRepositorioProduto{
     private ArrayList<Produto> produtos;
-
-    private static RepositorioProduto repositorioProduto;
 
     private RepositorioProduto() {
         this.produtos = new ArrayList<>();
     }
 
-    public static RepositorioProduto getInstance() {
-        // Se a instância ainda não foi criada...
-        if (repositorioProduto == null) {
-            // ...cria a única instância
-            repositorioProduto = new RepositorioProduto();
-        }
-        // Retorna a instância que já existe ou acabou de ser criada
-        return repositorioProduto;
-    }
 
     @Override
     public void cadastrarProduto(Produto produto) {

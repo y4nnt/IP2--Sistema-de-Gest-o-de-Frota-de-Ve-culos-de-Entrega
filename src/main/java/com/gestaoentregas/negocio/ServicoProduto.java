@@ -6,12 +6,14 @@ import com.gestaoentregas.dados.repositorios.RepositorioProduto;
 import com.gestaoentregas.excecoes.PCException;
 import com.gestaoentregas.excecoes.PIException;
 import com.gestaoentregas.excecoes.VInException;
+import org.springframework.stereotype.Service;
 
+@Service
 public class ServicoProduto {
-    private final IRepositorioProduto repositorioProduto;
+    private final RepositorioProduto repositorioProduto;
 
-    public ServicoProduto() {
-        this.repositorioProduto = RepositorioProduto.getInstance();
+    public ServicoProduto(RepositorioProduto repositorioProduto) {
+        this.repositorioProduto = repositorioProduto;
     }
 
     public void cadastrarProduto(Produto produto) throws PCException, VInException {

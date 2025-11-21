@@ -1,26 +1,17 @@
 package com.gestaoentregas.dados.repositorios;
 
 import com.gestaoentregas.dados.beans.motorista.Motorista;
+import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 
+@Repository
 public class RepositorioMotorista implements IRepositorioMotorista {
     private ArrayList<Motorista> motoristas;
 
-    private static RepositorioMotorista repositorioMotorista;
-
     private RepositorioMotorista() {
         this.motoristas = new ArrayList<>();
-    }
-
-    public static RepositorioMotorista getInstance() {
-        // Se a instância ainda não foi criada...
-        if (repositorioMotorista == null) {
-            // ...cria a única instância
-            repositorioMotorista = new RepositorioMotorista();
-        }
-        // Retorna a instância que  já existe ou acabou de ser criada
-        return repositorioMotorista;
     }
 
     @Override

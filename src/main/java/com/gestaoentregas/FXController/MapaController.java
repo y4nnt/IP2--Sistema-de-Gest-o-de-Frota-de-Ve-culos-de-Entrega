@@ -5,8 +5,12 @@ import javafx.fxml.FXML;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import netscape.javascript.JSObject; // Se isso ficar vermelho, veja a Solução A acima
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Controller;
+
 import java.net.URL;
 
+@Controller
 public class MapaController {
 
     @FXML private WebView mapaWebView;

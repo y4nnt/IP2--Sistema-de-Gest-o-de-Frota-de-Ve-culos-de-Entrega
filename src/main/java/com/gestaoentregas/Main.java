@@ -4,7 +4,7 @@ package com.gestaoentregas; // Pacote raiz do seu projeto
 import com.gestaoentregas.dados.beans.entrega.Entrega;
 import com.gestaoentregas.dados.beans.entrega.Entrega.StatusEntrega;
 import com.gestaoentregas.dados.beans.entrega.Rota; // Precisei supor que essa classe existe
-import com.gestaoentregas.negocio.EntregaService; // O SERVIÇO QUE VOCÊ CRIOU
+import com.gestaoentregas.negocio.ServicoEntrega;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner; // 1. IMPORTE O COMMANDLINERUNNER
 import org.springframework.boot.SpringApplication;
@@ -14,9 +14,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class Main implements CommandLineRunner { // 2. IMPLEMENTE A INTERFACE
 
     @Autowired
-    private final EntregaService entregaService;
+    private final ServicoEntrega entregaService;
 
-    public Main(EntregaService entregaService) {
+    public Main(ServicoEntrega entregaService) {
         this.entregaService = entregaService;
     }
 

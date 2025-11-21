@@ -6,12 +6,18 @@ import com.gestaoentregas.dados.repositorios.RepositorioEntrega;
 import com.gestaoentregas.excecoes.ECException;
 import com.gestaoentregas.excecoes.EIException;
 import com.gestaoentregas.excecoes.ENCException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class ServicoEntrega {
-    private final IRepositorioEntrega repositorioEntrega;
+    private final RepositorioEntrega repositorioEntrega;
 
-    public ServicoEntrega() {
-        this.repositorioEntrega = RepositorioEntrega.getInstance();
+    @Autowired
+    private Alerta alertaService;
+
+    public ServicoEntrega(RepositorioEntrega repositorioEntrega) {
+        this.repositorioEntrega = repositorioEntrega;
     }
 
     public void cadastrarEntrega(Entrega entrega) throws ECException, ENCException{
@@ -51,5 +57,32 @@ public class ServicoEntrega {
             throw new EIException ("A entrega não pode ser cancelada em trânsito");
         }
         entrega.atualizarStatus(novoStatus);
+    }
+
+    public void atualizarStatusDaEntrega(Entrega entrega, Entrega.StatusEntrega novoStatus) {
+
+        // 1. Atualiza o objeto de dados
+        entrega.atualizarStatus(novoStatus);
+
+        // (Aqui você também salvaria no banco de dados, ex: entregaRepository.save(entrega))
+
+        // 2. Coloca a lógica de notificação AQUI
+        String email = entrega.getEmailComprador();
+
+        if (novoStatus == Entrega.StatusEntrega.EM_TRANSITO) {
+            alertaService.enviarEmailSimples(email,
+                    "Pedido em rota de entrega",
+                    "Boa notícia! Seu pedido já está em rota de entrega, fique atento(a) que já, já ele chega em seu endereço! \n\nAtt, EntregasPOO");
+
+        } else if (novoStatus == Entrega.StatusEntrega.ENTREGUE) {
+            alertaService.enviarEmailSimples(email,
+                    "Pedido entregue",
+                    "Eba! Seu pedido foi entregue, aproveite! \n\nAtt, EntregasPOO");
+
+        } else if (novoStatus == Entrega.StatusEntrega.CANCELADA) {
+            alertaService.enviarEmailSimples(email,
+                    "Pedido cancelado",
+                    "Que pena! Seu pedido foi cancelado, sinta-se a vontade para sempre tornar a utilizar nossos serviços. \n\nAtt, EntregasPOO");
+        }
     }
 }

@@ -1,28 +1,20 @@
 package com.gestaoentregas.dados.repositorios;
 
 import com.gestaoentregas.dados.beans.entrega.Entrega;
+import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 
 import java.util.ArrayList;
 
+@Repository
 public class RepositorioEntrega implements IRepositorioEntrega{
     private ArrayList<Entrega> entregas;
 
-    private static RepositorioEntrega repositorioEntregas;
-
-    private RepositorioEntrega() {
+    public RepositorioEntrega() {
         this.entregas = new ArrayList<>();
     }
 
-    public static RepositorioEntrega getInstance() {
-        // Se a instância ainda não foi criada...
-        if (repositorioEntregas == null) {
-            // ...cria a única instância
-            repositorioEntregas = new RepositorioEntrega();
-        }
-        // Retorna a instância que já existe ou acabou de ser criada
-        return repositorioEntregas;
-    }
     @Override
     public void cadastrarEntrega(Entrega entrega) {
         entregas.add(entrega);
