@@ -1,4 +1,4 @@
-package com.gestaoentregas.FXController;
+/* package com.gestaoentregas.FXController;
 
 import javafx.concurrent.Worker;
 import javafx.fxml.FXML;
@@ -50,4 +50,4 @@ public class MapaController {
         URL url = getClass().getResource("/index.html");
         if (url != null) engine.load(url.toExternalForm());
     }
-}
+} */

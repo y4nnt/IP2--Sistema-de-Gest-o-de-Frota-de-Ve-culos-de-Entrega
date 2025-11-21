@@ -15,9 +15,7 @@ public class ServicoEntrega {
     }
 
     public void cadastrarEntrega(Entrega entrega) throws ECException, ENCException{
-        if(repositorioEntrega.buscarEntrega(entrega.getCodEntrega()).getRotaEntrega() == null || repositorioEntrega.buscarEntrega(entrega.getCodEntrega()).getRotaEntrega().getVeiculoMotoristaRota() == null){
-            throw new ENCException();
-        } else if(repositorioEntrega.buscarEntrega(entrega.getCodEntrega()) != null){
+        if(repositorioEntrega.buscarEntrega(entrega.getCodEntrega()) != null){
             throw new ECException();
         }
         repositorioEntrega.cadastrarEntrega(entrega);

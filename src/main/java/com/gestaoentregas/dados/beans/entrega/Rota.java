@@ -9,31 +9,53 @@ import com.gestaoentregas.dados.beans.motorista.Motorista;
 
 public class Rota {
     private String origemRota;
+    private List<Entrega> entregasRota;
+    private List<String> pontosParada;
     private String destinoRota;
     private double distanciaKm;
     private LocalDateTime tempoEstimado;
-    private List<String> pontosParada;
     private VeiculoMotorista veiculoMotoristaRota;
-    private int idRota;
+    private String idRota;
 
-    public Rota(String origem, String destino, double distancia, LocalDateTime tempoEstimado, VeiculoMotorista veiculoMotorista, int idRota) {
+    public Rota(String origem, double distancia, LocalDateTime tempoEstimado, VeiculoMotorista veiculoMotorista, Entrega entregaRota, String idRota) {
         this.origemRota = origem;
-        this.destinoRota = destino;
+        this.destinoRota = null;
         this.distanciaKm = distancia;
         this.tempoEstimado = tempoEstimado;
         this.veiculoMotoristaRota = veiculoMotorista;
+        this.entregasRota = new ArrayList<>();
         this.pontosParada = new ArrayList<>();
         this.idRota = idRota;
     }
 
-    public void addParada(String parada) {
+    private void addParada(String parada) {
         if (parada != null && !parada.trim().isEmpty()) {
             this.pontosParada.add(parada);
+            setDestinoRota(this.pontosParada);
         }
     }
 
-    public void removerParada(String parada) {
+    private void removerParada(String parada) {
         this.pontosParada.remove(parada);
+        if (this.getDestinoRota().equals(parada)) {
+            setDestinoRota(this.pontosParada);
+        }
+    }
+
+    public void removerEntrega(Entrega entrega) {
+        removerParada(entrega.getLocalEntrega());
+        this.entregasRota.remove(entrega);
+    }
+
+    public void addEntrega(Entrega entrega) {
+        if (entrega != null) {
+            this.entregasRota.add(entrega);
+            addParada(entrega.getLocalEntrega());
+        }
+    }
+
+    public List<Entrega> getEntregasRota() {
+        return entregasRota;
     }
 
     public double calcularDistancia() {
@@ -61,15 +83,15 @@ public class Rota {
         return destinoRota;
     }
 
-    public void setDestinoRota(String destinoRota) {
-        this.destinoRota = destinoRota;
+    private void setDestinoRota(List<String> pontosParada) {
+        this.destinoRota = pontosParada.getLast();
     }
 
     public List<String> getPontosParada() {
         return pontosParada;
     }
 
-    public int getIdRota() {
+    public String getIdRota() {
         return idRota;
     }
 
