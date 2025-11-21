@@ -2,10 +2,10 @@ package com.gestaoentregas.FXController;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Component;
 
-@Controller
+
+@Component
 public class HelloController {
     @FXML
     private Label welcomeText;

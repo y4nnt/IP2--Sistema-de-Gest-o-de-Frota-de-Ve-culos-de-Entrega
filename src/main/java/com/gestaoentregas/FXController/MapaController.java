@@ -4,13 +4,12 @@ import javafx.concurrent.Worker;
 import javafx.fxml.FXML;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
-import netscape.javascript.JSObject; // Se isso ficar vermelho, veja a Solução A acima
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Controller;
+import netscape.javascript.JSObject;
+import org.springframework.stereotype.Component;
 
 import java.net.URL;
 
-@Controller
+@Component
 public class MapaController {
 
     @FXML private WebView mapaWebView;
