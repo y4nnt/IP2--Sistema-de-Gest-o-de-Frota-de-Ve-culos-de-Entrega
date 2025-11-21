@@ -45,7 +45,7 @@ public class Main implements CommandLineRunner { // 2. IMPLEMENTE A INTERFACE
 
         Entrega minhaEntregaTeste = new Entrega(
                 "ID-987654",
-                rotaTeste,
+                "Rua das Flores, 38",
                 "Deixar com o porteiro.",
                 null, // Sem problemas
                 StatusEntrega.PENDENTE,

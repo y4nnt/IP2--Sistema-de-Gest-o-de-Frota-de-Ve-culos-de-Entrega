@@ -30,27 +30,17 @@ public class ListaDePedidosController implements Initializable {
     @FXML
     private TableColumn<Entrega, String> colunaLocal;
 
-    private final Veiculo v1 = new Veiculo("001", "Gol", 5.00);
-    private final Motorista m1 = new Motorista("Julio", "81993596002", "111", "111", 24);
-    private final VeiculoMotorista vm1 = new VeiculoMotorista(m1, v1);
-
-    
-    private final Rota r1 = new Rota("Central", "Rua A", 10.00, null, vm1, 101);
-
     private final ObservableList<Entrega> listaPedidos = FXCollections.observableArrayList(
-            new Entrega("101", r1, null, null, Entrega.StatusEntrega.PENDENTE, "123@456"),
-            new Entrega("102", r1, null, null, Entrega.StatusEntrega.PENDENTE, "123@456"),
-            new Entrega("103", r1, null, null, Entrega.StatusEntrega.PENDENTE, "123@456")
+            new Entrega("101", "Rua do Poeta, 77",null, null, Entrega.StatusEntrega.PENDENTE, "123@456"),
+            new Entrega("102", "Rua da Harmonia, 93", null, null, Entrega.StatusEntrega.PENDENTE, "123@456"),
+            new Entrega("103", "Rua Santa Izabel, 42", null, null, Entrega.StatusEntrega.PENDENTE, "123@456")
     );
 
     @FXML
     public void initialize(URL url, ResourceBundle resourceBundle) {
         // 1. Mapear as colunas para as propriedades da classe Pedido
         colunaID.setCellValueFactory(new PropertyValueFactory<>("codEntrega"));
-        colunaLocal.setCellValueFactory(cellData -> {
-            Entrega entrega = cellData.getValue();
-            return new SimpleStringProperty(entrega.getRotaEntrega().getDestinoRota());
-        });
+        colunaLocal.setCellValueFactory(new PropertyValueFactory<>("localEntrega"));
 
         // 2. Carregar os dados na tabela
         tabelaSelecaoEntregasMotorista.setItems(listaPedidos);
