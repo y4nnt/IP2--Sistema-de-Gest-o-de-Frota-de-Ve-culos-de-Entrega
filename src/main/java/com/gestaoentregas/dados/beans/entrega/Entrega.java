@@ -12,7 +12,7 @@ public class Entrega {
     }
 
     private String codEntrega;
-    private Rota rotaEntrega;
+    private String localEntrega;
     private StatusEntrega statusEntrega;
     private String observacoesEntrega;
     private String problemasEntrega;
@@ -21,9 +21,9 @@ public class Entrega {
     private String emailComprador;
 
 
-    public Entrega(String codEntrega, Rota rota, String observacoes, String problemas, StatusEntrega status, String emailComprador) {
+    public Entrega(String codEntrega, String localEntrega, String observacoes, String problemas, StatusEntrega status, String emailComprador) {
         this.codEntrega = codEntrega;
-        this.rotaEntrega = rota;
+        this.localEntrega = localEntrega;
         this.observacoesEntrega = observacoes;
         this.problemasEntrega = problemas;
         this.statusEntrega = status;
@@ -72,12 +72,12 @@ public class Entrega {
         this.emailComprador = emailComprador;
     }
 
-    public Rota getRotaEntrega() {
-        return rotaEntrega;
+    public String getLocalEntrega() {
+        return localEntrega;
     }
 
-    public void setRotaEntrega(Rota rotaEntrega) {
-        this.rotaEntrega = rotaEntrega;
+    public void setRotaEntrega(String localEntrega) {
+        this.localEntrega = localEntrega;
     }
 
     public String getObservacoesEntrega() {
