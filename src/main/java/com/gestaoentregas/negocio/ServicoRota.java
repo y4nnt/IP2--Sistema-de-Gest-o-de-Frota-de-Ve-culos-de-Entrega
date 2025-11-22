@@ -6,7 +6,9 @@ import com.gestaoentregas.dados.repositorios.RepositorioRota;
 import com.gestaoentregas.excecoes.ENCException;
 import com.gestaoentregas.excecoes.RCException;
 import com.gestaoentregas.excecoes.RIException;
+import org.springframework.stereotype.Service;
 
+@Service
 public class ServicoRota {
     private final IRepositorioRota repositorioRota;
 

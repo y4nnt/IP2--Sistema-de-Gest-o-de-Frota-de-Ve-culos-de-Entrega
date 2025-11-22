@@ -1,4 +1,4 @@
-package com.gestaoentregas; // Pacote raiz do seu projeto
+/* package com.gestaoentregas; // Pacote raiz do seu projeto
 
 // IMPORTS NECESSÁRIOS
 import com.gestaoentregas.dados.beans.entrega.Entrega;
@@ -14,7 +14,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class Main implements CommandLineRunner { // 2. IMPLEMENTE A INTERFACE
 
     @Autowired
-    private final ServicoEntrega entregaService;
+    //private final ServicoEntrega entregaService;
 
     public Main(ServicoEntrega entregaService) {
         this.entregaService = entregaService;
@@ -45,7 +45,7 @@ public class Main implements CommandLineRunner { // 2. IMPLEMENTE A INTERFACE
 
         Entrega minhaEntregaTeste = new Entrega(
                 "ID-987654",
-                rotaTeste,
+                "Rua aaa",
                 "Deixar com o porteiro.",
                 null, // Sem problemas
                 StatusEntrega.PENDENTE,
@@ -61,10 +61,10 @@ public class Main implements CommandLineRunner { // 2. IMPLEMENTE A INTERFACE
         //    3. Enviar o email para o destinatário que você definiu acima.
         System.out.println(">>> Atualizando status para EM_TRANSITO e enviando email...");
 
-        entregaService.atualizarStatusDaEntrega(minhaEntregaTeste, StatusEntrega.EM_TRANSITO);
+        //entregaService.atualizarStatusDaEntrega(minhaEntregaTeste, StatusEntrega.EM_TRANSITO);
 
         System.out.println(">>> Status atualizado para: " + minhaEntregaTeste.getStatusEntrega());
         System.out.println(">>> Teste concluído. Verifique sua caixa de entrada!");
         System.out.println("==================================================");
     }
-}
+} */

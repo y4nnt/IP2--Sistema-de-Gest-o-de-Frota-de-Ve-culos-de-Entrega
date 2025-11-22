@@ -6,12 +6,17 @@ import com.gestaoentregas.dados.repositorios.RepositorioEntrega;
 import com.gestaoentregas.excecoes.ECException;
 import com.gestaoentregas.excecoes.EIException;
 import com.gestaoentregas.excecoes.ENCException;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+
+@Service
 public class ServicoEntrega {
-    private final IRepositorioEntrega repositorioEntrega;
+    private final RepositorioEntrega repositorioEntrega;
 
-    public ServicoEntrega() {
-        this.repositorioEntrega = RepositorioEntrega.getInstance();
+    public ServicoEntrega(RepositorioEntrega repositorioEntrega) {
+        this.repositorioEntrega = repositorioEntrega;
     }
 
     public void cadastrarEntrega(Entrega entrega) throws ECException, ENCException{
@@ -49,5 +54,9 @@ public class ServicoEntrega {
             throw new EIException ("A entrega não pode ser cancelada em trânsito");
         }
         entrega.atualizarStatus(novoStatus);
+    }
+
+    public ArrayList<Entrega> listarEntregas() {
+        return repositorioEntrega.listarEntregas();
     }
 }

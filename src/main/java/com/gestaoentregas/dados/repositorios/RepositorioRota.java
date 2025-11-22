@@ -1,9 +1,11 @@
 package com.gestaoentregas.dados.repositorios;
 
 import com.gestaoentregas.dados.beans.entrega.Rota;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 
+@Repository
 public class RepositorioRota implements IRepositorioRota {
     private ArrayList<Rota> rotas;
 
