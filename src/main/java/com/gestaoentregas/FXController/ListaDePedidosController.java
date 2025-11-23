@@ -8,18 +8,22 @@ import com.gestaoentregas.excecoes.VInException;
 import com.gestaoentregas.negocio.ServicoEntrega;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
 import com.gestaoentregas.negocio.ServicoProduto;
+import com.gestaoentregas.negocio.ServicoRota;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.Label;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -35,7 +39,7 @@ public class ListaDePedidosController implements Initializable {
     @FXML
     private TableColumn<Entrega, String> colunaLocal;
     @FXML
-    private VBox painelDetalhes;
+    private Pane painelDetalhes;
     @FXML
     private Label lblDetalhesID;
     @FXML
@@ -46,25 +50,30 @@ public class ListaDePedidosController implements Initializable {
     private TableView<Produto> tabelaProdutos;
     @FXML
     private TableColumn<Produto, String> colunaNome;
+    @FXML
+    private Button btnAdd;
+    @FXML
+    private Button btnRemove;
+
+    private Rota rota = new Rota("Central, 001", 0, null, null, "001");
+    private Entrega entregaEmVisualizacao;
+
 
     // 1. Injeção Final (Imutável)
     private final ServicoEntrega servicoEntrega;
-    private final ServicoProduto servicoProduto;
+    private final ServicoRota servicoRota;
 
     private final ObservableList<Entrega> listaEntregas = FXCollections.observableArrayList();
 
-    // Objetos de teste (serão criados assim que o Spring instanciar essa classe)
-    private Produto p1 = new Produto("Perfume", "001", 30.00);
-    private Produto p2 = new Produto("Camisa", "002", 30.00);
-    private Produto p3 = new Produto("Calça", "003", 30.00);
-    private Entrega e1 = new Entrega("101", "Rua do Poeta, 77", null, null, StatusEntrega.PENDENTE, "123@456");
-    private Entrega e2 = new Entrega("102", "Rua da Harmonia, 93", null, null, StatusEntrega.PENDENTE, "123@456");
-    private Entrega e3 = new Entrega("103", "Rua Santa Izabel, 42", null, null, StatusEntrega.PENDENTE, "123@456");
 
     // 2. CONSTRUTOR: O Spring injeta os serviços aqui automaticamente
-    public ListaDePedidosController(ServicoEntrega servicoEntrega, ServicoProduto servicoProduto) {
+    public ListaDePedidosController(ServicoEntrega servicoEntrega, ServicoRota servicoRota) {
         this.servicoEntrega = servicoEntrega;
-        this.servicoProduto = servicoProduto;
+        this.servicoRota = servicoRota;
+    }
+
+    public void adicionarEntrega(Entrega entrega, Rota rota) {
+        rota.addEntrega(entrega);
     }
 
 
@@ -78,7 +87,7 @@ public class ListaDePedidosController implements Initializable {
         colunaLocal.setCellValueFactory(new PropertyValueFactory<>("localEntrega"));
         colunaNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
 
-        carregarDadosIniciais();
+        listaEntregas.addAll(servicoEntrega.listarEntregas());
 
         tabelaSelecaoEntregasMotorista.setItems(listaEntregas);
 
@@ -94,34 +103,22 @@ public class ListaDePedidosController implements Initializable {
         );
     }
 
-    private void carregarDadosIniciais() {
-        try {
-            // Cadastra Produtos
-            servicoProduto.cadastrarProduto(p1);
-            servicoProduto.cadastrarProduto(p2);
-            servicoProduto.cadastrarProduto(p3);
-
-            // Monta Entregas
-            e1.addProduto(p1); e1.addProduto(p2); e1.addProduto(p3);
-            e2.addProduto(p1); e2.addProduto(p2); e2.addProduto(p3);
-            e3.addProduto(p1); e3.addProduto(p2); e3.addProduto(p3);
-
-            // Cadastra Entregas
-            servicoEntrega.cadastrarEntrega(e1);
-            servicoEntrega.cadastrarEntrega(e2);
-            servicoEntrega.cadastrarEntrega(e3);
-
-            // Atualiza a lista da tela
-            List<Entrega> doBanco = servicoEntrega.listarEntregas();
-            listaEntregas.setAll(doBanco);
-
-        } catch (Exception e) {
-            e.printStackTrace(); // Trate as exceções aqui
-        }
-    }
-
     private void mostrarDetalhes(Entrega entrega) {
-        // Preenche os Labels e a Tabela com os dados do pedido selecionado
+
+        this.entregaEmVisualizacao = entrega;
+
+        if (rota.buscarEntregaRota(entrega.getCodEntrega()) == null) {
+            btnAdd.setManaged(true);
+            btnAdd.setVisible(true);
+            btnRemove.setVisible(false);
+            btnRemove.setManaged(false);
+        } else {
+            btnAdd.setManaged(false);
+            btnAdd.setVisible(false);
+            btnRemove.setVisible(true);
+            btnRemove.setManaged(true);
+        }
+
         lblDetalhesID.setText(entrega.getCodEntrega());
         lblDetalhesLocal.setText(entrega.getLocalEntrega());
         lblDetalhesObs.setText(entrega.getObservacoesEntrega());
@@ -131,8 +128,17 @@ public class ListaDePedidosController implements Initializable {
         colunaNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
         tabelaProdutos.setItems(listaProdutos);
 
-        // Torna o VBox visível e gerenciado pelo layout
         painelDetalhes.setVisible(true);
         painelDetalhes.setManaged(true);
+    }
+
+    @FXML
+    public void adicionarEntregaNaRota() {
+        this.rota.addEntrega(entregaEmVisualizacao);
+    }
+
+    @FXML
+    public void removerEntregaNaRota() {
+        this.rota.removerEntrega(entregaEmVisualizacao);
     }
 }

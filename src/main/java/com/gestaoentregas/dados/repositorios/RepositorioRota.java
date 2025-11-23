@@ -9,20 +9,8 @@ import java.util.ArrayList;
 public class RepositorioRota implements IRepositorioRota {
     private ArrayList<Rota> rotas;
 
-    private static RepositorioRota repositorioRotas;
-
     private RepositorioRota() {
         this.rotas = new ArrayList<>();
-    }
-
-    public static RepositorioRota getInstance() {
-        // Se a instância ainda não foi criada...
-        if (repositorioRotas == null) {
-            // ...cria a única instância
-            repositorioRotas = new RepositorioRota();
-        }
-        // Retorna a instância que  já existe ou acabou de ser criada
-        return repositorioRotas;
     }
 
     @Override

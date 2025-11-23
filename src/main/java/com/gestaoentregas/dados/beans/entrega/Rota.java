@@ -17,7 +17,7 @@ public class Rota {
     private VeiculoMotorista veiculoMotoristaRota;
     private String idRota;
 
-    public Rota(String origem, double distancia, LocalDateTime tempoEstimado, VeiculoMotorista veiculoMotorista, Entrega entregaRota, String idRota) {
+    public Rota(String origem, double distancia, LocalDateTime tempoEstimado, VeiculoMotorista veiculoMotorista, String idRota) {
         this.origemRota = origem;
         this.destinoRota = null;
         this.distanciaKm = distancia;
@@ -52,6 +52,20 @@ public class Rota {
             this.entregasRota.add(entrega);
             addParada(entrega.getLocalEntrega());
         }
+    }
+
+    public Entrega buscarEntregaRota(String codEntrega) {
+        Entrega entrega = null;
+        int indice = -1;
+        for (int i = 0; i < this.entregasRota.size(); i++) {
+            if (this.entregasRota.get(i).getCodEntrega().equals(codEntrega)) {
+                indice = i;
+            }
+        }
+        if (indice != -1) {
+            entrega = this.entregasRota.get(indice);
+        }
+        return entrega;
     }
 
     public List<Entrega> getEntregasRota() {
