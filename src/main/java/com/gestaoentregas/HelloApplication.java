@@ -1,6 +1,6 @@
-package com.gestaoentregas.FXController;
+package com.gestaoentregas;
 
-import com.gestaoentregas.dados.repositorios.RepositorioEntrega;
+import com.gestaoentregas.FXController.ListaDePedidosController;
 import com.gestaoentregas.excecoes.ECException;
 import com.gestaoentregas.excecoes.PCException;
 import com.gestaoentregas.negocio.ServicoEntrega;
@@ -12,11 +12,13 @@ import javafx.stage.Stage;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 
 @SpringBootApplication
-public class ListaDePedidosApplication extends Application {
+@Component
+public class HelloApplication extends Application {
 
     private static ConfigurableApplicationContext springContext;
 
@@ -31,21 +33,22 @@ public class ListaDePedidosApplication extends Application {
 
     @Override
     public void start(Stage stage) throws IOException, ECException, PCException {
-        FXMLLoader fxmlLoader = new FXMLLoader(ListaDePedidosApplication.class.getResource("/com.gestaoentregas/ListaDePedidosView.fxml"));
-
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/com.gestaoentregas/MapaView.fxml"));
         fxmlLoader.setControllerFactory(springContext::getBean);
 
-        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
-        stage.setTitle("Motorista Aba");
+        Scene scene = new Scene(fxmlLoader.load(), 1250, 800);
+        stage.setTitle("Mapa");
 
         ListaDePedidosController controller = fxmlLoader.getController();
 
-        ServicoEntrega servicoEntregaSpring = springContext.getBean(ServicoEntrega.class);
-        ServicoProduto servicoProdutoSpring = springContext.getBean(ServicoProduto.class);
-        controller.setServicoEntrega(servicoEntregaSpring);
-        controller.setServicoProduto(servicoProdutoSpring);
 
         stage.setScene(scene);
         stage.show();
     }
+
+    @Override
+    public void stop() {
+        springContext.close();
+    }
+
 }

@@ -19,7 +19,7 @@ public class ServicoProduto {
     public void cadastrarProduto(Produto produto) throws PCException, VInException {
         if(repositorioProduto.buscarProduto(produto.getCodigo()) != null){
             throw new PCException();
-        } else if (repositorioProduto.buscarProduto(produto.getCodigo()).getValor() <= 0){
+        } else if (produto.getValor() <= 0){
             throw new VInException();
         }
         repositorioProduto.cadastrarProduto(produto);
