@@ -1,15 +1,9 @@
 package com.gestaoentregas.FXController;
 
 import com.gestaoentregas.dados.beans.entrega.*;
-import com.gestaoentregas.excecoes.ECException;
-import com.gestaoentregas.excecoes.ENCException;
-import com.gestaoentregas.excecoes.PCException;
-import com.gestaoentregas.excecoes.VInException;
 import com.gestaoentregas.negocio.ServicoEntrega;
 
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 
 
@@ -25,26 +19,17 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
-import com.gestaoentregas.negocio.ServicoProduto;
-import com.gestaoentregas.negocio.ServicoRota;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 import javafx.scene.control.Label;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
+import org.springframework.context.ApplicationContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 @Component
 public class ListaDePedidosController implements Initializable {
@@ -72,21 +57,20 @@ public class ListaDePedidosController implements Initializable {
     @FXML
     private Button btnRemove;
 
-    private Rota rota = new Rota("Central, 001", 0, null, null, "001");
+    private final Rota rota = new Rota("Central, 001", 0, null, null, 0001);
     private Entrega entregaEmVisualizacao;
 
 
     // 1. Injeção Final (Imutável)
     private final ServicoEntrega servicoEntrega;
-    private final ServicoRota servicoRota;
 
     private final ObservableList<Entrega> listaEntregas = FXCollections.observableArrayList();
 
 
     // 2. CONSTRUTOR: O Spring injeta os serviços aqui automaticamente
-    public ListaDePedidosController(ServicoEntrega servicoEntrega, ServicoRota servicoRota) {
+    public ListaDePedidosController(ServicoEntrega servicoEntrega, ApplicationContext context) {
         this.servicoEntrega = servicoEntrega;
-        this.servicoRota = servicoRota;
+        this.context = context;
     }
 
     public void adicionarEntrega(Entrega entrega, Rota rota) {
@@ -152,18 +136,31 @@ public class ListaDePedidosController implements Initializable {
     @FXML
     public void adicionarEntregaNaRota() {
         this.rota.addEntrega(entregaEmVisualizacao);
+        this.painelDetalhes.setVisible(false);
+        this.painelDetalhes.setManaged(false);
+        System.out.println(rota.getEntregasRota());
     }
 
     @FXML
     public void removerEntregaNaRota() {
         this.rota.removerEntrega(entregaEmVisualizacao);
+        this.painelDetalhes.setVisible(false);
+        this.painelDetalhes.setManaged(false);
     }
+
+
+    private final ApplicationContext context;
 
     @FXML
     void acaoFinalizarEntregaIrParaRotas(ActionEvent event) {
         try {
-            // 1. Carrega o FXML
-            Parent parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com.gestaoentregas/TelaRotas.fxml")));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com.gestaoentregas/TelaRotas.fxml"));
+
+            loader.setControllerFactory(context::getBean);
+            Parent parent = loader.load();
+
+            TelaRotasController controller = loader.getController();
+            controller.setRota(this.rota);
 
             // 2. Cria uma NOVA janela (Stage)
             Stage stageNovo = new Stage();

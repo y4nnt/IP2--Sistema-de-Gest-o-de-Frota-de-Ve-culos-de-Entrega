@@ -5,30 +5,49 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gestaoentregas.FXController.TelaRotasController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gestaoentregas.FXController.TelaRotasController">
     <children>
-        <VBox alignment="TOP_CENTER" layoutX="200.0" layoutY="100.0" prefHeight="400.0" prefWidth="600.0" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-            <children>
-                <Label text="Rotas de Entrega">
-                    <font>
-                        <Font name="System Bold" size="24.0" />
-                    </font>
-                </Label>
+      <HBox alignment="CENTER" layoutX="135.0" layoutY="326.0" prefHeight="66.0" prefWidth="331.0">
+         <children>
 
-                <ListView fx:id="listViewRotas" prefHeight="250.0" prefWidth="560.0">
+                      <Button fx:id="btnVoltar" mnemonicParsing="false" onAction="#acaoBotaoVoltar" prefHeight="25.0" prefWidth="135.0" text="Voltar para editar rota" textAlignment="CENTER">
+               <HBox.margin>
+                  <Insets right="2.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="btnFinalizar" mnemonicParsing="false" onAction="#acaoBotaoFinalizar" prefHeight="25.0" prefWidth="135.0" text="Finalizar rota" textAlignment="CENTER">
+               <HBox.margin>
+                  <Insets left="2.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+          <Label alignment="TOP_LEFT" layoutX="204.0" layoutY="14.0" text="Rota de Entregas">
+              <font>
+                  <Font name="System Bold" size="24.0" />
+              </font>
+          </Label>
+      <VBox layoutX="12.0" layoutY="87.0" prefHeight="201.0" prefWidth="545.0">
+         <children>
+            <Label fx:id="lblOrigem" prefHeight="20.0" prefWidth="120.0" text="Origem">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <padding>
+                  <Insets left="12.0" />
+               </padding>
+            </Label>
+      
+                      <ListView fx:id="listViewPontosParada" prefHeight="176.0" prefWidth="545.0" style="-fx-background-insets: 0; -fx-selection-bar: white; -fx-selection-bar-non-focused: white; -fx-control-inner-background-alt: white; -fx-font-size: 16px;" VBox.vgrow="NEVER">
                     <VBox.margin>
-                        <Insets left="20.0" right="20.0" />
+                        <Insets />
                     </VBox.margin>
                 </ListView>
-
-                <Button mnemonicParsing="false" onAction="#acaoBotaoVoltar" text="Voltar para Pedidos" />
-            </children>
-            <padding>
-                <Insets top="20.0" />
-            </padding>
-        </VBox>
+         </children>
+      </VBox>
     </children>
 </AnchorPane>

@@ -1,5 +1,6 @@
-package controller;
+/* package controller;
 
+import com.gestaoentregas.dados.beans.entrega.Rota;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -9,7 +10,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import model.Rota;
 
 public class RouteManagementController {
 
@@ -29,9 +29,9 @@ public class RouteManagementController {
     // Lista de dados para a tabela
     private ObservableList<Rota> routeData = FXCollections.observableArrayList();
 
-    /**
-     * Método de inicialização chamado após o carregamento do FXML.
-     */
+
+     // Método de inicialização chamado após o carregamento do FXML.
+
     @FXML
     public void initialize() {
         // 1. Configurar as colunas da Tabela de Rotas
@@ -53,9 +53,9 @@ public class RouteManagementController {
         routesTable.setItems(routeData);
     }
 
-    /**
-     * Carrega dados fictícios para demonstração.
-     */
+
+     //Carrega dados fictícios para demonstração.
+
     private void loadMockData() {
         routeData.add(new Rota(1L, "Rota Norte A", "João Silva", "ABC-1234", "Em Andamento"));
         routeData.add(new Rota(2L, "Rota Sul B", "Maria Santos", "DEF-5678", "Pendente"));
@@ -120,4 +120,4 @@ public class RouteManagementController {
         alert.setContentText(content);
         alert.showAndWait();
     }
-}
+} */
