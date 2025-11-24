@@ -50,7 +50,7 @@ public class MapaController {
             }
         });
 
-        URL url = getClass().getResource("/index.html");
+        URL url = getClass().getResource("/mapa.html");
         if (url != null) engine.load(url.toExternalForm());
     }
 }

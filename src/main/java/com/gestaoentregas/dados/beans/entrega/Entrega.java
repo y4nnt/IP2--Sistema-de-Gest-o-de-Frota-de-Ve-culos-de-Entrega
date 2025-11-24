@@ -6,11 +6,6 @@ import java.util.List;
 
 public class Entrega {
 
-
-    public enum StatusEntrega {
-        PENDENTE, EM_TRANSITO, ENTREGUE, CANCELADA, PROBLEMA
-    }
-
     private String codEntrega;
     private String localEntrega;
     private StatusEntrega statusEntrega;

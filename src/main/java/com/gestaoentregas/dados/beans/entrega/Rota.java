@@ -15,11 +15,11 @@ public class Rota {
     private double distanciaKm;
     private LocalDateTime tempoEstimado;
     private VeiculoMotorista veiculoMotoristaRota;
-    private String idRota;
+    private int idRota;
 
-    public Rota(String origem, double distancia, LocalDateTime tempoEstimado, VeiculoMotorista veiculoMotorista, Entrega entregaRota, String idRota) {
+    public Rota(String origem, double distancia, LocalDateTime tempoEstimado, VeiculoMotorista veiculoMotorista, int idRota) {
         this.origemRota = origem;
-        this.destinoRota = null;
+        this.destinoRota = "";
         this.distanciaKm = distancia;
         this.tempoEstimado = tempoEstimado;
         this.veiculoMotoristaRota = veiculoMotorista;
@@ -31,14 +31,18 @@ public class Rota {
     private void addParada(String parada) {
         if (parada != null && !parada.trim().isEmpty()) {
             this.pontosParada.add(parada);
-            setDestinoRota(this.pontosParada);
+            setDestinoRota(parada);
         }
     }
 
     private void removerParada(String parada) {
         this.pontosParada.remove(parada);
         if (this.getDestinoRota().equals(parada)) {
-            setDestinoRota(this.pontosParada);
+            if (pontosParada.isEmpty()) {
+                destinoRota = "";
+            } else {
+                setDestinoRota(pontosParada.getLast());
+            }
         }
     }
 
@@ -52,6 +56,20 @@ public class Rota {
             this.entregasRota.add(entrega);
             addParada(entrega.getLocalEntrega());
         }
+    }
+
+    public Entrega buscarEntregaRota(String codEntrega) {
+        Entrega entrega = null;
+        int indice = -1;
+        for (int i = 0; i < this.entregasRota.size(); i++) {
+            if (this.entregasRota.get(i).getCodEntrega().equals(codEntrega)) {
+                indice = i;
+            }
+        }
+        if (indice != -1) {
+            entrega = this.entregasRota.get(indice);
+        }
+        return entrega;
     }
 
     public List<Entrega> getEntregasRota() {
@@ -71,6 +89,10 @@ public class Rota {
         return veiculoMotoristaRota;
     }
 
+    public void setVeiculoMotoristaRota(VeiculoMotorista veiculoMotoristaRota) {
+        this.veiculoMotoristaRota = veiculoMotoristaRota;
+    }
+
     public String getOrigemRota() {
         return origemRota;
     }
@@ -83,17 +105,19 @@ public class Rota {
         return destinoRota;
     }
 
-    private void setDestinoRota(List<String> pontosParada) {
-        this.destinoRota = pontosParada.getLast();
+    private void setDestinoRota(String destinoRota) {
+        this.destinoRota = destinoRota;
     }
 
     public List<String> getPontosParada() {
         return pontosParada;
     }
 
-    public String getIdRota() {
+    public int getIdRota() {
         return idRota;
     }
+
+    public final void setIdRota(int idRota) {this.idRota = idRota;}
 
     @Override
     public String toString() {

@@ -1,0 +1,49 @@
+ /* Reset básico */
+html, body { height: 100%; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+
+#map { height: 100%; width: 100%; }
+
+/* Card flutuante */
+.controls-card {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 320px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.controls-card h3 { margin: 0 0 5px 0; color: #333; font-size: 18px; }
+
+/* Botão */
+button#btn-ir {
+    padding: 12px;
+    background-color: #1a73e8;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s;
+}
+button#btn-ir:hover { background-color: #1557b0; }
+
+/* Estilo para os containers onde o Google vai injetar os inputs */
+.picker-container {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 0; /* O componente do Google preenche tudo */
+    background: #f8f9fa;
+}
+
+/* Ajuste fino para o componente do Google (Web Component) */
+gmp-place-picker {
+    width: 100%;
+}

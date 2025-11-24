@@ -1,26 +1,16 @@
 package com.gestaoentregas.dados.repositorios;
 
 import com.gestaoentregas.dados.beans.entrega.Rota;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 
+@Repository
 public class RepositorioRota implements IRepositorioRota {
     private ArrayList<Rota> rotas;
 
-    private static RepositorioRota repositorioRotas;
-
     private RepositorioRota() {
         this.rotas = new ArrayList<>();
-    }
-
-    public static RepositorioRota getInstance() {
-        // Se a instância ainda não foi criada...
-        if (repositorioRotas == null) {
-            // ...cria a única instância
-            repositorioRotas = new RepositorioRota();
-        }
-        // Retorna a instância que  já existe ou acabou de ser criada
-        return repositorioRotas;
     }
 
     @Override
@@ -37,7 +27,7 @@ public class RepositorioRota implements IRepositorioRota {
     }
 
     @Override
-    public void removerRota(String id) {
+    public void removerRota(int id) {
         int i = procurarIndice(id);
         if (i != -1) {
             this.rotas.remove(i);
@@ -45,7 +35,7 @@ public class RepositorioRota implements IRepositorioRota {
     }
 
     @Override
-    public Rota buscarRota(String id) {
+    public Rota buscarRota(int id) {
         Rota rota = null;
         int i = procurarIndice(id);
         if (i != -1) {
@@ -54,13 +44,17 @@ public class RepositorioRota implements IRepositorioRota {
         return rota;
     }
 
-    private int procurarIndice(String id) {
+    private int procurarIndice(int id) {
         int indice = -1;
         for (int i = 0; i < this.rotas.size(); i++) {
-            if (this.rotas.get(i).getIdRota().equals(id)) {
+            if (this.rotas.get(i).getIdRota() == id) {
                 indice = i;
             }
         }
         return indice;
+    }
+
+    public ArrayList<Rota> listarRotas() {
+        return new ArrayList<>(rotas);
     }
 }

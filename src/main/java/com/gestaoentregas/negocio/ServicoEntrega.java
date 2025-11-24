@@ -1,17 +1,23 @@
 package com.gestaoentregas.negocio;
 
 import com.gestaoentregas.dados.beans.entrega.Entrega;
+import com.gestaoentregas.dados.beans.entrega.StatusEntrega;
 import com.gestaoentregas.dados.repositorios.IRepositorioEntrega;
 import com.gestaoentregas.dados.repositorios.RepositorioEntrega;
 import com.gestaoentregas.excecoes.ECException;
 import com.gestaoentregas.excecoes.EIException;
 import com.gestaoentregas.excecoes.ENCException;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+
+@Service
 public class ServicoEntrega {
-    private final IRepositorioEntrega repositorioEntrega;
+    private final RepositorioEntrega repositorioEntrega;
 
-    public ServicoEntrega() {
-        this.repositorioEntrega = RepositorioEntrega.getInstance();
+    public ServicoEntrega(RepositorioEntrega repositorioEntrega) {
+        this.repositorioEntrega = repositorioEntrega;
     }
 
     public void cadastrarEntrega(Entrega entrega) throws ECException, ENCException{
@@ -29,7 +35,7 @@ public class ServicoEntrega {
     }
 
     public void removerEntrega(String codigo) throws EIException {
-        if (repositorioEntrega.buscarEntrega(codigo) == null || repositorioEntrega.buscarEntrega(codigo).getStatusEntrega() == Entrega.StatusEntrega.EM_TRANSITO) {
+        if (repositorioEntrega.buscarEntrega(codigo) == null || repositorioEntrega.buscarEntrega(codigo).getStatusEntrega() == StatusEntrega.EM_TRANSITO) {
             throw new EIException();
         }
         repositorioEntrega.removerEntrega(codigo);
@@ -43,11 +49,15 @@ public class ServicoEntrega {
         return entrega;
     }
 
-    public void cancelarEntrega(Entrega entrega, Entrega.StatusEntrega novoStatus) throws EIException {
+    public void cancelarEntrega(Entrega entrega, StatusEntrega novoStatus) throws EIException {
         Entrega entrega1 = buscarEntrega(entrega.getCodEntrega());
-        if(entrega1.getStatusEntrega() == Entrega.StatusEntrega.EM_TRANSITO){
+        if(entrega1.getStatusEntrega() == StatusEntrega.EM_TRANSITO){
             throw new EIException ("A entrega não pode ser cancelada em trânsito");
         }
         entrega.atualizarStatus(novoStatus);
+    }
+
+    public ArrayList<Entrega> listarEntregas() {
+        return repositorioEntrega.listarEntregas();
     }
 }

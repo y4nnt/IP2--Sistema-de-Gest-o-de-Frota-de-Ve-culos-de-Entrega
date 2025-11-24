@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gestaoentregas.FXController.TelaRotasController">
+    <children>
+      <HBox alignment="CENTER" layoutX="135.0" layoutY="326.0" prefHeight="66.0" prefWidth="331.0">
+         <children>
+
+                      <Button fx:id="btnVoltar" mnemonicParsing="false" onAction="#acaoBotaoVoltar" prefHeight="25.0" prefWidth="135.0" text="Voltar para editar rota" textAlignment="CENTER">
+               <HBox.margin>
+                  <Insets right="2.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="btnFinalizar" mnemonicParsing="false" onAction="#acaoBotaoFinalizar" prefHeight="25.0" prefWidth="135.0" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-cursor: hand;" text="Finalizar rota" textAlignment="CENTER">
+               <HBox.margin>
+                  <Insets left="2.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+          <Label alignment="TOP_LEFT" layoutX="204.0" layoutY="14.0" text="Rota de Entregas">
+              <font>
+                  <Font name="System Bold" size="24.0" />
+              </font>
+          </Label>
+      <VBox layoutX="12.0" layoutY="87.0" prefHeight="201.0" prefWidth="545.0">
+         <children>
+            <Label fx:id="lblOrigem" prefHeight="20.0" prefWidth="120.0">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <padding>
+                  <Insets left="11.0" />
+               </padding>
+            </Label>
+      
+                      <ListView fx:id="listViewPontosParada" prefHeight="176.0" prefWidth="545.0" style="-fx-background-insets: 0; -fx-selection-bar: white; -fx-selection-bar-non-focused: white; -fx-control-inner-background-alt: white; -fx-font-size: 16px;" VBox.vgrow="NEVER">
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                </ListView>
+         </children>
+      </VBox>
+    </children>
+</AnchorPane>
