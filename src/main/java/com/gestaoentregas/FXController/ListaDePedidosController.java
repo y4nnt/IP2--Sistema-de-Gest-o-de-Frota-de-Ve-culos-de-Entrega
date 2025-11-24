@@ -12,6 +12,23 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
+
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+
 import com.gestaoentregas.negocio.ServicoProduto;
 import com.gestaoentregas.negocio.ServicoRota;
 import javafx.collections.FXCollections;
@@ -140,5 +157,34 @@ public class ListaDePedidosController implements Initializable {
     @FXML
     public void removerEntregaNaRota() {
         this.rota.removerEntrega(entregaEmVisualizacao);
+    }
+
+    @FXML
+    void acaoFinalizarEntregaIrParaRotas(ActionEvent event) {
+        try {
+            // 1. Carrega o FXML
+            Parent parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com.gestaoentregas/TelaRotas.fxml")));
+
+            // 2. Cria uma NOVA janela (Stage)
+            Stage stageNovo = new Stage();
+            Scene scene = new Scene(parent);
+            stageNovo.setScene(scene);
+            stageNovo.setTitle("Visualização de Rotas");
+
+            // 3. Configurações de Modal (Opcional, mas recomendado)
+            // Isso impede que o usuário clique na tela de trás enquanto essa estiver aberta
+            // Importe: javafx.stage.Modality
+            stageNovo.initModality(javafx.stage.Modality.APPLICATION_MODAL);
+
+            // Define quem é o "pai" dessa janela (para bloquear corretamente)
+            Stage stageAtual = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stageNovo.initOwner(stageAtual);
+
+            // 4. Mostra a nova janela e espera
+            stageNovo.showAndWait();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
