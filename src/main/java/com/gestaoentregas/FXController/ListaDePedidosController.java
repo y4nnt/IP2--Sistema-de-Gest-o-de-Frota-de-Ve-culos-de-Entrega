@@ -138,7 +138,6 @@ public class ListaDePedidosController implements Initializable {
         this.rota.addEntrega(entregaEmVisualizacao);
         this.painelDetalhes.setVisible(false);
         this.painelDetalhes.setManaged(false);
-        System.out.println(rota.getEntregasRota());
     }
 
     @FXML
@@ -162,22 +161,16 @@ public class ListaDePedidosController implements Initializable {
             TelaRotasController controller = loader.getController();
             controller.setRota(this.rota);
 
-            // 2. Cria uma NOVA janela (Stage)
             Stage stageNovo = new Stage();
             Scene scene = new Scene(parent);
             stageNovo.setScene(scene);
             stageNovo.setTitle("Visualização de Rotas");
 
-            // 3. Configurações de Modal (Opcional, mas recomendado)
-            // Isso impede que o usuário clique na tela de trás enquanto essa estiver aberta
-            // Importe: javafx.stage.Modality
             stageNovo.initModality(javafx.stage.Modality.APPLICATION_MODAL);
 
-            // Define quem é o "pai" dessa janela (para bloquear corretamente)
             Stage stageAtual = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stageNovo.initOwner(stageAtual);
 
-            // 4. Mostra a nova janela e espera
             stageNovo.showAndWait();
 
         } catch (IOException e) {
