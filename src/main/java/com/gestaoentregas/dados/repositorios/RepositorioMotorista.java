@@ -1,5 +1,6 @@
 package com.gestaoentregas.dados.repositorios;
 
+import com.gestaoentregas.dados.beans.entrega.Entrega;
 import com.gestaoentregas.dados.beans.motorista.Motorista;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
@@ -56,4 +57,8 @@ public class RepositorioMotorista implements IRepositorioMotorista {
         return indice;
     }
 
+    @Override
+    public ArrayList<Motorista> listarMotoristas() {
+        return new ArrayList<>(this.motoristas);
+    }
 }

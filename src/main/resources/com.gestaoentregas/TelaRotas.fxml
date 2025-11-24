@@ -19,7 +19,7 @@
                   <Insets right="2.0" />
                </HBox.margin>
             </Button>
-            <Button fx:id="btnFinalizar" mnemonicParsing="false" onAction="#acaoBotaoFinalizar" prefHeight="25.0" prefWidth="135.0" text="Finalizar rota" textAlignment="CENTER">
+            <Button fx:id="btnFinalizar" mnemonicParsing="false" onAction="#acaoBotaoFinalizar" prefHeight="25.0" prefWidth="135.0" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-cursor: hand;" text="Finalizar rota" textAlignment="CENTER">
                <HBox.margin>
                   <Insets left="2.0" />
                </HBox.margin>

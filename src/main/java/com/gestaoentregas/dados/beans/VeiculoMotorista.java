@@ -11,6 +11,12 @@ public class VeiculoMotorista {
         this.motoristaEntrega = motoristaEntrega;
         this.veiculoEntrega = veiculoEntrega;
     }
+
+    public VeiculoMotorista() {
+        this.motoristaEntrega = null;
+        this.veiculoEntrega = null;
+    }
+
     public Veiculo getVeiculoEntrega() {return veiculoEntrega;}
 
     public void setVeiculoEntrega(Veiculo veiculoEntrega) {this.veiculoEntrega = veiculoEntrega;}

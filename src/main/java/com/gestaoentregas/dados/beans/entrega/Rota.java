@@ -89,6 +89,10 @@ public class Rota {
         return veiculoMotoristaRota;
     }
 
+    public void setVeiculoMotoristaRota(VeiculoMotorista veiculoMotoristaRota) {
+        this.veiculoMotoristaRota = veiculoMotoristaRota;
+    }
+
     public String getOrigemRota() {
         return origemRota;
     }
