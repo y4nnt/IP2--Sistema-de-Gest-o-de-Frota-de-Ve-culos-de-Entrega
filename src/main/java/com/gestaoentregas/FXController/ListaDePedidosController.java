@@ -81,6 +81,8 @@ public class ListaDePedidosController implements Initializable {
     @FXML
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+        listaEntregas.clear();;
+
         painelDetalhes.setVisible(false);
         painelDetalhes.setManaged(false);
 
@@ -165,6 +167,7 @@ public class ListaDePedidosController implements Initializable {
             Scene scene = new Scene(parent);
             stageNovo.setScene(scene);
             stageNovo.setTitle("Visualização de Rotas");
+            stageNovo.setResizable(false);
 
             stageNovo.initModality(javafx.stage.Modality.APPLICATION_MODAL);
 
@@ -176,5 +179,11 @@ public class ListaDePedidosController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void acaoVoltarMenu(ActionEvent event) {
+        Stage stageAtual = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+        stageAtual.close();
     }
 }

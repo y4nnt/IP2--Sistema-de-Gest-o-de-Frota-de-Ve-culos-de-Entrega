@@ -87,6 +87,7 @@ public class TelaRotasController {
             stage.setScene(new Scene(root));
             stage.setTitle("Seleção de Motorista");
             stage.initModality(javafx.stage.Modality.APPLICATION_MODAL);
+            stage.setResizable(false);
 
 
             stage.setAlwaysOnTop(true);

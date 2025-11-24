@@ -1,10 +1,9 @@
 package com.gestaoentregas;
 
 import com.gestaoentregas.FXController.ListaDePedidosController;
+import com.gestaoentregas.FXController.MenuPrincipalController;
 import com.gestaoentregas.excecoes.ECException;
 import com.gestaoentregas.excecoes.PCException;
-import com.gestaoentregas.negocio.ServicoEntrega;
-import com.gestaoentregas.negocio.ServicoProduto;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -12,13 +11,11 @@ import javafx.stage.Stage;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 
 @SpringBootApplication
-@Component
-public class HelloApplication extends Application {
+public class DeliveryApplication extends Application {
 
     private static ConfigurableApplicationContext springContext;
 
@@ -28,19 +25,20 @@ public class HelloApplication extends Application {
 
     @Override
     public void init() {
-        springContext = SpringApplication.run(ListaDePedidosApplication.class);
+        springContext = SpringApplication.run(DeliveryApplication.class);
     }
 
     @Override
     public void start(Stage stage) throws IOException, ECException, PCException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/com.gestaoentregas/MapaView.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(DeliveryApplication.class.getResource("/com.gestaoentregas/MenuAdm.fxml"));
+
         fxmlLoader.setControllerFactory(springContext::getBean);
 
-        Scene scene = new Scene(fxmlLoader.load(), 1250, 800);
-        stage.setTitle("Mapa");
+        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+        stage.setTitle("Menu Inicial ADM");
+        stage.setResizable(false);
 
-        ListaDePedidosController controller = fxmlLoader.getController();
-
+        MenuPrincipalController controller = fxmlLoader.getController();
 
         stage.setScene(scene);
         stage.show();
