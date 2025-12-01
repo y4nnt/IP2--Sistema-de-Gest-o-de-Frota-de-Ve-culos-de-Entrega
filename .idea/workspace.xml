@@ -5,9 +5,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="911704be-b986-469a-b46c-ae04dd23952b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/dados/beans/cliente/Cliente.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/dados/beans/cliente/Usuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_11_2025_19_04_[Changes]1/Entrega.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_11_2025_19_04_[Changes]1/HelloApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_11_2025_19_04_[Changes]1/HelloController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_11_2025_19_04_[Changes]1/IRepositorioRota.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_11_2025_19_04_[Changes]1/MapaController$JavaBridge.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_11_2025_19_04_[Changes]1/MapaController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_11_2025_19_04_[Changes]1/RepositorioMotorista.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_11_2025_19_04_[Changes]1/RepositorioProduto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_11_2025_19_04_[Changes]1/RepositorioRota.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_11_2025_19_04_[Changes]1/RepositorioVeiculo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_11_2025_19_04_[Changes]1/RepositorioVeiculoMotorista.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_11_2025_19_04_[Changes]1/Rota.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_11_2025_19_04_[Changes]1/ServicoEntrega.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_11_2025_19_04_[Changes]1/ServicoMotorista.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_11_2025_19_04_[Changes]1/ServicoProduto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_11_2025_19_04_[Changes]1/ServicoRota.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_11_2025_19_04_[Changes]1/ServicoVeiculo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_11_2025_19_04_[Changes]1/ServicoVeiculoMotorista.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_11_2025_19_04_[Changes]1/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_11_2025_19_04__Changes_1.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/dados/beans/admin/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/dados/beans/admin/Admin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/dados/beans/cliente/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/dados/beans/cliente/Cliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/dados/beans/cliente/TipoUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/dados/beans/cliente/TipoUsuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/dados/beans/cliente/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/dados/beans/cliente/Usuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/dados/repositorios/IRepositorioUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/dados/repositorios/IRepositorioUsuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/dados/repositorios/RepositorioUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/dados/repositorios/RepositorioUsuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/excecoes/INException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/excecoes/INException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/excecoes/UCException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/excecoes/UCException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/excecoes/UIException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/excecoes/UIException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/negocio/ServicoUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/negocio/ServicoUsuario.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,7 +47,9 @@
       <list>
         <option value="FxmlFile" />
         <option value="Interface" />
+        <option value="Enum" />
         <option value="Class" />
+        <option value="Exception" />
       </list>
     </option>
   </component>
@@ -51,34 +81,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Cliente.executor": "Run",
-    "Application.HelloApplication.executor": "Run",
-    "Application.Launcher.executor": "Run",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "Spring Boot.ListaDePedidosApplication.executor": "Run",
-    "Spring Boot.Main.executor": "Run",
-    "git-widget-placeholder": "gui-cliente",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Cliente.executor&quot;: &quot;Run&quot;,
+    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Launcher.executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;Spring Boot.ListaDePedidosApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.Main.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;gui-cliente&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
-  <component name="RunManager">
+}</component>
+  <component name="RunManager" selected="Application.HelloApplication">
     <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.gestaoentregas.FXController.HelloApplication" />
       <module name="projetopoo" />
@@ -185,6 +215,8 @@
       <workItem from="1763687049357" duration="2484000" />
       <workItem from="1763873027331" duration="328000" />
       <workItem from="1763933514236" duration="11505000" />
+      <workItem from="1764366574175" duration="7585000" />
+      <workItem from="1764627132391" duration="652000" />
     </task>
     <servers />
   </component>

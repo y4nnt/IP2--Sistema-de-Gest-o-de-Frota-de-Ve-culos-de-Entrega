@@ -2,75 +2,34 @@ package com.gestaoentregas.dados.beans.cliente;
 
 import java.time.LocalDate;
 
-public class Cliente {
-    private String nomeCliente;
-    private String telefoneCliente;
-    private String cpfCliente;
-    private String emailCliente;
-    private String idCliente;
-    private LocalDate dataNascimentoCliente;
+public class Cliente extends Usuario {
+    private String telefone;
+    private LocalDate dataNascimento;
 
-    public Cliente(String nomeCliente, String telefoneCliente, String cpfCliente, String emailCliente, String idCliente, LocalDate dataNascimentoCliente) {
-        this.nomeCliente = nomeCliente;
-        this.telefoneCliente = telefoneCliente;
-        this.cpfCliente = cpfCliente;
-        this.emailCliente = emailCliente;
-        this.idCliente = idCliente;
-        this.dataNascimentoCliente = dataNascimentoCliente;
+    public Cliente(String id, String nome, String cpf, String email, String senha, String telefone, LocalDate dataNascimento) {
+        super(id, nome, cpf, email, senha, TipoUsuario.CLIENTE);
+        this.telefone = telefone;
+        this.dataNascimento = dataNascimento;
     }
 
-    public String getNomeCliente() {
-        return nomeCliente;
+    public String getTelefone() {
+        return telefone;
     }
 
-    public void setNomeCliente(String nomeCliente) {
-        this.nomeCliente = nomeCliente;
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
     }
 
-    public String getTelefoneCliente() {
-        return telefoneCliente;
+    public LocalDate getDataNascimento() {
+        return dataNascimento;
     }
 
-    public void setTelefoneCliente(String telefoneCliente) {
-        this.telefoneCliente = telefoneCliente;
-    }
-
-    public String getCpfCliente() {
-        return cpfCliente;
-    }
-
-    public void setCpfCliente(String cpfCliente) {
-        this.cpfCliente = cpfCliente;
-    }
-
-    public String getEmailCliente() {
-        return emailCliente;
-    }
-
-    public void setEmailCliente(String emailCliente) {
-        this.emailCliente = emailCliente;
-    }
-
-    public String getIdCliente() {
-        return idCliente;
-    }
-
-    public void setIdCliente(String idCliente) {
-        this.idCliente = idCliente;
-    }
-
-    public LocalDate getDataNascimentoCliente() {
-        return dataNascimentoCliente;
-    }
-
-    public void setDataNascimentoCliente(LocalDate dataNascimentoCliente) {
-        this.dataNascimentoCliente = dataNascimentoCliente;
+    public void setDataNascimento(LocalDate dataNascimento) {
+        this.dataNascimento = dataNascimento;
     }
 
     @Override
-    public String toString(){
-        return String.format("Cliente [Nome: %s, Data de Nascimento: %d/%d/%d, Telefone: %s, CPF: %s, Email: %s, Id: %s]",
-                this.nomeCliente, this.dataNascimentoCliente.getDayOfMonth(), this.dataNascimentoCliente.getMonthValue(),
-                this.dataNascimentoCliente.getYear(), this.telefoneCliente, this.cpfCliente, this.emailCliente, this.idCliente);
+    public String toString() {
+        return "Cliente: " + getNome() + " (ID: " + getId() + ")";
     }
 }

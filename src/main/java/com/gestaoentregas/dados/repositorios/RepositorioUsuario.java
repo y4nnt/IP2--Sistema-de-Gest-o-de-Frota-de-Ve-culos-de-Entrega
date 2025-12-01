@@ -1,47 +1,63 @@
 package com.gestaoentregas.dados.repositorios;
 
 import com.gestaoentregas.dados.beans.cliente.Usuario;
+import org.springframework.stereotype.Repository;
+
 import java.util.ArrayList;
-import java.util.List;
 
-public class RepositorioUsuario { // Renomeado de RepositorioConta
+@Repository
+public class RepositorioUsuario implements IRepositorioUsuario {
 
-    // Lista polimórfica: aceita Cliente, Admin e Motorista
-    private List<Usuario> usuarios;
+    private ArrayList<Usuario> usuarios;
 
     public RepositorioUsuario() {
         this.usuarios = new ArrayList<>();
     }
 
+    @Override
     public void cadastrarUsuario(Usuario usuario) {
         this.usuarios.add(usuario);
     }
 
+    @Override
+    public void atualizarUsuario(Usuario usuario) {
+        int i = procurarIndice(usuario.getId());
+        if (i != -1) {
+            this.usuarios.set(i, usuario);
+        }
+    }
+
+    @Override
     public void removerUsuario(String id) {
-        int index = procurarIndice(id);
-        if (index != -1) {
-            this.usuarios.remove(index);
-        } else {
-            System.out.println("Usuário não encontrado.");
+        int i = procurarIndice(id);
+        if (i != -1) {
+            this.usuarios.remove(i);
         }
     }
 
+    @Override
     public Usuario buscarUsuario(String id) {
-        int index = procurarIndice(id);
-        if (index != -1) {
-            return this.usuarios.get(index);
+        Usuario usuario = null;
+        int i = procurarIndice(id);
+        if (i != -1) {
+            usuario = this.usuarios.get(i);
         }
-        return null;
+        return usuario;
     }
 
-    // Método auxiliar privado
+
     private int procurarIndice(String id) {
+        int indice = -1;
         for (int i = 0; i < this.usuarios.size(); i++) {
-            // Agora funciona! O método getId() existe na classe pai Usuario
             if (this.usuarios.get(i).getId().equals(id)) {
-                return i;
+                indice = i;
             }
         }
-        return -1;
+        return indice;
+    }
+
+    @Override
+    public ArrayList<Usuario> listarUsuario() {
+        return new ArrayList<>(this.usuarios);
     }
 }
