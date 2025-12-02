@@ -5,6 +5,7 @@ import com.gestaoentregas.dados.beans.entrega.Entrega;
 import com.gestaoentregas.dados.beans.entrega.Rota;
 import com.gestaoentregas.dados.beans.motorista.Motorista;
 import com.gestaoentregas.negocio.ServicoEntrega;
+import com.gestaoentregas.negocio.ServicoUsuario;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -28,6 +29,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class TelaSelecaoMotoristaController implements Initializable {
 
+    private final ServicoUsuario servicoUsuario;
     @FXML private TableView<Motorista> tabelaMotoristas;
     @FXML private TableColumn<Motorista, String> colunaNomeMotorista;
     @FXML private TableColumn<Motorista, String> colunaCpfMotorista;
@@ -44,9 +46,10 @@ public class TelaSelecaoMotoristaController implements Initializable {
 
     private final ObservableList<Motorista> listaMotorista = FXCollections.observableArrayList();
 
-    public TelaSelecaoMotoristaController(ServicoRota servicoRota, ServicoMotorista servicoMotorista) {
+    public TelaSelecaoMotoristaController(ServicoRota servicoRota, ServicoMotorista servicoMotorista, ServicoUsuario servicoUsuario) {
         this.servicoRota = servicoRota;
         this.servicoMotorista = servicoMotorista;
+        this.servicoUsuario = servicoUsuario;
     }
 
     @Override
@@ -63,8 +66,6 @@ public class TelaSelecaoMotoristaController implements Initializable {
     private void carregarMotoristas() {
         listaMotorista.addAll(servicoMotorista.listarMotoristas());
         tabelaMotoristas.setItems(listaMotorista);
-
-        // Dica: Se a tabela estiver vazia, verifique se os Getters na classe Motorista existem!
     }
 
     /**

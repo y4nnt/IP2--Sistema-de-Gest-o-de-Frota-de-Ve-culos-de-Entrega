@@ -44,7 +44,7 @@ public class RepositorioVeiculoMotorista implements IRepositorioVeiculoMotorista
     @Override
     public void removerPorMotorista(int idMotorista) {
         for (int i = 0; i < this.veiculosmotoristas.size(); i++) {
-            if (veiculosmotoristas.get(i).getMotoristaEntrega().getIdMotorista() == idMotorista) {
+            if (veiculosmotoristas.get(i).getMotoristaEntrega().getId() == idMotorista) {
                 veiculosmotoristas.remove(i);
                 i = veiculosmotoristas.size();
             }
@@ -55,7 +55,7 @@ public class RepositorioVeiculoMotorista implements IRepositorioVeiculoMotorista
     public VeiculoMotorista buscarPorMotorista(int idMotorista) {
         VeiculoMotorista veiculomotorista = null;
         for (int i = 0; i < this.veiculosmotoristas.size(); i++) {
-            if (veiculosmotoristas.get(i).getMotoristaEntrega().getIdMotorista() == idMotorista) {
+            if (veiculosmotoristas.get(i).getMotoristaEntrega().getId() == idMotorista) {
                 veiculomotorista = this.veiculosmotoristas.get(i);
             }
         }

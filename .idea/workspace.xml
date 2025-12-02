@@ -5,9 +5,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="911704be-b986-469a-b46c-ae04dd23952b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/dados/beans/cliente/Cliente.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/dados/beans/cliente/Usuario.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/dados/beans/TipoUsuario.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/dados/beans/Usuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_11_2025_19_04__Changes_1.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/DeliveryApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/DeliveryApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/FXController/TelaSelecaoMotoristaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/FXController/TelaSelecaoMotoristaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/InicializadorDados.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/InicializadorDados.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/dados/beans/admin/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/dados/beans/admin/Admin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/dados/beans/cliente/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/dados/beans/cliente/Cliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/dados/beans/cliente/TipoUsuario.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/dados/beans/cliente/Usuario.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/dados/beans/motorista/Motorista.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/dados/beans/motorista/Motorista.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/dados/repositorios/IRepositorioUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/dados/repositorios/IRepositorioUsuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/dados/repositorios/RepositorioMotorista.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/dados/repositorios/RepositorioMotorista.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/dados/repositorios/RepositorioUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/dados/repositorios/RepositorioUsuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/dados/repositorios/RepositorioVeiculoMotorista.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/dados/repositorios/RepositorioVeiculoMotorista.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/excecoes/INException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/excecoes/INException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/excecoes/UCException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/excecoes/UCException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/excecoes/UIException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/excecoes/UIException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/negocio/ServicoMotorista.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/negocio/ServicoMotorista.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/negocio/ServicoUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/negocio/ServicoUsuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gestaoentregas/DeliveryApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gestaoentregas/DeliveryApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gestaoentregas/FXController/TelaSelecaoMotoristaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gestaoentregas/FXController/TelaSelecaoMotoristaController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gestaoentregas/InicializadorDados.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gestaoentregas/InicializadorDados.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gestaoentregas/dados/beans/cliente/Cliente.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gestaoentregas/dados/beans/cliente/Cliente.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gestaoentregas/dados/beans/cliente/Usuario.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gestaoentregas/dados/beans/motorista/Motorista.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gestaoentregas/dados/beans/motorista/Motorista.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gestaoentregas/dados/repositorios/RepositorioMotorista.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gestaoentregas/dados/repositorios/RepositorioMotorista.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gestaoentregas/dados/repositorios/RepositorioVeiculoMotorista.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gestaoentregas/dados/repositorios/RepositorioVeiculoMotorista.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gestaoentregas/negocio/ServicoMotorista.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gestaoentregas/negocio/ServicoMotorista.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,8 +44,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="FxmlFile" />
         <option value="Interface" />
+        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
@@ -26,7 +53,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="gui-motorista" />
+        <entry key="$PROJECT_DIR$" value="gui-login" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -37,16 +64,19 @@
     &quot;assignee&quot;: &quot;rianGui03&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/y4nnt/IP2--Sistema-de-Gest-o-de-Frota-de-Ve-culos-de-Entrega&quot;,
-    &quot;accountId&quot;: &quot;a2318a1e-6c2c-429a-b251-52ec120dbe98&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/y4nnt/IP2--Sistema-de-Gest-o-de-Frota-de-Ve-culos-de-Entrega.git",
+    "accountId": "aa9586cf-7546-4579-933e-99d11875c4bb"
   }
-}</component>
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
   <component name="ProjectId" id="35laKM9WcCDQcEgPnrwcPzEJOH5" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -63,9 +93,12 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
+    "Spring Boot.DeliveryApplication.executor": "Run",
     "Spring Boot.ListaDePedidosApplication.executor": "Run",
     "Spring Boot.Main.executor": "Run",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
     "git-widget-placeholder": "gui-cliente",
+    "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -75,34 +108,11 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
+    "to.speed.mode.migration.done": "true",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager">
-    <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.gestaoentregas.FXController.HelloApplication" />
-      <module name="projetopoo" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.gestaoentregas.FXController.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="IP2--Sistema-de-Gest-o-de-Frota-de-Ve-culos-de-Entrega" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="IP2--Sistema-de-Gest-o-de-Frota-de-Ve-culos-de-Entrega" />
-      <option name="filePath" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Spring Boot.DeliveryApplication">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="IP2--Sistema-de-Gest-o-de-Frota-de-Ve-culos-de-Entrega" />
       <option name="ENV_FILES" value="" />
@@ -140,14 +150,6 @@
       <option name="launchJavascriptDebuger" value="false" />
       <method v="2" />
     </configuration>
-    <configuration name="Main" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
-      <module name="projetopoo" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.gestaoentregas.Main" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="Tox" factoryName="Tox">
       <module name="IP2--Sistema-de-Gest-o-de-Frota-de-Ve-culos-de-Entrega" />
       <option name="ENV_FILES" value="" />
@@ -161,8 +163,84 @@
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <method v="2" />
     </configuration>
+    <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.gestaoentregas.FXController.HelloApplication" />
+      <module name="projetopoo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.gestaoentregas.FXController.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Launcher" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.gestaoentregas.Launcher" />
+      <module name="projetopoo" />
+      <option name="PROGRAM_PARAMETERS" value="--module-path --module-path /caminho/para/javafx-sdk-21/lib --add-modules javafx.controls,javafx.fxml --add-modules javafx.controls,javafx.fxml" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.gestaoentregas.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="IP2--Sistema-de-Gest-o-de-Frota-de-Ve-culos-de-Entrega" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="IP2--Sistema-de-Gest-o-de-Frota-de-Ve-culos-de-Entrega" />
+      <option name="filePath" />
+      <method v="2" />
+    </configuration>
+    <configuration name="DeliveryApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="projetopoo" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.gestaoentregas.DeliveryApplication" />
+      <option name="VM_PARAMETERS" value="--module-path C:\Users\Nicolas\lib\javafx-sdk-21.0.9\lib --add-modules javafx.controls,javafx.fxml" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.gestaoentregas.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DeliveryApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="projetopoo" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.gestaoentregas.DeliveryApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="projetopoo" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.gestaoentregas.Main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Launcher" />
+      <item itemvalue="Application.HelloApplication" />
+      <item itemvalue="Spring Boot.DeliveryApplication" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Spring Boot.DeliveryApplication" />
+        <item itemvalue="Application.Launcher" />
         <item itemvalue="Application.HelloApplication" />
       </list>
     </recent_temporary>
@@ -170,8 +248,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.26830.84" />
-        <option value="bundled-js-predefined-d6986cc7102b-3aa1da707db6-JavaScript-IU-252.26830.84" />
+        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.28238.7" />
+        <option value="bundled-js-predefined-d6986cc7102b-a71380e98a7c-JavaScript-IU-252.28238.7" />
       </set>
     </attachedChunks>
   </component>
@@ -185,10 +263,22 @@
       <workItem from="1763687049357" duration="2484000" />
       <workItem from="1763873027331" duration="328000" />
       <workItem from="1763933514236" duration="11505000" />
+      <workItem from="1764703400003" duration="15482000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

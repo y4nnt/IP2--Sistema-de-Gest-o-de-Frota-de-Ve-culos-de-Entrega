@@ -22,7 +22,7 @@ public class RepositorioMotorista implements IRepositorioMotorista {
 
     @Override
     public void atualizarMotorista(Motorista motorista) {
-        int i = procurarIndice(motorista.getIdMotorista());
+        int i = procurarIndice(motorista.getId());
         if (i != -1) {
             this.motoristas.set(i, motorista);
         }
@@ -50,7 +50,7 @@ public class RepositorioMotorista implements IRepositorioMotorista {
     private int procurarIndice(int id) {
         int indice = -1;
         for (int i = 0; i < this.motoristas.size(); i++) {
-            if (this.motoristas.get(i).getIdMotorista() == id) {
+            if (this.motoristas.get(i).getId() == id) {
                 indice = i;
             }
         }

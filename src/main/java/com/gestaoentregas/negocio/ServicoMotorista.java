@@ -1,69 +1,67 @@
 package com.gestaoentregas.negocio;
 
-import com.gestaoentregas.dados.beans.entrega.Entrega;
-import com.gestaoentregas.dados.repositorios.IRepositorioMotorista;
 import com.gestaoentregas.dados.beans.motorista.Motorista;
-import com.gestaoentregas.dados.repositorios.RepositorioMotorista;
-import com.gestaoentregas.excecoes.DIException;
+// Não precisa mais de RepositorioUsuario
 import com.gestaoentregas.excecoes.IIException;
 import com.gestaoentregas.excecoes.MCException;
 import com.gestaoentregas.excecoes.MIException;
+import com.gestaoentregas.excecoes.UIException; // Importado se ServicoUsuario lançar UIException
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 
 @Service
 public class ServicoMotorista {
-    private final RepositorioMotorista repositorioMotorista;
 
-    public ServicoMotorista(RepositorioMotorista repositorioMotorista) {
-        this.repositorioMotorista = repositorioMotorista;
+    // MANTER APENAS O SERVICO USUARIO
+    private final ServicoUsuario servicoUsuario;
+
+    public ServicoMotorista(ServicoUsuario servicoUsuario) {
+        this.servicoUsuario = servicoUsuario;
     }
 
-    public void cadastrarMotorista(Motorista novoMotorista) throws MCException, IIException {
+    /**
+     * 1. Executa as validações de Motorista (Regras de Negócio Específicas).
+     * 2. Delega a persistência (e validações genéricas como ID duplicado) ao ServicoUsuario.
+     */
+    public void cadastrarMotorista(Motorista novoMotorista) throws IIException, UIException {
 
-        // 1. Tenta buscar no banco pra ver se JÁ existe (para evitar duplicidade)
-        Motorista motoristaNoBanco = repositorioMotorista.buscarMotorista(novoMotorista.getIdMotorista());
+        // 1. VALIDAÇÕES ESPECÍFICAS DE MOTORISTA
 
-        // 2. Se o retorno for DIFERENTE de null, é porque JÁ EXISTE. Aí você lança erro.
-        if (motoristaNoBanco != null) {
-            throw new MCException("Motorista já cadastrado!");
-        }
-
-        // 3. AQUI ESTAVA O ERRO:
-        // Você deve validar a idade do "novoMotorista" (o parâmetro), e não do "motoristaNoBanco" (que é null)
+        //Validação de Idade
         if (novoMotorista.getIdadeMotorista() < 18) {
             throw new IIException("Motorista menor de idade não permitido.");
         }
 
-        // 4. Se passou por tudo, salva
-        repositorioMotorista.cadastrarMotorista(novoMotorista);
-    }
-
-
-    public void atualizarMotorista(Motorista motorista) throws MIException {
-        if (repositorioMotorista.buscarMotorista(motorista.getIdMotorista()) == null) {
-            throw new MIException();
+        //Validação de CNH
+        if (novoMotorista.getCnhMotorista() == null || novoMotorista.getCnhMotorista().isEmpty()) {
+            throw new IIException("O número da CNH é obrigatório.");
         }
-        repositorioMotorista.atualizarMotorista(motorista);
-    }
 
-    public void removerMotorista(int id) throws MIException {
-        if (repositorioMotorista.buscarMotorista(id) == null) {
-            throw new MIException();
-        }
-        repositorioMotorista.removerMotorista(id);
-    }
+        // ********************************************************
+        // 2. DELEGAÇÃO: DEIXA O SERVICOUSUARIO FAZER A PERSISTÊNCIA
+        // ********************************************************
 
-    public Motorista buscarMotorista(int id) throws MIException {
-        Motorista motorista = repositorioMotorista.buscarMotorista(id);
-        if (motorista == null) {
-            throw new MIException();
-        }
-        return motorista;
-    }
+        // Se o usuário já existir (ID ou Email), o ServicoUsuario se encarregará de
+        // lançar a exceção apropriada (provavelmente uma UIException, não MCException).
+        // Se você precisar da MCException aqui, você teria que fazer um 'catch' de UIException
+        // e lançar MCException, mas o ideal é ter uma exceção genérica.
 
+        servicoUsuario.cadastrarUsuario(novoMotorista);
+    }
     public ArrayList<Motorista> listarMotoristas() {
-        return repositorioMotorista.listarMotoristas();
+        return servicoUsuario.listarMotoristas();
     }
+
+
+    // ************************************************************
+    // OS MÉTODOS ABAIXO FORAM REMOVIDOS (Responsabilidade do ServicoUsuario)
+    // ************************************************************
+
+    /*
+    public void atualizarMotorista(Motorista motorista) throws MIException { ... }
+    public void removerMotorista(int id) throws MIException { ... }
+    public Motorista buscarMotorista(int id) throws MIException { ... }
+    public ArrayList<Motorista> listarMotoristas() { ... }
+    */
 }
