@@ -1,10 +1,14 @@
 package com.gestaoentregas.FXController;
 
 import com.gestaoentregas.dados.beans.entrega.Entrega;
-import com.sun.javafx.stage.EmbeddedWindow;
+import com.gestaoentregas.dados.beans.entrega.StatusEntrega;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
@@ -12,8 +16,12 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.event.ActionEvent;
+import javafx.stage.Stage;
+import org.springframework.stereotype.Component;
+import org.springframework.context.ApplicationContext;
 import java.io.IOException;
 
+@Component
 public class MotoristaPrincipalController {
 
     @FXML private TableView<Entrega> tabelaEntregas;
@@ -23,11 +31,17 @@ public class MotoristaPrincipalController {
     @FXML private Button btnVisualizarRota;
     @FXML private Button btnAcessarMenu;
 
+    private final ApplicationContext context;
+
+    public MotoristaPrincipalController(ApplicationContext context) {
+        this.context = context;
+    }
+
     private final ObservableList<Entrega> listaDeEntregas = FXCollections.observableArrayList(
-            new Entrega("E001", "Av. Paulista, 1000 - São Paulo", "A Caminho"),
-            new Entrega("E002", "Rua das Flores, 55 - Campinas", "Pendente"),
-            new Entrega("E003", "Rod. Castelo Branco, Km 30 - Osasco", "Pendente"),
-            new Entrega("E004", "Av. Brasil, 450 - Rio de Janeiro", "Pendente")
+            new Entrega("E001", "Av. Paulista, 1000 - São Paulo", "A Caminho", null, StatusEntrega.EM_TRANSITO, null),
+            new Entrega("E002", "Rua das Flores, 55 - Campinas", "Pendente", null, StatusEntrega.PENDENTE, null),
+            new Entrega("E003", "Rod. Castelo Branco, Km 30 - Osasco", "Pendente", null, StatusEntrega.PENDENTE, null),
+            new Entrega("E004", "Av. Brasil, 450 - Rio de Janeiro", "Pendente", null, StatusEntrega.PENDENTE, null)
     );
 
     @FXML
@@ -45,13 +59,29 @@ public class MotoristaPrincipalController {
 
         if (entregaSelecionada != null) {
             try {
-                EmbeddedWindow App = null;
-                App.setScene("DetalhesEntrega.fxml", controller -> {
-                    DetalhesEntregaController detalhesController = (DetalhesEntregaController) controller;
-                    detalhesController.setEntrega(entregaSelecionada);
-                });
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com.gestaoentregas/DetalhesEntrega.fxml"));
+
+                loader.setControllerFactory(context::getBean);
+                Parent parent = loader.load();
+
+                // 1. Obtenção correta do Controller
+                DetalhesEntregaController controller = loader.getController();
+
+                // 2. Transferência de Dados
+                controller.setEntrega(entregaSelecionada);
+
+                // 3. Obtém o Stage ATUAL
+                Stage stageAtual = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+                // 4. SUBSTITUIÇÃO DA CENA (Navegação suave)
+                stageAtual.getScene().setRoot(parent);
+
+                stageAtual.setTitle("Detalhes da entrega");
+                // stageAtual.setResizable(false); // Mantém o estado atual
+
+                // Remove showAndWait() e initModality
+
             } catch (IOException e) {
-                System.err.println("Erro ao carregar DetalhesEntrega.fxml: " + e.getMessage());
                 e.printStackTrace();
             }
         } else {
@@ -67,10 +97,18 @@ public class MotoristaPrincipalController {
     @FXML
     private void handleAcessarMenu(ActionEvent event) {
         try {
-            EmbeddedWindow App = null;
-            App.setScene("MenuMotorista.fxml", null);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com.gestaoentregas/MenuMotorista.fxml"));
+
+            loader.setControllerFactory(context::getBean);
+            Parent parent = loader.load();
+
+            Stage stageAtual = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+            stageAtual.getScene().setRoot(parent);
+
+            stageAtual.setTitle("Menu de motorista");
+            stageAtual.setResizable(false);
         } catch (IOException e) {
-            System.err.println("Erro ao carregar MenuMotorista.fxml: " + e.getMessage());
             e.printStackTrace();
         }
     }

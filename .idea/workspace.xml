@@ -5,28 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="911704be-b986-469a-b46c-ae04dd23952b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/FXController/MotoristaPrincipalController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com.gestaoentregas/TelaPrincipalMotorista.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_11_2025_19_04_[Changes]1/Entrega.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_11_2025_19_04_[Changes]1/HelloApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_11_2025_19_04_[Changes]1/HelloController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_11_2025_19_04_[Changes]1/IRepositorioRota.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_11_2025_19_04_[Changes]1/MapaController$JavaBridge.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_11_2025_19_04_[Changes]1/MapaController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_11_2025_19_04_[Changes]1/RepositorioMotorista.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_11_2025_19_04_[Changes]1/RepositorioProduto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_11_2025_19_04_[Changes]1/RepositorioRota.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_11_2025_19_04_[Changes]1/RepositorioVeiculo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_11_2025_19_04_[Changes]1/RepositorioVeiculoMotorista.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_11_2025_19_04_[Changes]1/Rota.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_11_2025_19_04_[Changes]1/ServicoEntrega.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_11_2025_19_04_[Changes]1/ServicoMotorista.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_11_2025_19_04_[Changes]1/ServicoProduto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_11_2025_19_04_[Changes]1/ServicoRota.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_11_2025_19_04_[Changes]1/ServicoVeiculo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_11_2025_19_04_[Changes]1/ServicoVeiculoMotorista.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_11_2025_19_04_[Changes]1/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_11_2025_19_04__Changes_1.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/DeliveryApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/DeliveryApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/FXController/DetalhesEntregaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/FXController/DetalhesEntregaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/FXController/ListaDePedidosController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/FXController/ListaDePedidosController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/FXController/MenuMotoristaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/FXController/MenuMotoristaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/FXController/MotoristaPrincipalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/FXController/MotoristaPrincipalController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/dados/beans/cliente/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/dados/beans/cliente/Usuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/dados/repositorios/IRepositorioUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/dados/repositorios/IRepositorioUsuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/excecoes/INException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/excecoes/INEException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gestaoentregas/DeliveryApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gestaoentregas/DeliveryApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gestaoentregas/FXController/ListaDePedidosController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gestaoentregas/FXController/ListaDePedidosController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gestaoentregas/Launcher.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gestaoentregas/dados/beans/cliente/Cliente.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gestaoentregas/dados/beans/cliente/Cliente.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gestaoentregas/dados/beans/cliente/Usuario.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gestaoentregas/dados/beans/cliente/Usuario.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gestaoentregas/excecoes/PlException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gestaoentregas/negocio/ServicoVeiculo.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,12 +51,12 @@
     &quot;assignee&quot;: &quot;rianGui03&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/y4nnt/IP2--Sistema-de-Gest-o-de-Frota-de-Ve-culos-de-Entrega&quot;,
-    &quot;accountId&quot;: &quot;a2318a1e-6c2c-429a-b251-52ec120dbe98&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/y4nnt/IP2--Sistema-de-Gest-o-de-Frota-de-Ve-culos-de-Entrega.git",
+    "accountId": "7ac18caa-b0c3-4098-aded-b6c0e47cb54c"
   }
-}</component>
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
@@ -82,6 +77,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
+    "Spring Boot.DeliveryApplication.executor": "Run",
     "Spring Boot.ListaDePedidosApplication.executor": "Run",
     "Spring Boot.Main.executor": "Run",
     "git-widget-placeholder": "gui-motorista",
@@ -91,13 +87,13 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
+    "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.HelloApplication">
+  <component name="RunManager" selected="Spring Boot.DeliveryApplication">
     <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.gestaoentregas.FXController.HelloApplication" />
       <module name="projetopoo" />
@@ -159,10 +155,18 @@
       <option name="launchJavascriptDebuger" value="false" />
       <method v="2" />
     </configuration>
-    <configuration name="Main" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+    <configuration name="DeliveryApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <module name="projetopoo" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.gestaoentregas.Main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.gestaoentregas.DeliveryApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DeliveryApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="projetopoo" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.gestaoentregas.DeliveryApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -189,8 +193,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.26830.84" />
-        <option value="bundled-js-predefined-d6986cc7102b-3aa1da707db6-JavaScript-IU-252.26830.84" />
+        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.27397.103" />
+        <option value="bundled-js-predefined-d6986cc7102b-3aa1da707db6-JavaScript-IU-252.27397.103" />
       </set>
     </attachedChunks>
   </component>
@@ -204,6 +208,7 @@
       <workItem from="1763687049357" duration="2484000" />
       <workItem from="1763873027331" duration="328000" />
       <workItem from="1763933514236" duration="11505000" />
+      <workItem from="1764632595392" duration="3231000" />
     </task>
     <servers />
   </component>

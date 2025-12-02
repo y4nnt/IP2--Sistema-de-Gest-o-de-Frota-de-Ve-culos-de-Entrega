@@ -1,18 +1,42 @@
 package com.gestaoentregas.FXController;
 
-import com.sun.javafx.stage.EmbeddedWindow;
+
+import com.gestaoentregas.dados.beans.motorista.Motorista;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import org.springframework.context.ApplicationContext;
+import org.springframework.stereotype.Component;
+
 import java.io.IOException;
 
+@Component
 public class MenuMotoristaController {
 
+    private final ApplicationContext context;
+
+    public MenuMotoristaController(ApplicationContext context) {
+        this.context = context;
+    }
 
     @FXML
     private void handleVoltar(ActionEvent event) {
         try {
-            EmbeddedWindow App = null;
-            App.setScene("MotoristaPrincipal.fxml", null);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com.gestaoentregas/TelaPrincipalMotorista.fxml"));
+
+            loader.setControllerFactory(context::getBean);
+            Parent parent = loader.load();
+
+            Stage stageAtual = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+            stageAtual.getScene().setRoot(parent);
+
+            stageAtual.setTitle("Tela Principal Motorista");
+            stageAtual.setResizable(false);
         } catch (IOException e) {
             e.printStackTrace();
         }

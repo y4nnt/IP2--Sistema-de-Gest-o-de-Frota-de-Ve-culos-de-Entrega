@@ -6,6 +6,7 @@ import com.gestaoentregas.excecoes.ECException;
 import com.gestaoentregas.excecoes.PCException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.springframework.boot.SpringApplication;
@@ -34,7 +35,8 @@ public class DeliveryApplication extends Application {
 
         fxmlLoader.setControllerFactory(springContext::getBean);
 
-        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+        Parent root = fxmlLoader.load();
+        Scene scene = new Scene(root, 600, 400);
         stage.setTitle("Menu Inicial ADM");
         stage.setResizable(false);
 
