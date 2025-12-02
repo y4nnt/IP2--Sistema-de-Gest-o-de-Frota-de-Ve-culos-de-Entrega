@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MotoristaPrincipalController">
+<BorderPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gestaoentregas.FXController.MotoristaPrincipalController">
     <center>
         <TableView fx:id="tabelaEntregas" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
             <columns>

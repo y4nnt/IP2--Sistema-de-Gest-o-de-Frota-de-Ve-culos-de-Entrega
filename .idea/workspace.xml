@@ -5,23 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="911704be-b986-469a-b46c-ae04dd23952b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_11_2025_19_04__Changes_1.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/DeliveryApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/DeliveryApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/FXController/DetalhesEntregaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/FXController/DetalhesEntregaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/FXController/ListaDePedidosController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/FXController/ListaDePedidosController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/FXController/MenuMotoristaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/FXController/MenuMotoristaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/FXController/MotoristaPrincipalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/FXController/MotoristaPrincipalController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/dados/beans/cliente/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/dados/beans/cliente/Usuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/dados/repositorios/IRepositorioUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/dados/repositorios/IRepositorioUsuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/excecoes/INException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/excecoes/INEException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com.gestaoentregas/DetalhesEntrega.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com.gestaoentregas/DetalhesEntrega.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com.gestaoentregas/MenuMotorista.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com.gestaoentregas/MenuMotorista.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com.gestaoentregas/TelaPrincipalMotorista.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com.gestaoentregas/TelaPrincipalMotorista.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com.gestaoentregas/TelaPrincipalMotorista.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com.gestaoentregas/TelaPrincipalMotorista.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/gestaoentregas/DeliveryApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gestaoentregas/DeliveryApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gestaoentregas/FXController/ListaDePedidosController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gestaoentregas/FXController/ListaDePedidosController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gestaoentregas/Launcher.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gestaoentregas/dados/beans/cliente/Cliente.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gestaoentregas/dados/beans/cliente/Cliente.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gestaoentregas/dados/beans/cliente/Usuario.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gestaoentregas/dados/beans/cliente/Usuario.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gestaoentregas/excecoes/PlException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gestaoentregas/negocio/ServicoVeiculo.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,12 +41,12 @@
     &quot;assignee&quot;: &quot;rianGui03&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/y4nnt/IP2--Sistema-de-Gest-o-de-Frota-de-Ve-culos-de-Entrega.git",
-    "accountId": "7ac18caa-b0c3-4098-aded-b6c0e47cb54c"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/y4nnt/IP2--Sistema-de-Gest-o-de-Frota-de-Ve-culos-de-Entrega.git&quot;,
+    &quot;accountId&quot;: &quot;7ac18caa-b0c3-4098-aded-b6c0e47cb54c&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
@@ -65,34 +55,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Cliente.executor": "Run",
-    "Application.HelloApplication.executor": "Run",
-    "Application.Launcher.executor": "Run",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "Spring Boot.DeliveryApplication.executor": "Run",
-    "Spring Boot.ListaDePedidosApplication.executor": "Run",
-    "Spring Boot.Main.executor": "Run",
-    "git-widget-placeholder": "gui-motorista",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Cliente.executor&quot;: &quot;Run&quot;,
+    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Launcher.executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;Spring Boot.DeliveryApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.ListaDePedidosApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.Main.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;gui-motorista&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Spring Boot.DeliveryApplication">
     <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.gestaoentregas.FXController.HelloApplication" />
@@ -159,6 +149,7 @@
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <module name="projetopoo" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.gestaoentregas.DeliveryApplication" />
+      <option name="VM_PARAMETERS" value="--module-path C:\Users\yann\Documents\javafx-sdk-21.0.9\lib --add-modules javafx.controls,javafx.fxml,javafx.web,javafx.media" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -184,6 +175,10 @@
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Application.HelloApplication" />
+      <item itemvalue="Spring Boot.DeliveryApplication" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.HelloApplication" />
@@ -208,7 +203,8 @@
       <workItem from="1763687049357" duration="2484000" />
       <workItem from="1763873027331" duration="328000" />
       <workItem from="1763933514236" duration="11505000" />
-      <workItem from="1764632595392" duration="3231000" />
+      <workItem from="1764632595392" duration="3545000" />
+      <workItem from="1764671170135" duration="994000" />
     </task>
     <servers />
   </component>

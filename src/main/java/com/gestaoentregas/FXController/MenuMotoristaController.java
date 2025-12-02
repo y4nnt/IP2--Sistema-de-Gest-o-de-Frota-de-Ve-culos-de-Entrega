@@ -1,7 +1,6 @@
 package com.gestaoentregas.FXController;
 
 
-import com.gestaoentregas.dados.beans.motorista.Motorista;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

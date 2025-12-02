@@ -2,6 +2,7 @@ package com.gestaoentregas;
 
 import com.gestaoentregas.FXController.ListaDePedidosController;
 import com.gestaoentregas.FXController.MenuPrincipalController;
+import com.gestaoentregas.FXController.MotoristaPrincipalController;
 import com.gestaoentregas.excecoes.ECException;
 import com.gestaoentregas.excecoes.PCException;
 import javafx.application.Application;
@@ -31,7 +32,7 @@ public class DeliveryApplication extends Application {
 
     @Override
     public void start(Stage stage) throws IOException, ECException, PCException {
-        FXMLLoader fxmlLoader = new FXMLLoader(DeliveryApplication.class.getResource("/com.gestaoentregas/MenuAdm.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(DeliveryApplication.class.getResource("/com.gestaoentregas/TelaPrincipalMotorista.fxml"));
 
         fxmlLoader.setControllerFactory(springContext::getBean);
 
@@ -40,7 +41,7 @@ public class DeliveryApplication extends Application {
         stage.setTitle("Menu Inicial ADM");
         stage.setResizable(false);
 
-        MenuPrincipalController controller = fxmlLoader.getController();
+        MotoristaPrincipalController controller = fxmlLoader.getController();
 
         stage.setScene(scene);
         stage.show();
