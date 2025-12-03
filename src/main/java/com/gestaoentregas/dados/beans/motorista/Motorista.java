@@ -1,5 +1,7 @@
 package com.gestaoentregas.dados.beans.motorista;
 
+import com.gestaoentregas.dados.beans.veiculo.Veiculo;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +15,7 @@ public class Motorista {
     private DisponibilidadeMotorista disponibilidadeMotorista;
     private List<PeriodoIndisponivelMotorista> feriasMotorista;
     private int idMotorista;
+    private Veiculo veiculoMotorista;
 
     public Motorista(String nomeMotorista, String telefoneMotorista, String cpfMotorista, String cnhMotorista, int idadeMotorista) {
         this.nomeMotorista = nomeMotorista;
@@ -75,6 +78,14 @@ public class Motorista {
     public int getIdMotorista() {return idMotorista;}
 
     public void setIdMotorista(int idMotorista) {this.idMotorista = idMotorista;}
+
+    public Veiculo getVeiculoMotorista() {
+        return veiculoMotorista;
+    }
+
+    public void setVeiculoMotorista(Veiculo veiculoMotorista) {
+        this.veiculoMotorista = veiculoMotorista;
+    }
 
     public void addFerias(LocalDate inicio, LocalDate fim){
         PeriodoIndisponivelMotorista ferias = new PeriodoIndisponivelMotorista(inicio, fim, "Férias");

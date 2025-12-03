@@ -1,86 +1,83 @@
 package com.gestaoentregas.FXController;
 
-import com.sun.javafx.stage.EmbeddedWindow;
-import javafx.collections.FXCollections;
+import com.gestaoentregas.negocio.ServicoManutencao;
+import com.gestaoentregas.negocio.ServicoMotorista;
+import com.gestaoentregas.negocio.ServicoVeiculo;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.event.ActionEvent;
-import javafx.stage.Stage;
-import org.springframework.context.ApplicationContext;
+import com.gestaoentregas.dados.beans.veiculo.Manutencao;
+import com.gestaoentregas.dados.repositorios.IRepositorioManutencao;
+import com.gestaoentregas.dados.repositorios.RepositorioManutencao;
+import org.springframework.stereotype.Controller;
 
-import java.io.IOException;
 import java.time.LocalDate;
 
+@Controller
 public class RegistroManutencaoController {
 
-    @FXML private ComboBox<String> cmbVeiculo;
-    @FXML private ComboBox<String> cmbServico;
-    @FXML private DatePicker dateManutencao;
-    @FXML private TextField txtCusto;
-    @FXML private TextField txtHodometro;
-    @FXML private TextArea txtDescricao;
+    @FXML
+    private TextField txtPlaca;
 
-    private final ApplicationContext context;
+    @FXML
+    private TextField txtMotivo;
 
-    public RegistroManutencaoController(ApplicationContext context) {
-        this.context = context;
+    @FXML
+    private DatePicker dpDataInicio;
+
+    @FXML
+    private DatePicker dpDataFim;
+
+    private final ServicoManutencao servicoManutencao;
+    private final ServicoMotorista  servicoMotorista;
+    private int idMotoristaAtual;
+
+    public RegistroManutencaoController(ServicoManutencao servicoManutencao,  ServicoMotorista servicoMotorista) {
+        this.servicoManutencao = servicoManutencao;
+        this.servicoMotorista = servicoMotorista;
+    }
+
+    public void setIdMotorista(int id) {
+        this.idMotoristaAtual = id;
+        System.out.println("ID do Motorista recebido: " + this.idMotoristaAtual);
     }
 
     @FXML
-    public void initialize() {
-        cmbVeiculo.setItems(DadosMotorista.getVeiculosCadastrados());
-
-        cmbServico.setItems(FXCollections.observableArrayList(
-                "Troca de Óleo", "Revisão Geral", "Pneus", "Freios", "Reparo Elétrico"
-        ));
-
-        dateManutencao.setValue(LocalDate.now());
-    }
-
-    @FXML
-    private void handleSalvarManutencao(ActionEvent event) {
-        if (cmbVeiculo.getValue() == null || txtCusto.getText().isEmpty() || dateManutencao.getValue() == null) {
-            exibirAlerta(AlertType.WARNING, "Erro de Registro", "Por favor, preencha os campos obrigatórios: Veículo, Custo e Data.");
-            return;
-        }
-
-        System.out.println("Registro de Manutenção efetuado.");
-        System.out.println("Veículo: " + cmbVeiculo.getValue());
-        exibirAlerta(AlertType.INFORMATION, "Sucesso", "Registro de manutenção salvo com sucesso!");
-    }
-
-    @FXML
-    private void handleVoltar(ActionEvent event) {
+    protected void handleRegistrarManutencao(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com.gestaoentregas/MenuMotorista.fxml"));
+            String placa = txtPlaca.getText().trim();
+            String motivo = txtMotivo.getText().trim();
+            LocalDate inicio = dpDataInicio.getValue();
+            LocalDate fim = dpDataFim.getValue();
 
-            loader.setControllerFactory(context::getBean);
-            Parent parent = loader.load();
+            if (placa.isEmpty() || motivo.isEmpty() || inicio == null || fim == null) {
+                System.out.println("Erro: Todos os campos devem ser preenchidos.");
+                return;
+            }
 
-            Stage stageAtual = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            if (fim.isBefore(inicio)) {
+                System.out.println("Erro: A data final não pode ser anterior à data de início.");
+                return;
+            }
 
-            stageAtual.getScene().setRoot(parent);
 
-            stageAtual.setTitle("Tela Principal Motorista");
-            stageAtual.setResizable(false);
-        } catch (IOException e) {
-            e.printStackTrace();
+            this.servicoManutencao.registrarManutencao(this.servicoMotorista.buscarMotorista(idMotoristaAtual).getVeiculoMotorista().getIdVeiculo(), motivo, inicio, fim);
+
+            System.out.println("Manutenção registrada com sucesso para o veículo " + placa + ".");
+            System.out.println("Motivo: " + motivo + " | Período: " + inicio + " a " + fim);
+
+            limparCampos();
+
+        } catch (Exception e) {
+            System.out.println("Erro inesperado ao registrar manutenção: " + e.getMessage());
         }
     }
 
-    private void exibirAlerta(AlertType type, String titulo, String mensagem) {
-        Alert alert = new Alert(type);
-        alert.setTitle(titulo);
-        alert.setHeaderText(null);
-        alert.setContentText(mensagem);
-        alert.showAndWait();
+    private void limparCampos() {
+        txtPlaca.clear();
+        txtMotivo.clear();
+        dpDataInicio.setValue(null);
+        dpDataFim.setValue(null);
     }
 }

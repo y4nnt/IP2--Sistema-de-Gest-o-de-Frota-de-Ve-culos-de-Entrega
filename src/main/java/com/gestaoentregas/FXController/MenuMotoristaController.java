@@ -17,9 +17,15 @@ import java.io.IOException;
 public class MenuMotoristaController {
 
     private final ApplicationContext context;
+    private int idMotorista;
 
     public MenuMotoristaController(ApplicationContext context) {
         this.context = context;
+    }
+
+    public void setIdMotorista(int id) {
+        this.idMotorista = id;
+        System.out.println("Menu carregado para o motorista ID: " + id);
     }
 
     @FXML
@@ -55,11 +61,51 @@ public class MenuMotoristaController {
 
     @FXML
     private void handleCadastrarVeiculo(ActionEvent event) {
-        System.out.println("Navegando para Cadastro de Veículo.");
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com.gestaoentregas/CadastroVeiculo.fxml"));
+
+            loader.setControllerFactory(context::getBean);
+
+            Parent root = loader.load();
+
+            CadastroVeiculoController controller = loader.getController();
+
+            // 2. Passa o ID para ele
+            controller.setIdMotorista(this.idMotorista);
+            // ---------------------------------
+
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Registro Manutencao");
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
     private void handleAdicionarManutencao(ActionEvent event) {
-        System.out.println("Navegando para Adicionar Manutenção.");
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com.gestaoentregas/RegistroManutencao.fxml"));
+
+            loader.setControllerFactory(context::getBean);
+
+            Parent root = loader.load();
+
+            RegistroManutencaoController controller = loader.getController();
+
+            // 2. Passa o ID para ele
+            controller.setIdMotorista(this.idMotorista);
+            // ---------------------------------
+
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Registro Manutencao");
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
