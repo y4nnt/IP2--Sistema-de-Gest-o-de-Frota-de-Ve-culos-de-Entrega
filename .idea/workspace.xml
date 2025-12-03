@@ -6,12 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="911704be-b986-469a-b46c-ae04dd23952b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/DeliveryApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/DeliveryApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com.gestaoentregas/DetalhesEntrega.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com.gestaoentregas/DetalhesEntrega.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com.gestaoentregas/MenuMotorista.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com.gestaoentregas/MenuMotorista.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com.gestaoentregas/TelaPrincipalMotorista.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com.gestaoentregas/TelaPrincipalMotorista.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com.gestaoentregas/TelaPrincipalMotorista.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com.gestaoentregas/TelaPrincipalMotorista.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gestaoentregas/DeliveryApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gestaoentregas/DeliveryApplication.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -204,7 +198,9 @@
       <workItem from="1763873027331" duration="328000" />
       <workItem from="1763933514236" duration="11505000" />
       <workItem from="1764632595392" duration="3545000" />
-      <workItem from="1764671170135" duration="994000" />
+      <workItem from="1764671170135" duration="1234000" />
+      <workItem from="1764672611921" duration="434000" />
+      <workItem from="1764695220867" duration="13000" />
     </task>
     <servers />
   </component>
