@@ -2,10 +2,7 @@ package com.gestaoentregas.negocio;
 
 import com.gestaoentregas.dados.beans.motorista.Motorista;
 // Não precisa mais de RepositorioUsuario
-import com.gestaoentregas.excecoes.IIException;
-import com.gestaoentregas.excecoes.MCException;
-import com.gestaoentregas.excecoes.MIException;
-import com.gestaoentregas.excecoes.UIException; // Importado se ServicoUsuario lançar UIException
+import com.gestaoentregas.excecoes.*;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -34,8 +31,13 @@ public class ServicoMotorista {
         }
 
         //Validação de CNH
-        if (novoMotorista.getCnhMotorista() == null || novoMotorista.getCnhMotorista().isEmpty()) {
-            throw new IIException("O número da CNH é obrigatório.");
+        if (novoMotorista.getCnhMotorista() == null || novoMotorista.getCnhMotorista().length() != 11) {
+            throw new CNHException();
+        }
+
+        //Validação de CPF
+        if (novoMotorista.getCpfMotorista().length() != 11) {
+            throw new CPFException();
         }
 
         // ********************************************************
