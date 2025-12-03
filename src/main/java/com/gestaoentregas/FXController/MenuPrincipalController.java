@@ -33,6 +33,11 @@ public class MenuPrincipalController {
     }
 
     @FXML
+    void irParaGerenciamento(ActionEvent event) {
+        abrirTela(event, "/com.gestaoentregas/GerenciarMotorista.fxml", "Gerenciamento");
+    }
+
+    @FXML
     void acaoSair(ActionEvent event) {
         System.exit(0);
 

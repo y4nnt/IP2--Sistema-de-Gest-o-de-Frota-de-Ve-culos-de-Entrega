@@ -5,32 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="041602af-6ef0-41c9-8f8b-f79af6c81032" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/FXController/MenuPrincipalController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com.gestaoentregas/MenuAdm.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/FXController/HelloController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/FXController/ListaDePedidosController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/FXController/ListaDePedidosController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/FXController/MapaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/FXController/MapaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/FXController/TelaRotasController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/FXController/TelaRotasController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/HelloApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/Launcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/Launcher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/ListaDePedidosApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/DeliveryApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com.gestaoentregas/ListaDePedidosView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com.gestaoentregas/ListaDePedidosView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com.gestaoentregas/hello-view.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapa.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapa.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com.gestaoentregas/ListaDePedidosView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com.gestaoentregas/ListaDePedidosView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com.gestaoentregas/hello-view.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gestaoentregas/FXController/HelloController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gestaoentregas/FXController/ListaDePedidosController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gestaoentregas/FXController/ListaDePedidosController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gestaoentregas/FXController/MapaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gestaoentregas/FXController/MapaController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gestaoentregas/FXController/TelaRotasController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gestaoentregas/FXController/TelaRotasController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gestaoentregas/HelloApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gestaoentregas/Launcher.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gestaoentregas/Launcher.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gestaoentregas/ListaDePedidosApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapa.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapa.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/FXController/MenuPrincipalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/FXController/MenuPrincipalController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com.gestaoentregas/MenuAdm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com.gestaoentregas/MenuAdm.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +28,9 @@
   &quot;associatedIndex&quot;: 4
 }</component>
   <component name="ProjectId" id="35uy83jFsh74TjH8dDVu6u2UV3W" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -63,7 +43,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "gui-motorista",
+    "git-widget-placeholder": "gui-admin",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
