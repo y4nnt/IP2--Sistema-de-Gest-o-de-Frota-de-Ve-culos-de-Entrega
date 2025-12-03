@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="911704be-b986-469a-b46c-ae04dd23952b" name="Changes" comment="" />
+    <list default="true" id="911704be-b986-469a-b46c-ae04dd23952b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -37,7 +39,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/y4nnt/IP2--Sistema-de-Gest-o-de-Frota-de-Ve-culos-de-Entrega.git&quot;,
-    &quot;accountId&quot;: &quot;aa9586cf-7546-4579-933e-99d11875c4bb&quot;
+    &quot;accountId&quot;: &quot;7ac18caa-b0c3-4098-aded-b6c0e47cb54c&quot;
   }
 }</component>
   <component name="ProjectColorInfo">{
@@ -82,6 +84,12 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\yann\Documents\IP2--Sistema-de-Gest-o-de-Frota-de-Ve-culos-de-Entrega\src\main\resources\com.gestaoentregas" />
+      <recent name="C:\Users\yann\Documents\IP2--Sistema-de-Gest-o-de-Frota-de-Ve-culos-de-Entrega\src\main\java\com\gestaoentregas\FXController" />
+    </key>
+  </component>
   <component name="RunManager" selected="Spring Boot.DeliveryApplication">
     <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.gestaoentregas.FXController.HelloApplication" />
@@ -219,8 +227,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.28238.7" />
-        <option value="bundled-js-predefined-d6986cc7102b-a71380e98a7c-JavaScript-IU-252.28238.7" />
+        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.27397.103" />
+        <option value="bundled-js-predefined-d6986cc7102b-3aa1da707db6-JavaScript-IU-252.27397.103" />
       </set>
     </attachedChunks>
   </component>
@@ -235,6 +243,8 @@
       <workItem from="1763873027331" duration="328000" />
       <workItem from="1763933514236" duration="11505000" />
       <workItem from="1764703400003" duration="15482000" />
+      <workItem from="1764777642794" duration="212000" />
+      <workItem from="1764787723878" duration="428000" />
     </task>
     <servers />
   </component>
