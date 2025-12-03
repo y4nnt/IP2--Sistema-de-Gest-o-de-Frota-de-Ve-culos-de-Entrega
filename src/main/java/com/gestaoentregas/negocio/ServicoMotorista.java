@@ -21,13 +21,13 @@ public class ServicoMotorista {
      * 1. Executa as validações de Motorista (Regras de Negócio Específicas).
      * 2. Delega a persistência (e validações genéricas como ID duplicado) ao ServicoUsuario.
      */
-    public void cadastrarMotorista(Motorista novoMotorista) throws IIException, UIException {
+    public void cadastrarMotorista(Motorista novoMotorista) throws IIException, CNHException, CPFException {
 
         // 1. VALIDAÇÕES ESPECÍFICAS DE MOTORISTA
 
         //Validação de Idade
         if (novoMotorista.getIdadeMotorista() < 18) {
-            throw new IIException("Motorista menor de idade não permitido.");
+            throw new IIException();
         }
 
         //Validação de CNH
