@@ -1,5 +1,6 @@
 package com.gestaoentregas.FXController;
 
+import com.gestaoentregas.excecoes.MIException;
 import com.gestaoentregas.negocio.ServicoMotorista;
 import com.gestaoentregas.negocio.ServicoVeiculo;
 import javafx.fxml.FXML;
@@ -71,18 +72,30 @@ public class CadastroVeiculoController {
                 return;
             }
 
+            // DEBUG: Verifique qual ID está chegando aqui
+            System.out.println("Tentando cadastrar veículo para o Motorista ID: " + this.idMotorista);
+
+            if (this.idMotorista <= 0) {
+                mostrarAlerta("Erro Interno", "ID do motorista inválido. Faça login novamente.");
+                return;
+            }
+
             Veiculo novoVeiculo = new Veiculo(placa, modelo, capacidade);
 
             this.servicoVeiculo.cadastrarVeiculo(novoVeiculo);
-            this.servicoMotorista.buscarMotorista(idMotorista).setVeiculoMotorista(novoVeiculo);
 
-            mostrarMensagemSucesso("Sucesso", "Veículo " + placa + " cadastrado com sucesso!");
+            mostrarMensagemSucesso("Sucesso", "Veículo cadastrado!");
             limparCampos();
 
+        } catch (MIException e) {
+            // CAPTURA O ERRO DE NEGÓCIO (Motorista indisponível, Veículo já existe, etc)
+            mostrarAlerta("Erro de Validação", e.getMessage());
+
         } catch (NumberFormatException e) {
-            mostrarAlerta("Formato Inválido", "Os campos 'Ano' e 'Capacidade' devem conter apenas números.");
+            mostrarAlerta("Formato Inválido", "Verifique os números digitados.");
+
         } catch (Exception e) {
-            mostrarAlerta("Erro no Sistema", "Erro ao cadastrar: " + e.getMessage());
+            mostrarAlerta("Erro Crítico", "Ocorreu um erro inesperado: " + e.getMessage());
             e.printStackTrace();
         }
     }

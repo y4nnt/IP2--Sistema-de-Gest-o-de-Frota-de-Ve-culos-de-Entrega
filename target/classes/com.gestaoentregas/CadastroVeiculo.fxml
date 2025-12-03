@@ -39,7 +39,7 @@
                 <Label prefHeight="18.0" prefWidth="110.0" text="Placa:" GridPane.rowIndex="4" />
                 <TextField fx:id="txtPlaca" promptText="Ex: ABC-1234" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             <Label prefHeight="18.0" prefWidth="121.0" text="Capacidade" GridPane.rowIndex="3" />
-            <TextField promptText="Ex: 50kg" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="txtCapacidade" promptText="Ex: 50" GridPane.columnIndex="1" GridPane.rowIndex="3" />
 
             </children>
         </GridPane>
