@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="TOP_CENTER" prefHeight="500.0" prefWidth="500.0" spacing="20.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gestaoentregas.FXController.RegistroManutencaoController">
+    <children>
+        <Label text="Registro de Manutenção">
+            <font>
+                <Font name="System Bold" size="20.0" />
+            </font>
+        </Label>
+
+        <GridPane hgap="10.0" vgap="10.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" prefWidth="130.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="320.0" />
+            </columnConstraints>
+            <children>
+                <Label text="Veículo (Placa):" />
+                <ComboBox fx:id="cmbVeiculo" prefWidth="320.0" promptText="Selecione o Veículo" GridPane.columnIndex="1" />
+
+                <Label text="Tipo de Serviço:" GridPane.rowIndex="1" />
+                <ComboBox fx:id="cmbServico" prefWidth="320.0" promptText="Selecione o Tipo" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                <Label text="Data:" GridPane.rowIndex="2" />
+                <DatePicker fx:id="dateManutencao" prefWidth="320.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                <Label text="Custo (R$):" GridPane.rowIndex="3" />
+                <TextField fx:id="txtCusto" promptText="Ex: 150.00" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+                <Label text="Hodômetro (Km):" GridPane.rowIndex="4" />
+                <TextField fx:id="txtHodometro" promptText="Km Atual" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+
+                <Label text="Descrição Detalhada:" GridPane.rowIndex="5" />
+                <TextArea fx:id="txtDescricao" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            </children>
+            <padding>
+                <Insets left="15.0" right="15.0" />
+            </padding>
+        </GridPane>
+
+        <HBox alignment="CENTER" prefHeight="40.0" prefWidth="200.0" spacing="15.0">
+            <children>
+                <Button mnemonicParsing="false" onAction="#handleSalvarManutencao" text="Registrar Manutenção" style="-fx-font-weight: bold;" />
+                <Button mnemonicParsing="false" onAction="#handleVoltar" text="Voltar" />
+            </children>
+        </HBox>
+    </children>
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+</VBox>

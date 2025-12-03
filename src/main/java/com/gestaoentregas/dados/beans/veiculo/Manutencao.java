@@ -5,10 +5,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Manutencao {
+    private Veiculo veiculo;
     private String motivoManutencao;
     private List<PeriodoIndisponivelVeiculo> dataManutencao;
 
-    public Manutencao(String motivoManutencao) {
+    public Manutencao(Veiculo veiculo, String motivoManutencao) {
+        this.veiculo = veiculo;
         this.motivoManutencao = motivoManutencao;
         dataManutencao =  new ArrayList<PeriodoIndisponivelVeiculo>();
     }
