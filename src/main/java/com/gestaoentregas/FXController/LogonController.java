@@ -107,7 +107,10 @@ public class LogonController {
 
             // 2. Login BEM-SUCEDIDO:
             mostrarAlerta(Alert.AlertType.INFORMATION, "Sucesso", "Login de Motorista", "Bem-vindo, Motorista!");
-            // TODO: Implementar a navegação para TelaPrincipalMotorista
+
+            // IMPLEMENTAÇÃO: Navega para a tela do motorista
+            abrirTela(event, "/com.gestaoentregas/MenuMotorista.fxml", "Menu Principal Motorista");
+
 
         } catch (UIException e) {
             // 3. Login FALHOU:

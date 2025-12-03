@@ -1,6 +1,7 @@
 package com.gestaoentregas.FXController;
 
 import com.gestaoentregas.dados.beans.cliente.Cliente;
+import com.gestaoentregas.negocio.ServicoCliente;
 import com.gestaoentregas.negocio.ServicoUsuario;
 import com.gestaoentregas.excecoes.UIException;
 import javafx.event.ActionEvent;
@@ -25,10 +26,12 @@ public class CadastroClienteController {
 
     private final ApplicationContext context;
     private final ServicoUsuario servicoUsuario;
+    private final ServicoCliente servicoCliente;
 
     // Injeção de Dependência pelo Spring:
-    public CadastroClienteController(ApplicationContext context, ServicoUsuario servicoUsuario) {
+    public CadastroClienteController(ApplicationContext context, ServicoCliente servicoCliente, ServicoUsuario servicoUsuario) {
         this.context = context;
+        this.servicoCliente = servicoCliente;
         this.servicoUsuario = servicoUsuario;
     }
 
@@ -69,7 +72,7 @@ public class CadastroClienteController {
             );
 
             // 3. Cadastra o cliente
-            servicoUsuario.cadastrarUsuario(novoCliente);
+            servicoCliente.cadastrarCliente(novoCliente);
 
             // 4. Feedback e navegação
             mostrarAlerta(Alert.AlertType.INFORMATION, "Sucesso!", "Cadastro realizado.", "Cliente " + nome + " cadastrado com sucesso!");

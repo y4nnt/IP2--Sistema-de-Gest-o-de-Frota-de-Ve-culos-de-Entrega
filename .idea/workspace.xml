@@ -6,6 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="911704be-b986-469a-b46c-ae04dd23952b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/FXController/CadastroClienteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/FXController/CadastroClienteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/FXController/LogonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/FXController/LogonController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/negocio/ServicoMotorista.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/negocio/ServicoMotorista.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com.gestaoentregas/TelaCadastroCliente.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com.gestaoentregas/TelaCadastroCliente.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com.gestaoentregas/TelaCadastroMotorista.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com.gestaoentregas/TelaCadastroMotorista.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gestaoentregas/FXController/CadastroClienteController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gestaoentregas/FXController/CadastroClienteController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gestaoentregas/FXController/LogonController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gestaoentregas/FXController/LogonController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gestaoentregas/negocio/ServicoMotorista.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gestaoentregas/negocio/ServicoMotorista.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,8 +25,8 @@
       <list>
         <option value="Interface" />
         <option value="FxmlFile" />
-        <option value="Class" />
         <option value="Exception" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -91,6 +99,56 @@
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.DeliveryApplication">
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <module name="IP2--Sistema-de-Gest-o-de-Frota-de-Ve-culos-de-Entrega" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="Python.FlaskServer">
+      <module name="IP2--Sistema-de-Gest-o-de-Frota-de-Ve-culos-de-Entrega" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="Tox" factoryName="Tox">
+      <module name="IP2--Sistema-de-Gest-o-de-Frota-de-Ve-culos-de-Entrega" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <method v="2" />
+    </configuration>
     <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.gestaoentregas.FXController.HelloApplication" />
       <module name="projetopoo" />
@@ -129,43 +187,6 @@
       <option name="filePath" />
       <method v="2" />
     </configuration>
-    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
-      <module name="IP2--Sistema-de-Gest-o-de-Frota-de-Ve-culos-de-Entrega" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="Python.FlaskServer">
-      <module name="IP2--Sistema-de-Gest-o-de-Frota-de-Ve-culos-de-Entrega" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="launchJavascriptDebuger" value="false" />
-      <method v="2" />
-    </configuration>
     <configuration name="DeliveryApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <module name="projetopoo" />
@@ -196,19 +217,6 @@
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
-    </configuration>
-    <configuration default="true" type="Tox" factoryName="Tox">
-      <module name="IP2--Sistema-de-Gest-o-de-Frota-de-Ve-culos-de-Entrega" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <method v="2" />
     </configuration>
     <list>
       <item itemvalue="Application.Launcher" />
