@@ -90,8 +90,8 @@ public class TelaDetalhesPedidoController implements Initializable {
             if (todasRotas != null) {
                 for (Rota r : todasRotas) {
                     if (r.buscarEntregaRota(entregaAtual.getCodEntrega()) != null) {
-                        if (r.getVeiculoMotoristaRota() != null) {
-                            motoristaEncontrado = r.getVeiculoMotoristaRota().getMotoristaEntrega();
+                        if (r.getMotoristaRota() != null) {
+                            motoristaEncontrado = r.getMotoristaRota();
                         }
                         break;
                     }

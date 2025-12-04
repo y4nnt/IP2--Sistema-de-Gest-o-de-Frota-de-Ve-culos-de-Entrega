@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="TOP_CENTER" prefHeight="350.0" prefWidth="350.0" spacing="15.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gestaoentregas.FXController.TelaPerfilMotoristaController">
+    <padding>
+        <Insets top="30" right="30" bottom="30" left="30"/>
+    </padding>
+
+    <Label text="Seu Motorista">
+        <font>
+            <Font name="System Bold" size="24.0" />
+        </font>
+    </Label>
+    <Separator prefWidth="200.0" />
+
+    <VBox alignment="CENTER" spacing="10" style="-fx-background-color: #f0f0f0; -fx-background-radius: 10; -fx-padding: 20;">
+        <Label text="👤" style="-fx-font-size: 40px;"/>
+
+        <Label fx:id="lblNome" text="Nome do Motorista Aqui" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+        <Label fx:id="lblTelefone" text="(XX) XXXXX-XXXX" style="-fx-text-fill: #555; -fx-font-size: 14px;"/>
+    </VBox>
+
+    <VBox fx:id="boxBox" alignment="CENTER" spacing="5">
+        <Label text="Status da CNH:" style="-fx-font-size: 10px;"/>
+        <Label fx:id="lblCnh" text="..." style="-fx-font-size: 10px; -fx-text-fill: grey;"/>
+    </VBox>
+
+    <Button text="Voltar para Detalhes" onAction="#handleVoltar" prefWidth="180"/>
+</VBox>

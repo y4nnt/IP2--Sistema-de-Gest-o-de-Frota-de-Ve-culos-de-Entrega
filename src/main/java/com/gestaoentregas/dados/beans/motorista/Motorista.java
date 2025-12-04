@@ -2,6 +2,7 @@ package com.gestaoentregas.dados.beans.motorista;
 
 import com.gestaoentregas.dados.beans.TipoUsuario;
 import com.gestaoentregas.dados.beans.Usuario;
+import com.gestaoentregas.dados.beans.veiculo.Veiculo;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -15,8 +16,9 @@ public class Motorista extends Usuario{
     private int idadeMotorista;
     private DisponibilidadeMotorista disponibilidadeMotorista;
     private List<PeriodoIndisponivelMotorista> feriasMotorista;
+    private Veiculo veiculoMotorista;
 
-    public Motorista(String nomeMotorista, String telefoneMotorista, String cpfMotorista, String cnhMotorista, int idadeMotorista, int id,String email, String senha) {
+    public Motorista(String nomeMotorista, String telefoneMotorista, String cpfMotorista, String cnhMotorista, int idadeMotorista, Veiculo veiculoMotorista, int id,String email, String senha) {
         super(email, senha, TipoUsuario.MOTORISTA, id);
         this.nomeMotorista = nomeMotorista;
         this.telefoneMotorista = telefoneMotorista;
@@ -24,6 +26,7 @@ public class Motorista extends Usuario{
         this.cnhMotorista = cnhMotorista;
         this.idadeMotorista = idadeMotorista;
         this.disponibilidadeMotorista = DisponibilidadeMotorista.INDISPONIVEL;
+        this.veiculoMotorista = veiculoMotorista;
         this.feriasMotorista = new ArrayList<>();
     }
 
@@ -65,6 +68,14 @@ public class Motorista extends Usuario{
 
     public void setIdadeMotorista(int idadeMotorista) {
         this.idadeMotorista = idadeMotorista;
+    }
+
+    public Veiculo getVeiculoMotorista() {
+        return veiculoMotorista;
+    }
+
+    public void setVeiculoMotorista(Veiculo veiculoMotorista) {
+        this.veiculoMotorista = veiculoMotorista;
     }
 
     public DisponibilidadeMotorista getDisponibilidadeMotorista() {

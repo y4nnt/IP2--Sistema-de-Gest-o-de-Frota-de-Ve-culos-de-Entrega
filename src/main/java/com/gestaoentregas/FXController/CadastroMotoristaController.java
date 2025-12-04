@@ -71,7 +71,7 @@ public class CadastroMotoristaController {
             int newId = servicoUsuario.pegarProximoId(); // Este método precisa ser implementado no ServicoUsuario
 
             Motorista novoMotorista = new Motorista(
-                    nome, telefone, cpf, cnh, idade, newId, email, senha
+                    nome, telefone, cpf, cnh, idade, null, newId, email, senha
             );
 
 

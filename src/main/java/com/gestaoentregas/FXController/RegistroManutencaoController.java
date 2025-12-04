@@ -1,7 +1,9 @@
 package com.gestaoentregas.FXController;
 
+import com.gestaoentregas.dados.beans.motorista.Motorista;
 import com.gestaoentregas.negocio.ServicoManutencao;
 import com.gestaoentregas.negocio.ServicoMotorista;
+import com.gestaoentregas.negocio.ServicoUsuario;
 import com.gestaoentregas.negocio.ServicoVeiculo;
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
@@ -31,11 +33,13 @@ public class RegistroManutencaoController {
 
     private final ServicoManutencao servicoManutencao;
     private final ServicoMotorista  servicoMotorista;
+    private final ServicoUsuario servicoUsuario;
     private int idMotoristaAtual;
 
-    public RegistroManutencaoController(ServicoManutencao servicoManutencao,  ServicoMotorista servicoMotorista) {
+    public RegistroManutencaoController(ServicoManutencao servicoManutencao,  ServicoMotorista servicoMotorista, ServicoUsuario servicoUsuario) {
         this.servicoManutencao = servicoManutencao;
         this.servicoMotorista = servicoMotorista;
+        this.servicoUsuario = servicoUsuario;
     }
 
     public void setIdMotorista(int id) {
@@ -62,7 +66,7 @@ public class RegistroManutencaoController {
             }
 
 
-            this.servicoManutencao.registrarManutencao(this.servicoMotorista.buscarMotorista(idMotoristaAtual).getVeiculoMotorista().getIdVeiculo(), motivo, inicio, fim);
+            this.servicoManutencao.registrarManutencao(((Motorista) this.servicoUsuario.buscarUsuario(idMotoristaAtual)).getVeiculoMotorista().getIdVeiculo(), motivo, inicio, fim);
 
             System.out.println("Manutenção registrada com sucesso para o veículo " + placa + ".");
             System.out.println("Motivo: " + motivo + " | Período: " + inicio + " a " + fim);

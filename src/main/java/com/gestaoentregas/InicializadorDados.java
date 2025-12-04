@@ -43,9 +43,9 @@ public class InicializadorDados implements CommandLineRunner {
         e3.addProduto(p1);
         e3.addProduto(p2);
         e3.addProduto(p3);
-        Motorista m1 = new Motorista("João", "81999999999", "1218931292", "1", 29, 0, "teste1@gmail.com", "123");
-        Motorista m2 = new Motorista("Marcelo", "89218219", "1231243266", "2", 19, 1, "teste2@gmail.com", "234");
-        Motorista m3 = new Motorista("Lucas", "81940028922", "99320199430", "3", 23, 2, "teste3@gmail.com", "345");
+        Motorista m1 = new Motorista("João", "81999999999", "1218931292", "1", 29, null, 2, "teste1@gmail.com","123");
+        Motorista m2 = new Motorista("Marcelo", "89218219", "1231243266", "2", 19, null, 2, "teste2@gmail.com","234");
+        Motorista m3 = new Motorista("Lucas", "81940028922", "99320199430", "3", 23, null, 2, "teste3@gmail.com", "345");
         m1.setId(1);
         m2.setId(2);
         m3.setId(3);

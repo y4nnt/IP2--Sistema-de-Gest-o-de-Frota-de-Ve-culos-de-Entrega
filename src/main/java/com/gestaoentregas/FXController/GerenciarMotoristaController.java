@@ -8,6 +8,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.io.IOException;
 
+import com.gestaoentregas.negocio.ServicoUsuario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -65,11 +66,13 @@ public class GerenciarMotoristaController implements Initializable {
 
     private Motorista motoristaSelecionado;
     private final ServicoMotorista servicoMotorista;
+    private final ServicoUsuario servicoUsuario;
     private final ApplicationContext context;
     private final ObservableList<Motorista> listaMotoristas = FXCollections.observableArrayList();
 
-    public GerenciarMotoristaController(ServicoMotorista servicoMotorista, ApplicationContext context) {
+    public GerenciarMotoristaController(ServicoMotorista servicoMotorista, ServicoUsuario servicoUsuario, ApplicationContext context) {
         this.servicoMotorista = servicoMotorista;
+        this.servicoUsuario = servicoUsuario;
         this.context = context;
     }
 
@@ -105,7 +108,7 @@ public class GerenciarMotoristaController implements Initializable {
     private void mostrarDetalhes(Motorista motorista) {
         this.motoristaSelecionado = motorista;
 
-        lblDetalhesID.setText(String.valueOf(motorista.getIdMotorista()));
+        lblDetalhesID.setText(String.valueOf(motorista.getId()));
         lblDetalhesNome.setText(motorista.getNomeMotorista());
 
         // Exemplo de getters (ajuste conforme sua classe Bean real)
@@ -127,7 +130,7 @@ public class GerenciarMotoristaController implements Initializable {
     @FXML
     void acaoExcluirMotorista(ActionEvent event) throws MIException {
         if (motoristaSelecionado != null) {
-            servicoMotorista.removerMotorista(motoristaSelecionado.getIdMotorista());
+            servicoUsuario.removerUsuario(motoristaSelecionado.getId());
             listaMotoristas.remove(motoristaSelecionado);
 
             painelDetalhes.setVisible(false);

@@ -39,7 +39,7 @@ public class MenuPrincipalController {
 
     @FXML
     void irParaRelatorio(ActionEvent event) {
-
+        abrirTela(event, "/com.gestaoentregas/Relatorios.fxml", "Relatorio");
     }
 
     @FXML

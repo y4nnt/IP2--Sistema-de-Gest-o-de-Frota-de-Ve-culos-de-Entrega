@@ -14,15 +14,15 @@ public class Rota {
     private String destinoRota;
     private double distanciaKm;
     private LocalDateTime tempoEstimado;
-    private VeiculoMotorista veiculoMotoristaRota;
+    private Motorista MotoristaRota;
     private int idRota;
 
-    public Rota(String origem, double distancia, LocalDateTime tempoEstimado, VeiculoMotorista veiculoMotorista, int idRota) {
+    public Rota(String origem, double distancia, LocalDateTime tempoEstimado, Motorista Motorista, int idRota) {
         this.origemRota = origem;
         this.destinoRota = "";
         this.distanciaKm = distancia;
         this.tempoEstimado = tempoEstimado;
-        this.veiculoMotoristaRota = veiculoMotorista;
+        this.MotoristaRota = Motorista;
         this.entregasRota = new ArrayList<>();
         this.pontosParada = new ArrayList<>();
         this.idRota = idRota;
@@ -82,15 +82,14 @@ public class Rota {
 
     public void atualizarTempoEstimado(double distancia, Motorista motorista) {
         this.distanciaKm = distancia;
-        this.veiculoMotoristaRota.setMotoristaEntrega(motorista);
     }
 
-    public VeiculoMotorista getVeiculoMotoristaRota() {
-        return veiculoMotoristaRota;
+    public Motorista getMotoristaRota() {
+        return MotoristaRota;
     }
 
-    public void setVeiculoMotoristaRota(VeiculoMotorista veiculoMotoristaRota) {
-        this.veiculoMotoristaRota = veiculoMotoristaRota;
+    public void setMotoristaRota(Motorista MotoristaRota) {
+        this.MotoristaRota = MotoristaRota;
     }
 
     public String getOrigemRota() {

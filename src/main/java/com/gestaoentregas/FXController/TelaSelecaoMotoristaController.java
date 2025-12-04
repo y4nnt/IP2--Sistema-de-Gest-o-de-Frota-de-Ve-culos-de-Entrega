@@ -95,10 +95,10 @@ public class TelaSelecaoMotoristaController implements Initializable {
 
         try {
             if (rotaAtual != null) {
-                if (rotaAtual.getVeiculoMotoristaRota() == null) {
-                    rotaAtual.setVeiculoMotoristaRota(new VeiculoMotorista());
+                if (rotaAtual.getMotoristaRota() == null) {
+                    rotaAtual.setMotoristaRota(motoristaSelecionado);
                 }
-                rotaAtual.getVeiculoMotoristaRota().setMotoristaEntrega(motoristaSelecionado);
+                rotaAtual.setMotoristaRota(motoristaSelecionado);
                 servicoRota.atualizarRota(rotaAtual);
 
                 System.out.println("Rota " + rotaAtual.getIdRota() + " vinculada ao motorista " + motoristaSelecionado.getNomeMotorista());

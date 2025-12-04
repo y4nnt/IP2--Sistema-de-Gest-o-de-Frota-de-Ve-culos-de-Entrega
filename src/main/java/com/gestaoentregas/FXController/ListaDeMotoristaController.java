@@ -8,6 +8,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.io.IOException;
 
+import com.gestaoentregas.negocio.ServicoUsuario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -70,12 +71,14 @@ public class ListaDeMotoristaController implements Initializable {
     // --- Dados e Serviços ---
     private Motorista motoristaSelecionado;
     private final ServicoMotorista servicoMotorista;
+    private final ServicoUsuario servicoUsuario;
     private final ApplicationContext context;
     private final ObservableList<Motorista> listaMotoristas = FXCollections.observableArrayList();
 
     // --- Construtor ---
-    public ListaDeMotoristaController(ServicoMotorista servicoMotorista, ApplicationContext context) {
+    public ListaDeMotoristaController(ServicoMotorista servicoMotorista, ServicoUsuario servicoUsuario ,ApplicationContext context) {
         this.servicoMotorista = servicoMotorista;
+        this.servicoUsuario = servicoUsuario;
         this.context = context;
     }
 
@@ -113,7 +116,7 @@ public class ListaDeMotoristaController implements Initializable {
 
         // Preenche Labels com Dados Pessoais
         // Certifique-se que sua classe Motorista tem esses getters
-        lblDetalhesID.setText(String.valueOf(motorista.getIdMotorista()));
+        lblDetalhesID.setText(String.valueOf(motorista.getId()));
         lblDetalhesNome.setText(motorista.getNomeMotorista());
 
         // Exemplo de getters (ajuste conforme sua classe Bean real)
@@ -142,16 +145,12 @@ public class ListaDeMotoristaController implements Initializable {
     @FXML
     void acaoExcluirMotorista(ActionEvent event)  {
         if (motoristaSelecionado != null) {
-            try {
-                servicoMotorista.removerMotorista(motoristaSelecionado.getIdMotorista());
-                listaMotoristas.remove(motoristaSelecionado);
+            servicoUsuario.removerUsuario(motoristaSelecionado.getId());
+            listaMotoristas.remove(motoristaSelecionado);
 
-                painelDetalhes.setVisible(false);
-                painelDetalhes.setManaged(false);
-                tabelaMotoristas.getSelectionModel().clearSelection();
-            } catch (MIException e) {
-                e.printStackTrace();
-            }
+            painelDetalhes.setVisible(false);
+            painelDetalhes.setManaged(false);
+            tabelaMotoristas.getSelectionModel().clearSelection();
         }
     }
 
