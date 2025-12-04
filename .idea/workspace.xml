@@ -16,16 +16,16 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="FxmlFile" />
-        <option value="Class" />
         <option value="Exception" />
+        <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="gui-login" />
+        <entry key="$PROJECT_DIR$" value="gui-motorista" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -219,8 +219,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.DeliveryApplication" />
-        <item itemvalue="Application.Launcher" />
         <item itemvalue="Application.HelloApplication" />
+        <item itemvalue="Application.Launcher" />
+        <item itemvalue="Spring Boot.DeliveryApplication" />
+        <item itemvalue="Application.Launcher" />
       </list>
     </recent_temporary>
   </component>
