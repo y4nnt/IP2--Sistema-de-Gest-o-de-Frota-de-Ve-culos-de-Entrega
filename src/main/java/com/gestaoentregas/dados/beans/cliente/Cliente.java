@@ -1,23 +1,24 @@
 package com.gestaoentregas.dados.beans.cliente;
 
+import com.gestaoentregas.dados.beans.TipoUsuario;
+import com.gestaoentregas.dados.beans.Usuario;
+
 import java.time.LocalDate;
 
-public class Cliente {
+public class Cliente extends Usuario {
     private String nomeCliente;
     private String telefoneCliente;
     private String cpfCliente;
-    private String emailCliente;
-    private String idCliente;
     private LocalDate dataNascimentoCliente;
 
-    public Cliente(String nomeCliente, String telefoneCliente, String cpfCliente, String emailCliente, String idCliente, LocalDate dataNascimentoCliente) {
+    public Cliente(String nomeCliente, String telefoneCliente, String cpfCliente, String emailCliente, int id, LocalDate dataNascimentoCliente, String senha) {
+        super(emailCliente, senha, TipoUsuario.CLIENTE, id);
         this.nomeCliente = nomeCliente;
         this.telefoneCliente = telefoneCliente;
         this.cpfCliente = cpfCliente;
-        this.emailCliente = emailCliente;
-        this.idCliente = idCliente;
         this.dataNascimentoCliente = dataNascimentoCliente;
     }
+
 
     public String getNomeCliente() {
         return nomeCliente;
@@ -43,22 +44,6 @@ public class Cliente {
         this.cpfCliente = cpfCliente;
     }
 
-    public String getEmailCliente() {
-        return emailCliente;
-    }
-
-    public void setEmailCliente(String emailCliente) {
-        this.emailCliente = emailCliente;
-    }
-
-    public String getIdCliente() {
-        return idCliente;
-    }
-
-    public void setIdCliente(String idCliente) {
-        this.idCliente = idCliente;
-    }
-
     public LocalDate getDataNascimentoCliente() {
         return dataNascimentoCliente;
     }
@@ -71,6 +56,6 @@ public class Cliente {
     public String toString(){
         return String.format("Cliente [Nome: %s, Data de Nascimento: %d/%d/%d, Telefone: %s, CPF: %s, Email: %s, Id: %s]",
                 this.nomeCliente, this.dataNascimentoCliente.getDayOfMonth(), this.dataNascimentoCliente.getMonthValue(),
-                this.dataNascimentoCliente.getYear(), this.telefoneCliente, this.cpfCliente, this.emailCliente, this.idCliente);
+                this.dataNascimentoCliente.getYear(), this.telefoneCliente, this.cpfCliente, getEmail(), getId());
     }
 }

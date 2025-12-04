@@ -1,17 +1,16 @@
 package com.gestaoentregas.FXController;
 
-import com.gestaoentregas.dados.beans.motorista.Motorista; // Ajuste o pacote se necessário
-import com.gestaoentregas.dados.beans.TipoUsuario;
-import com.gestaoentregas.negocio.ServicoMotorista;
+import com.gestaoentregas.dados.beans.cliente.Cliente;
+import com.gestaoentregas.negocio.ServicoCliente;
 import com.gestaoentregas.negocio.ServicoUsuario;
 import com.gestaoentregas.excecoes.UIException;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -20,70 +19,65 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
+import java.time.LocalDate;
 
 @Component
-public class CadastroMotoristaController {
+public class CadastroClienteController {
 
     private final ApplicationContext context;
     private final ServicoUsuario servicoUsuario;
-    private final ServicoMotorista servicoMotorista;
+    private final ServicoCliente servicoCliente;
 
     // Injeção de Dependência pelo Spring:
-    public CadastroMotoristaController(ApplicationContext context, ServicoUsuario servicoUsuario, ServicoMotorista servicoMotorista) {
+    public CadastroClienteController(ApplicationContext context, ServicoCliente servicoCliente, ServicoUsuario servicoUsuario) {
         this.context = context;
+        this.servicoCliente = servicoCliente;
         this.servicoUsuario = servicoUsuario;
-        this.servicoMotorista = servicoMotorista;
     }
 
-    // --- CAMPOS FXML (do TelaCadastroMotorista.fxml) ---
-    @FXML private TextField txtNomeMotorista;
-    @FXML private TextField txtTelefoneMotorista;
-    @FXML private TextField txtCpfMotorista;
-    @FXML private TextField txtCnhMotorista;
-    @FXML private TextField txtIdadeMotorista;
-    @FXML private TextField txtEmailMotorista;
-    @FXML private PasswordField txtSenhaMotorista;
+    // --- CAMPOS FXML (do TelaCadastroCliente.fxml) ---
+    @FXML private TextField txtNomeCliente;
+    @FXML private TextField txtTelefoneCliente;
+    @FXML private TextField txtCpfCliente;
+    @FXML private DatePicker dpDataNascimentoCliente;
+    @FXML private TextField txtEmailCliente;
+    @FXML private PasswordField txtSenhaCliente;
 
     // --- AÇÕES ---
 
     /**
-     * Tenta registrar um novo Motorista no sistema.
+     * Tenta registrar um novo Cliente no sistema.
      */
     @FXML
-    public void acaoCadastrarMotorista(ActionEvent event) {
+    public void acaoCadastrarCliente(ActionEvent event) {
         try {
             // 1. Coleta e validação simples dos dados
-            String nome = txtNomeMotorista.getText();
-            String telefone = txtTelefoneMotorista.getText();
-            String cpf = txtCpfMotorista.getText();
-            String cnh = txtCnhMotorista.getText();
-            String idadeStr = txtIdadeMotorista.getText();
-            String email = txtEmailMotorista.getText();
-            String senha = txtSenhaMotorista.getText();
+            String nome = txtNomeCliente.getText();
+            String telefone = txtTelefoneCliente.getText();
+            String cpf = txtCpfCliente.getText();
+            LocalDate dataNasc = dpDataNascimentoCliente.getValue();
+            String email = txtEmailCliente.getText();
+            String senha = txtSenhaCliente.getText();
 
-            if (nome.isEmpty() || email.isEmpty() || senha.isEmpty() || cnh.isEmpty() || idadeStr.isEmpty()) {
+            if (nome.isEmpty() || email.isEmpty() || senha.isEmpty() || dataNasc == null) {
                 throw new UIException("Todos os campos obrigatórios devem ser preenchidos.");
             }
-            int idade = Integer.parseInt(idadeStr); // Converte idade
 
-            // 2. Cria a instância do Motorista
-            // *Assumindo que o ServicoUsuario fornece um ID único (pegarProximoId)
+            // 2. Cria a instância do Cliente
+            // *Assumindo que o ServicoUsuario fornece um ID único (pegarProximoId) ou a lógica de ID está no construtor
             int newId = servicoUsuario.pegarProximoId(); // Este método precisa ser implementado no ServicoUsuario
 
-            Motorista novoMotorista = new Motorista(
-                    nome, telefone, cpf, cnh, idade, newId, email, senha
+            Cliente novoCliente = new Cliente(
+                    nome, telefone, cpf, email, newId, dataNasc, senha
             );
 
-
-            // 3. Cadastra o motorista
-            servicoMotorista.cadastrarMotorista(novoMotorista);
+            // 3. Cadastra o cliente
+            servicoCliente.cadastrarCliente(novoCliente);
 
             // 4. Feedback e navegação
-            mostrarAlerta(Alert.AlertType.INFORMATION, "Sucesso!", "Cadastro realizado.", "Motorista " + nome + " cadastrado com sucesso!");
+            mostrarAlerta(Alert.AlertType.INFORMATION, "Sucesso!", "Cadastro realizado.", "Cliente " + nome + " cadastrado com sucesso!");
             acaoVoltar(event); // Volta para a tela de Login
 
-        } catch (NumberFormatException e) {
-            mostrarAlerta(Alert.AlertType.ERROR, "Erro de Validação", "Idade inválida.", "Por favor, digite a idade em formato numérico.");
         } catch (UIException e) {
             mostrarAlerta(Alert.AlertType.ERROR, "Erro de Cadastro", "Falha na validação.", e.getMessage());
         } catch (Exception e) {
@@ -99,7 +93,7 @@ public class CadastroMotoristaController {
         abrirTela(event, "/com.gestaoentregas/TelaLogon.fxml", "Login do Sistema");
     }
 
-    //MÉTODOS DE UTILIDADE
+    // --- MÉTODOS DE UTILIDADE (Copiados do LogonController) ---
 
     private void mostrarAlerta(Alert.AlertType type, String title, String header, String content) {
         Alert alert = new Alert(type);

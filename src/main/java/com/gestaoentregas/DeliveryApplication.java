@@ -1,14 +1,12 @@
 package com.gestaoentregas;
 
 import com.gestaoentregas.FXController.ListaDePedidosController;
-import com.gestaoentregas.FXController.MenuMotoristaController;
+import com.gestaoentregas.FXController.LogonController;
 import com.gestaoentregas.FXController.MenuPrincipalController;
-import com.gestaoentregas.FXController.MotoristaPrincipalController;
 import com.gestaoentregas.excecoes.ECException;
 import com.gestaoentregas.excecoes.PCException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.springframework.boot.SpringApplication;
@@ -33,16 +31,15 @@ public class DeliveryApplication extends Application {
 
     @Override
     public void start(Stage stage) throws IOException, ECException, PCException {
-        FXMLLoader fxmlLoader = new FXMLLoader(DeliveryApplication.class.getResource("/com.gestaoentregas/MenuAdm.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(DeliveryApplication.class.getResource("/com.gestaoentregas/TelaLogon.fxml"));
 
         fxmlLoader.setControllerFactory(springContext::getBean);
 
-        Parent root = fxmlLoader.load();
-        Scene scene = new Scene(root, 600, 400);
+        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
         stage.setTitle("Menu Inicial ADM");
         stage.setResizable(false);
 
-        MenuPrincipalController controller = fxmlLoader.getController();
+        LogonController controller = fxmlLoader.getController();
 
         stage.setScene(scene);
         stage.show();

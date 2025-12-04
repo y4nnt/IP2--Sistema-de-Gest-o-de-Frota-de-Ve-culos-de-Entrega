@@ -1,7 +1,7 @@
 package com.gestaoentregas.dados.repositorios;
 
 
-import com.gestaoentregas.dados.beans.cliente.Usuario;
+import com.gestaoentregas.dados.beans.Usuario;
 
 import java.util.ArrayList;
 
@@ -10,5 +10,6 @@ public interface IRepositorioUsuario {
     void atualizarUsuario(Usuario conta);
     void removerUsuario(int id);
     Usuario buscarUsuario(int id);
-    ArrayList<Usuario> listarUsuario();
+    public Usuario buscarUsuarioPorEmail(String email);
+    ArrayList<Usuario> listarUsuarios();
 }
