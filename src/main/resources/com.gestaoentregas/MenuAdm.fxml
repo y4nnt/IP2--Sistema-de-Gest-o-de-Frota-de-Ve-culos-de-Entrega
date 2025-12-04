@@ -76,7 +76,15 @@
                                 <Font name="System Bold" size="14.0" />
                             </font>
                         </Button>
-
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER" spacing="20.0">
+                    <children>
+                        <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#irParaGerenciamento" prefHeight="0.0" prefWidth="180.0" style="-fx-background-color: white; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 0); -fx-cursor: hand; -fx-background-radius: 8;" text="Gerenciar Motoristas" textFill="#2d3447">
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                        </Button>
                     </children>
                 </HBox>
                 <HBox alignment="CENTER" spacing="20.0">

@@ -34,13 +34,7 @@ public class MenuPrincipalController {
 
     @FXML
     void irParaGerenciamento(ActionEvent event) {
-        abrirTela(event, "/com.gestaoentregas/ListaDeMotoristas.fxml",  "Gerenciamento");
-        System.out.println("Funcionalidade de Gerenciamento clicada!");
-    }
-
-    @FXML
-    void irParaRelatorio(ActionEvent event) {
-
+        abrirTela(event, "/com.gestaoentregas/GerenciarMotorista.fxml", "Gerenciamento");
     }
 
     @FXML

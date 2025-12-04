@@ -36,7 +36,7 @@ public class CadastroMotoristaController {
             String cnh = txtCnh.getText().trim();
             String idadeTexto = txtIdade.getText().trim();
 
-            if (nome.isEmpty() || telefone.isEmpty() || cpf.isEmpty() || cnh.isEmpty() || idadeTexto.isEmpty()) {
+            if (nome.isEmpty() || telefone.isEmpty() || cpf.isEmpty() || cnh.isEmpty() || idadeTexto.isEmpty()){
                 mostrarAlerta("Erro de Validação", "Todos os campos são obrigatórios");
                 return;
             }

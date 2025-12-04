@@ -6,15 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="911704be-b986-469a-b46c-ae04dd23952b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/DeliveryApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/DeliveryApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/FXController/DetalhesEntregaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/FXController/DetalhesEntregaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/FXController/MenuPrincipalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/FXController/MenuPrincipalController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/FXController/MotoristaPrincipalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/FXController/MotoristaPrincipalController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/negocio/Alerta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/negocio/Alerta.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/negocio/ServicoEntrega.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/negocio/ServicoEntrega.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com.gestaoentregas/TelaPrincipalMotorista.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com.gestaoentregas/TelaPrincipalMotorista.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/FXController/MenuPrincipalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/FXController/MenuPrincipalController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com.gestaoentregas/MenuAdm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com.gestaoentregas/MenuAdm.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com.gestaoentregas/CadastroVeiculo.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com.gestaoentregas/CadastroVeiculo.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com.gestaoentregas/MenuAdm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com.gestaoentregas/MenuAdm.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,6 +64,8 @@
     &quot;Application.Cliente.executor&quot;: &quot;Run&quot;,
     &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
     &quot;Application.Launcher.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.index.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.mapa.html.executor&quot;: &quot;Run&quot;,
     &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
     &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
     &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
@@ -172,14 +172,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DeliveryApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
-      <module name="projetopoo" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.gestaoentregas.DeliveryApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="Tox" factoryName="Tox">
       <module name="IP2--Sistema-de-Gest-o-de-Frota-de-Ve-culos-de-Entrega" />
       <option name="ENV_FILES" value="" />
@@ -228,7 +220,7 @@
       <workItem from="1764797034539" duration="21000" />
       <workItem from="1764797073513" duration="3323000" />
       <workItem from="1764800497320" duration="780000" />
-      <workItem from="1764808544172" duration="5455000" />
+      <workItem from="1764808544172" duration="2006000" />
     </task>
     <servers />
   </component>
