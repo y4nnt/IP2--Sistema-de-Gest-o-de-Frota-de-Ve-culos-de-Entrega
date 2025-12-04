@@ -1,10 +1,14 @@
 package com.gestaoentregas.dados.beans.motorista;
 
+import com.gestaoentregas.dados.beans.TipoUsuario;
+import com.gestaoentregas.dados.beans.Usuario;
+import com.gestaoentregas.dados.beans.veiculo.Veiculo;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Motorista {
+public class Motorista extends Usuario{
     private String nomeMotorista;
     private String telefoneMotorista;
     private String cpfMotorista;
@@ -12,15 +16,17 @@ public class Motorista {
     private int idadeMotorista;
     private DisponibilidadeMotorista disponibilidadeMotorista;
     private List<PeriodoIndisponivelMotorista> feriasMotorista;
-    private int idMotorista;
+    private Veiculo veiculoMotorista;
 
-    public Motorista(String nomeMotorista, String telefoneMotorista, String cpfMotorista, String cnhMotorista, int idadeMotorista) {
+    public Motorista(String nomeMotorista, String telefoneMotorista, String cpfMotorista, String cnhMotorista, int idadeMotorista, Veiculo veiculoMotorista, int id,String email, String senha) {
+        super(email, senha, TipoUsuario.MOTORISTA, id);
         this.nomeMotorista = nomeMotorista;
         this.telefoneMotorista = telefoneMotorista;
         this.cpfMotorista = cpfMotorista;
         this.cnhMotorista = cnhMotorista;
         this.idadeMotorista = idadeMotorista;
         this.disponibilidadeMotorista = DisponibilidadeMotorista.INDISPONIVEL;
+        this.veiculoMotorista = veiculoMotorista;
         this.feriasMotorista = new ArrayList<>();
     }
 
@@ -64,6 +70,14 @@ public class Motorista {
         this.idadeMotorista = idadeMotorista;
     }
 
+    public Veiculo getVeiculoMotorista() {
+        return veiculoMotorista;
+    }
+
+    public void setVeiculoMotorista(Veiculo veiculoMotorista) {
+        this.veiculoMotorista = veiculoMotorista;
+    }
+
     public DisponibilidadeMotorista getDisponibilidadeMotorista() {
         return disponibilidadeMotorista;
     }
@@ -71,10 +85,6 @@ public class Motorista {
     public List<PeriodoIndisponivelMotorista> getFeriasMotorista() {
         return feriasMotorista;
     }
-
-    public int getIdMotorista() {return idMotorista;}
-
-    public void setIdMotorista(int idMotorista) {this.idMotorista = idMotorista;}
 
     public void addFerias(LocalDate inicio, LocalDate fim){
         PeriodoIndisponivelMotorista ferias = new PeriodoIndisponivelMotorista(inicio, fim, "Férias");

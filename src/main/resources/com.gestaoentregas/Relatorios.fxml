@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gestaoentregas.FXController.RelatorioController">
+
+    <top>
+        <VBox spacing="10.0" BorderPane.alignment="CENTER">
+            <padding>
+                <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+            </padding>
+            <children>
+                <Label text="Relatórios e Estatísticas">
+                    <font>
+                        <Font name="System Bold" size="24.0" />
+                    </font>
+                </Label>
+                <Separator prefWidth="200.0" />
+
+                <HBox alignment="CENTER_LEFT" spacing="15.0" style="-fx-background-color: #f4f4f4; -fx-background-radius: 5;">
+                    <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                    </padding>
+                    <children>
+                        <VBox spacing="5.0">
+                            <children>
+                                <Label text="Data Início:" />
+                                <DatePicker fx:id="dpInicio" promptText="dd/mm/aaaa" />
+                            </children>
+                        </VBox>
+                        <VBox spacing="5.0">
+                            <children>
+                                <Label text="Data Fim:" />
+                                <DatePicker fx:id="dpFim" promptText="dd/mm/aaaa" />
+                            </children>
+                        </VBox>
+                        <VBox spacing="5.0">
+                            <children>
+                                <Label text="Motorista:" />
+                                <ComboBox fx:id="cbMotorista" prefWidth="150.0" promptText="Todos" />
+                            </children>
+                        </VBox>
+                        <VBox spacing="5.0">
+                            <children>
+                                <Label text="Veículo:" />
+                                <ComboBox fx:id="cbVeiculo" prefWidth="150.0" promptText="Todos" />
+                            </children>
+                        </VBox>
+                        <Button mnemonicParsing="false" onAction="#handleFiltrar" style="-fx-background-color: #007bff; -fx-text-fill: white;" text="🔍 Aplicar Filtros">
+                            <VBox.margin>
+                                <Insets top="20.0" />
+                            </VBox.margin>
+                        </Button>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </top>
+    <center>
+        <VBox spacing="10.0" BorderPane.alignment="CENTER">
+            <padding>
+                <Insets left="15.0" right="15.0" />
+            </padding>
+            <children>
+                <HBox spacing="20.0">
+                    <children>
+                        <VBox style="-fx-border-color: #ddd; -fx-border-radius: 5; -fx-padding: 10;">
+                            <children>
+                                <Label text="Total Entregas" textFill="#666666" />
+                                <Label fx:id="lblTotalEntregas" text="0">
+                                    <font><Font name="System Bold" size="18.0" /></font>
+                                </Label>
+                            </children>
+                        </VBox>
+                        <VBox style="-fx-border-color: #ddd; -fx-border-radius: 5; -fx-padding: 10;">
+                            <children>
+                                <Label text="Taxa de Sucesso" textFill="#666666" />
+                                <Label fx:id="lblTaxaSucesso" text="0%" textFill="#28a745">
+                                    <font><Font name="System Bold" size="18.0" /></font>
+                                </Label>
+                            </children>
+                        </VBox>
+                    </children>
+                </HBox>
+
+                <TableView fx:id="tabelaRelatorio" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="colData" prefWidth="100.0" text="Data" />
+                        <TableColumn fx:id="colMotorista" prefWidth="180.0" text="Motorista" />
+                        <TableColumn fx:id="colVeiculo" prefWidth="100.0" text="Veículo" />
+                        <TableColumn fx:id="colRota" prefWidth="150.0" text="Rota" />
+                        <TableColumn fx:id="colStatus" prefWidth="100.0" text="Status" />
+                    </columns>
+                    <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                    </columnResizePolicy>
+                </TableView>
+            </children>
+        </VBox>
+    </center>
+
+    <bottom>
+        <HBox alignment="CENTER_RIGHT" spacing="15.0" BorderPane.alignment="CENTER">
+            <padding>
+                <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+            </padding>
+            <children>
+            <Button fx:id="btnVoltar" mnemonicParsing="false" onAction="#handleVoltar" text="Voltar" />
+                <Label text="Exportar resultados:" textFill="#666666" />
+                <Button mnemonicParsing="false" onAction="#handleExportarCSV" style="-fx-base: #28a745;" text="📄 Exportar CSV" />
+                <Button mnemonicParsing="false" onAction="#handleExportarPDF" style="-fx-base: #dc3545;" text="📑 Exportar PDF" />
+            </children>
+        </HBox>
+    </bottom>
+</BorderPane>

@@ -1,6 +1,8 @@
 package com.gestaoentregas;
 
 import com.gestaoentregas.FXController.ListaDePedidosController;
+import com.gestaoentregas.FXController.LogonController;
+import com.gestaoentregas.FXController.MenuMotoristaController;
 import com.gestaoentregas.FXController.MenuPrincipalController;
 import com.gestaoentregas.excecoes.ECException;
 import com.gestaoentregas.excecoes.PCException;
@@ -30,15 +32,15 @@ public class DeliveryApplication extends Application {
 
     @Override
     public void start(Stage stage) throws IOException, ECException, PCException {
-        FXMLLoader fxmlLoader = new FXMLLoader(DeliveryApplication.class.getResource("/com.gestaoentregas/MenuAdm.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(DeliveryApplication.class.getResource("/com.gestaoentregas/TelaLogon.fxml"));
 
         fxmlLoader.setControllerFactory(springContext::getBean);
 
         Scene scene = new Scene(fxmlLoader.load(), 600, 400);
-        stage.setTitle("Menu Inicial ADM");
+        stage.setTitle("Tela logon");
         stage.setResizable(false);
 
-        MenuPrincipalController controller = fxmlLoader.getController();
+        LogonController controller = fxmlLoader.getController();
 
         stage.setScene(scene);
         stage.show();
@@ -47,6 +49,10 @@ public class DeliveryApplication extends Application {
     @Override
     public void stop() {
         springContext.close();
+    }
+
+    public static ConfigurableApplicationContext getContext() {
+        return springContext;
     }
 
 }
