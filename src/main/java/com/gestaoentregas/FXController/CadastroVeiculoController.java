@@ -70,6 +70,7 @@ public class CadastroVeiculoController {
 
             // 3. Criação e Salvamento do Veículo
             Veiculo novoVeiculo = new Veiculo(placa, modelo, capacidade);
+            novoVeiculo.setIdVeiculo(0);
             // Se o seu objeto Veiculo tiver marca/ano, sete-os aqui. Caso contrário, ignore.
             this.servicoVeiculo.cadastrarVeiculo(novoVeiculo);
 

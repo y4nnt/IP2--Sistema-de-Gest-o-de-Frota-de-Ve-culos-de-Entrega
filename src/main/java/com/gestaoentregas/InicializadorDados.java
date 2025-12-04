@@ -64,9 +64,9 @@ public class InicializadorDados implements CommandLineRunner {
 
         // --- Criação dos Motoristas (SEM VEÍCULOS) ---
         // O argumento 'null' indica que eles começam a pé.
-        Motorista m1 = new Motorista("João", "81999999999", "12189312921", "11111111111", 29, null, 1, "teste1@gmail.com","123");
-        Motorista m2 = new Motorista("Marcelo", "89218219213", "12312432661", "22222222222", 19, null, 2, "teste2@gmail.com","234");
-        Motorista m3 = new Motorista("Lucas", "81940028922", "99320199430", "33333333333", 23, null, 3, "teste3@gmail.com", "345");
+        Motorista m1 = new Motorista("João", "81999999999", "12189312921", "11111111111", 29, null, 0, "teste1@gmail.com","123");
+        Motorista m2 = new Motorista("Marcelo", "89218219213", "12312432661", "22222222222", 19, null, 0, "teste2@gmail.com","234");
+        Motorista m3 = new Motorista("Lucas", "81940028922", "99320199430", "33333333333", 23, null, 0, "teste3@gmail.com", "345");
 
         // Salva os motoristas sem carro
         cadastrarMotoristaSeguro(m1);

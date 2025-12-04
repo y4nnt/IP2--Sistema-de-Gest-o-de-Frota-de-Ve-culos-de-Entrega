@@ -68,10 +68,10 @@ public class CadastroMotoristaController {
 
             // 2. Cria a instância do Motorista
             // *Assumindo que o ServicoUsuario fornece um ID único (pegarProximoId)
-            int newId = servicoUsuario.pegarProximoId(); // Este método precisa ser implementado no ServicoUsuario
+
 
             Motorista novoMotorista = new Motorista(
-                    nome, telefone, cpf, cnh, idade, null, newId, email, senha
+                    nome, telefone, cpf, cnh, idade, null, 0, email, senha
             );
 
 

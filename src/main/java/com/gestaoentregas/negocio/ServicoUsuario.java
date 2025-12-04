@@ -12,8 +12,6 @@ import java.util.ArrayList;
 
 @Service
 public class ServicoUsuario {
-
-    private static volatile int nextId = 0;
     private final RepositorioUsuario repositorioUsuario;
     private final RepositorioMotorista repositorioMotorista;
 
@@ -22,9 +20,6 @@ public class ServicoUsuario {
         this.repositorioMotorista = repositorioMotorista;
     }
 
-    public synchronized int pegarProximoId() {
-        return nextId++;
-    }
 
     public void cadastrarUsuario(Usuario novoUsuario) throws UIException {
         //Verifica se existe outro usuário com o mesmo e-mail.

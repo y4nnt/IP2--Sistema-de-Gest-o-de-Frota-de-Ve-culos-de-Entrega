@@ -10,6 +10,7 @@ import java.util.ArrayList;
 @Repository
 public class RepositorioMotorista implements IRepositorioMotorista {
     private ArrayList<Motorista> motoristas;
+    private int contadorId = 101;
 
     private RepositorioMotorista() {
         this.motoristas = new ArrayList<>();
@@ -17,6 +18,10 @@ public class RepositorioMotorista implements IRepositorioMotorista {
 
     @Override
     public void cadastrarMotorista(Motorista motorista) {
+        if (motorista.getId() == 0) {
+            motorista.setId(contadorId);
+            contadorId++;
+        }
         motoristas.add(motorista);
     }
 

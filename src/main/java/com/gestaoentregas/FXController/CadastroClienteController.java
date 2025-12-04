@@ -63,12 +63,9 @@ public class CadastroClienteController {
                 throw new UIException("Todos os campos obrigatórios devem ser preenchidos.");
             }
 
-            // 2. Cria a instância do Cliente
-            // *Assumindo que o ServicoUsuario fornece um ID único (pegarProximoId) ou a lógica de ID está no construtor
-            int newId = servicoUsuario.pegarProximoId(); // Este método precisa ser implementado no ServicoUsuario
 
             Cliente novoCliente = new Cliente(
-                    nome, telefone, cpf, email, newId, dataNasc, senha
+                    nome, telefone, cpf, email, 0, dataNasc, senha
             );
 
             // 3. Cadastra o cliente

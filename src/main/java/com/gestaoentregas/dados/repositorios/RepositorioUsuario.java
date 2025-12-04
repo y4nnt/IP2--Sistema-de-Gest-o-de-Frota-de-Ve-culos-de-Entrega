@@ -11,6 +11,7 @@ public class RepositorioUsuario implements IRepositorioUsuario {
 
     // Lista polimórfica: aceita Cliente, Admin e Motorista
     private List<Usuario> usuarios;
+    private int contadorId = 1;
 
     public RepositorioUsuario() {
         this.usuarios = new ArrayList<>();
@@ -18,6 +19,10 @@ public class RepositorioUsuario implements IRepositorioUsuario {
 
     @Override
     public void cadastrarUsuario(Usuario usuario) {
+        if (usuario.getId() == 0){
+            usuario.setId(contadorId);
+            contadorId++;
+        }
         this.usuarios.add(usuario);
     }
 
