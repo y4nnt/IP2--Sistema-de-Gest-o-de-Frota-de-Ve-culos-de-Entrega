@@ -77,7 +77,6 @@ public class CadastroMotoristaController {
 
             // 3. Cadastra o motorista
             servicoMotorista.cadastrarMotorista(novoMotorista);
-            servicoUsuario.cadastrarUsuario(novoMotorista);
 
             // 4. Feedback e navegação
             mostrarAlerta(Alert.AlertType.INFORMATION, "Sucesso!", "Cadastro realizado.", "Motorista " + nome + " cadastrado com sucesso!");

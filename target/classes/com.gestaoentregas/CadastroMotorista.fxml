@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox alignment="TOP_CENTER" spacing="10.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gestaoentregas.FXController.CadastroMotoristaController">
+<VBox alignment="TOP_CENTER" prefHeight="306.0" prefWidth="238.0" spacing="10.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gestaoentregas.FXController.CadastroMotoristaController">
 
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
@@ -15,11 +15,13 @@
         <font> <Font name="System Bold" size="18.0" /> </font>
     </Label>
 
-    <TextField fx:id="txtNome" promptText="Nome Completo" />
-    <TextField fx:id="txtTelefone" promptText="Telefone (xx) xxxxx-xxxx" />
-    <TextField fx:id="txtCpf" promptText="CPF (apenas números)" />
-    <TextField fx:id="txtCnh" promptText="CNH (apenas números)" />
-    <TextField fx:id="txtIdade" promptText="Idade (Ex: 30)" />
+    <TextField fx:id="txtNomeMotorista" promptText="Nome Completo" />
+    <TextField fx:id="txtEmailMotorista" promptText="Email" />
+    <PasswordField fx:id="txtSenhaMotorista" promptText="senha" />
+    <TextField fx:id="txtTelefoneMotorista" promptText="Telefone (xx) xxxxx-xxxx" />
+    <TextField fx:id="txtCpfMotorista" promptText="CPF (apenas números)" />
+    <TextField fx:id="txtCnhMotorista" promptText="CNH (apenas números)" />
+    <TextField fx:id="txtIdadeMotorista" promptText="Idade (Ex: 30)" />
 
     <Button maxWidth="Infinity" onAction="#acaoSalvar" style="-fx-background-color: #007bff; -fx-text-fill: white; -fx-font-weight: bold;" text="Cadastrar" />
 </VBox>
