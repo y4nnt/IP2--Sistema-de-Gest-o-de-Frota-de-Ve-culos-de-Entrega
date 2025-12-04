@@ -36,6 +36,7 @@
         <VBox alignment="TOP_CENTER" prefHeight="427.0" prefWidth="160.0" spacing="20.0" BorderPane.alignment="CENTER">
             <children>
                 <Button fx:id="btnVisualizarRota" mnemonicParsing="false" onAction="#handleVisualizarRota" prefWidth="140.0" text="Visualizar Rota" textAlignment="CENTER" />
+                <Button fx:id="btnFinalizarEntrega" mnemonicParsing="false" onAction="#handleFinalizarEntrega" prefWidth="140.0" text="Finalizar Entrega" textAlignment="CENTER" />
                 <Button fx:id="btnAcessarMenu" mnemonicParsing="false" onAction="#handleAcessarMenu" prefWidth="140.0" text="Acessar Menu" />
             </children>
             <padding>

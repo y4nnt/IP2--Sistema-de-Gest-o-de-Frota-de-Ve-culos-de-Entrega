@@ -2,6 +2,8 @@ package com.gestaoentregas.FXController;
 
 import com.gestaoentregas.dados.beans.entrega.Entrega;
 import com.gestaoentregas.dados.beans.entrega.StatusEntrega;
+import com.gestaoentregas.excecoes.EIException;
+import com.gestaoentregas.negocio.ServicoEntrega;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -32,8 +34,10 @@ public class MotoristaPrincipalController {
     @FXML private Button btnAcessarMenu;
 
     private final ApplicationContext context;
+    private final ServicoEntrega servicoEntrega;
 
-    public MotoristaPrincipalController(ApplicationContext context) {
+    public MotoristaPrincipalController(ServicoEntrega servicoEntrega, ApplicationContext context) {
+        this.servicoEntrega = servicoEntrega;
         this.context = context;
     }
 
@@ -93,6 +97,37 @@ public class MotoristaPrincipalController {
         }
     }
 
+    @FXML
+    private void handleFinalizarEntrega(ActionEvent event) { // Remova o "throws EIException" daqui
+        Entrega entregaSelecionada = tabelaEntregas.getSelectionModel().getSelectedItem();
+
+        if (entregaSelecionada != null) {
+            try {
+                servicoEntrega.atualizarStatusEntrega(entregaSelecionada, StatusEntrega.ENTREGUE);
+
+                tabelaEntregas.refresh();
+
+                Alert alert = new Alert(AlertType.INFORMATION);
+                alert.setTitle("Entrega confirmada");
+                alert.setHeaderText(null);
+                alert.setContentText("Entrega finalizada e e-mail de aviso enviado!");
+                alert.showAndWait();
+
+            } catch (EIException e) {
+                Alert alert = new Alert(AlertType.ERROR);
+                alert.setTitle("Erro");
+                alert.setHeaderText("Falha ao finalizar");
+                alert.setContentText(e.getMessage());
+                alert.showAndWait();
+            }
+        } else {
+            Alert alert = new Alert(AlertType.WARNING);
+            alert.setTitle("Nenhuma Seleção");
+            alert.setHeaderText(null);
+            alert.setContentText("Por favor, selecione uma entrega na lista.");
+            alert.showAndWait();
+        }
+    }
 
     @FXML
     private void handleAcessarMenu(ActionEvent event) {
