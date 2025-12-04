@@ -9,6 +9,7 @@ import com.gestaoentregas.excecoes.UIException; // Adicionar a exceção para tr
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert; // Import para exibir mensagens de erro
@@ -102,19 +103,28 @@ public class LogonController {
         String senha = txtSenha.getText();
 
         try {
-            // 1. Chama o serviço, esperando um usuário do tipo MOTORISTA
-            Usuario motoristaAutenticado = servicoUsuario.autenticar(email, senha, TipoUsuario.MOTORISTA);
+            Usuario usuarioAutenticado = servicoUsuario.autenticar(email, senha, TipoUsuario.MOTORISTA);
 
-            // 2. Login BEM-SUCEDIDO:
             mostrarAlerta(Alert.AlertType.INFORMATION, "Sucesso", "Login de Motorista", "Bem-vindo, Motorista!");
 
-            // IMPLEMENTAÇÃO: Navega para a tela do motorista
-            abrirTela(event, "/com.gestaoentregas/MenuMotorista.fxml", "Menu Principal Motorista");
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/gestaoentregas/MenuMotorista.fxml"));
 
+            loader.setControllerFactory(context::getBean);
+
+            Parent root = loader.load();
+
+            MenuMotoristaController controller = loader.getController();
+
+            controller.setIdMotorista(usuarioAutenticado.getId());
+
+            Stage stageAtual = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stageAtual.getScene().setRoot(root);
+            stageAtual.setTitle("Menu Principal Motorista");
 
         } catch (UIException e) {
-            // 3. Login FALHOU:
             mostrarAlerta(Alert.AlertType.ERROR, "Erro de Login", "Falha na Autenticação", e.getMessage());
+        } catch (Exception e) {
+            e.printStackTrace(); // Para ver erros de FXML no console
         }
     }
 
@@ -131,13 +141,6 @@ public class LogonController {
         alert.showAndWait();
     }
 
-    /**
-     * Navega para a tela de cadastro de Motorista.
-     */
-    @FXML
-    public void acaoCadastroMotorista(ActionEvent event) throws IOException {
-        abrirTela(event, "/com.gestaoentregas/TelaCadastroMotorista.fxml", "Menu Cadastro Motorista");
-    }
 
     /**
      * Navega para a tela de cadastro de Cliente.
