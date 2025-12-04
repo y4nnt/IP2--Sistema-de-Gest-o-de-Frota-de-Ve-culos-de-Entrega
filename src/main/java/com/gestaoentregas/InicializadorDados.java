@@ -74,7 +74,7 @@ public class InicializadorDados implements CommandLineRunner {
         cadastrarMotoristaSeguro(m3);
 
         // --- Admin ---
-        Admin a1 = new Admin("Yann", "yanntavares123@gmail.com", "111", 1000);
+        Admin a1 = new Admin("Yann", "admin1@gmail.com", "111", 1000);
         try {
             servicoAdmin.cadastrarAdmin(a1);
             servicoUsuario.cadastrarUsuario(a1);
