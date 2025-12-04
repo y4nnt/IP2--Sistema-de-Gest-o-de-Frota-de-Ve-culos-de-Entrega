@@ -42,11 +42,11 @@
             <Label text="Telefone:" GridPane.rowIndex="1" />
             <TextField fx:id="txtTelefoneMotorista" promptText="(XX) XXXXX-XXXX" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
-            <Label text="CPF:" GridPane.rowIndex="2" />
-            <TextField fx:id="txtCpfMotorista" promptText="XXX.XXX.XXX-XX" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label prefWidth="23.0" text="CPF:" GridPane.rowIndex="2" />
+            <TextField fx:id="txtCpfMotorista" promptText="XXX.XXX.XXX-XX (apenas números)" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 
             <Label text="CNH:" GridPane.rowIndex="3" />
-            <TextField fx:id="txtCnhMotorista" promptText="Número da CNH" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="txtCnhMotorista" promptText="Código de Segurança (apenas números)" GridPane.columnIndex="1" GridPane.rowIndex="3" />
 
             <Label text="Idade:" GridPane.rowIndex="4" />
             <TextField fx:id="txtIdadeMotorista" promptText="Sua idade" GridPane.columnIndex="1" GridPane.rowIndex="4" />

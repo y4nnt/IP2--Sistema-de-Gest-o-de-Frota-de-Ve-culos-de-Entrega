@@ -21,33 +21,38 @@ public class ServicoMotorista {
      * 1. Executa as validações de Motorista (Regras de Negócio Específicas).
      * 2. Delega a persistência (e validações genéricas como ID duplicado) ao ServicoUsuario.
      */
-    public void cadastrarMotorista(Motorista novoMotorista) throws IIException, CNHException, CPFException {
+    public void cadastrarMotorista(Motorista novoMotorista) throws IIException, CNHException, CPFException, UIException { // Adicionado UIException
 
         // 1. VALIDAÇÕES ESPECÍFICAS DE MOTORISTA
 
-        //Validação de Idade
+        // Validação de Idade
         if (novoMotorista.getIdadeMotorista() < 18) {
-            throw new IIException();
+            throw new IIException(); // IIException para Idade Inválida
         }
 
-        //Validação de CNH
-        if (novoMotorista.getCnhMotorista() == null || novoMotorista.getCnhMotorista().length() != 11) {
-            throw new CNHException();
+        // Validação de CNH: 11 dígitos E apenas números
+        String cnh = novoMotorista.getCnhMotorista();
+        if (cnh == null || cnh.length() != 11 || !cnh.matches("\\d+")) {
+            throw new CNHException("CNH deve conter 11 dígitos e ser composta apenas por números.");
         }
 
-        //Validação de CPF
-        if (novoMotorista.getCpfMotorista().length() != 11) {
-            throw new CPFException();
+        // Validação de CPF: 11 dígitos E apenas números
+        String cpf = novoMotorista.getCpfMotorista();
+        if (cpf == null || cpf.length() != 11 || !cpf.matches("\\d+")) {
+            throw new CPFException("CPF deve conter 11 dígitos e ser composto apenas por números.");
         }
+
+        //Validação de Telefone
+
+        String telefone = novoMotorista.getTelefoneMotorista(); // Supondo que exista
+        if (telefone == null || telefone.length() != 11 || !telefone.matches("\\d+")) {
+            throw new UIException("O telefone do motorista deve conter 11 dígitos e ser composto apenas por números.");
+        }
+
 
         // ********************************************************
         // 2. DELEGAÇÃO: DEIXA O SERVICOUSUARIO FAZER A PERSISTÊNCIA
         // ********************************************************
-
-        // Se o usuário já existir (ID ou Email), o ServicoUsuario se encarregará de
-        // lançar a exceção apropriada (provavelmente uma UIException, não MCException).
-        // Se você precisar da MCException aqui, você teria que fazer um 'catch' de UIException
-        // e lançar MCException, mas o ideal é ter uma exceção genérica.
 
         servicoUsuario.cadastrarUsuario(novoMotorista);
     }
