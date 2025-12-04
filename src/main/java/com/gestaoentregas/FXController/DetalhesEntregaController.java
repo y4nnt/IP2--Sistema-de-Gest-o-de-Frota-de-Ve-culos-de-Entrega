@@ -1,6 +1,10 @@
 package com.gestaoentregas.FXController;
 
 import com.gestaoentregas.dados.beans.entrega.Entrega;
+import com.gestaoentregas.dados.beans.entrega.StatusEntrega;
+import com.gestaoentregas.excecoes.EIException;
+import com.gestaoentregas.negocio.Alerta;
+import com.gestaoentregas.negocio.ServicoEntrega;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,10 +24,12 @@ public class DetalhesEntregaController {
     @FXML private Label lblIdEntrega;
     @FXML private Label lblEndereco;
 
+    private final ServicoEntrega servicoEntrega;
     private Entrega entregaAtual;
     private final ApplicationContext context;
 
-    public  DetalhesEntregaController(ApplicationContext context) {
+    public  DetalhesEntregaController(ServicoEntrega servicoEntrega, ApplicationContext context) {
+        this.servicoEntrega = servicoEntrega;
         this.context = context;
     }
 
@@ -37,8 +43,12 @@ public class DetalhesEntregaController {
     @FXML
     private void handleIniciarRota(ActionEvent event) {
         if (entregaAtual != null) {
-            System.out.println("Iniciando rota para: " + entregaAtual.getLocalEntrega());
-            // Lógica real: App.setScene("NavegacaoTurnByTurn.fxml", ...);
+            try {
+                this.servicoEntrega.atualizarStatusEntrega(entregaAtual, StatusEntrega.EM_TRANSITO);
+                System.out.println("Iniciando rota para: " + entregaAtual.getLocalEntrega());
+            } catch (EIException e) {
+                e.printStackTrace();
+            }
         }
     }
 

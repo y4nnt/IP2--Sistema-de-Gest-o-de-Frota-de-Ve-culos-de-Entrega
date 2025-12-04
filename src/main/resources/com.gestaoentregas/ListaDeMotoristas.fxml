@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gestaoentregas.FXController.ListaDeMotoristaController">
+    <children>
+
+        <Button fx:id="btnNovoMotorista" layoutX="500.0" layoutY="366.0" onAction="#acaoCadastrarNovoMotorista" prefHeight="25.0" prefWidth="85.0" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-cursor: hand;" text="Novo Mot." />
+
+        <TableView fx:id="tabelaMotoristas" prefHeight="400.0" prefWidth="300.0">
+            <columns>
+                <TableColumn fx:id="colunaID" prefWidth="60.0" text="ID" />
+                <TableColumn fx:id="colunaNome" prefWidth="238.0" text="NOME" />
+            </columns>
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+            </columnResizePolicy>
+        </TableView>
+
+        <Pane fx:id="painelDetalhes" layoutX="300.0" layoutY="26.0" prefHeight="327.0" prefWidth="300.0" style="-fx-background-color: white; -fx-border-color: black;">
+            <children>
+                <GridPane layoutX="14.0" layoutY="10.0" prefHeight="30.0" prefWidth="280.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="130.0" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="180.0" minWidth="10.0" prefWidth="180.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <Label text="ID:">
+                            <font><Font name="System Bold" size="14.0" /></font>
+                        </Label>
+                        <Label fx:id="lblDetalhesID" text="---" GridPane.columnIndex="1">
+                            <font><Font size="14.0" /></font>
+                        </Label>
+                    </children>
+                </GridPane>
+
+                <GridPane layoutX="14.0" layoutY="40.0" prefHeight="30.0" prefWidth="280.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="130.0" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="180.0" minWidth="10.0" prefWidth="180.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <Label text="NOME:">
+                            <font><Font name="System Bold" size="14.0" /></font>
+                        </Label>
+                        <Label fx:id="lblDetalhesNome" text="---" GridPane.columnIndex="1">
+                            <font><Font size="14.0" /></font>
+                        </Label>
+                    </children>
+                </GridPane>
+
+                <GridPane layoutX="14.0" layoutY="70.0" prefHeight="30.0" prefWidth="280.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="130.0" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="180.0" minWidth="10.0" prefWidth="180.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <Label text="CPF:">
+                            <font><Font name="System Bold" size="14.0" /></font>
+                        </Label>
+                        <Label fx:id="lblDetalhesCPF" text="---" GridPane.columnIndex="1">
+                            <font><Font size="14.0" /></font>
+                        </Label>
+                    </children>
+                </GridPane>
+
+                <GridPane layoutX="14.0" layoutY="100.0" prefHeight="30.0" prefWidth="280.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="130.0" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="180.0" minWidth="10.0" prefWidth="180.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <Label text="CNH:">
+                            <font><Font name="System Bold" size="14.0" /></font>
+                        </Label>
+                        <Label fx:id="lblDetalhesCNH" text="---" GridPane.columnIndex="1">
+                            <font><Font size="14.0" /></font>
+                        </Label>
+                    </children>
+                </GridPane>
+
+                <GridPane layoutX="14.0" layoutY="130.0" prefHeight="30.0" prefWidth="280.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="130.0" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="180.0" minWidth="10.0" prefWidth="180.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <Label text="TELEFONE:">
+                            <font><Font name="System Bold" size="14.0" /></font>
+                        </Label>
+                        <Label fx:id="lblDetalhesTelefone" text="---" GridPane.columnIndex="1">
+                            <font><Font size="14.0" /></font>
+                        </Label>
+                    </children>
+                </GridPane>
+
+                <GridPane layoutX="14.0" layoutY="160.0" prefHeight="30.0" prefWidth="280.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="130.0" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="180.0" minWidth="10.0" prefWidth="180.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <Label text="VEÍCULO:">
+                            <font><Font name="System Bold" size="14.0" /></font>
+                        </Label>
+                        <Label fx:id="lblDetalhesPlaca" text="---" GridPane.columnIndex="1">
+                            <font><Font size="14.0" /></font>
+                        </Label>
+                    </children>
+                </GridPane>
+
+                <Button fx:id="btnExcluir" layoutX="160.0" layoutY="280.0" mnemonicParsing="false" onAction="#acaoExcluirMotorista" style="-fx-text-fill: red;" text="Excluir" />
+            </children>
+        </Pane>
+
+        <Button fx:id="btnVoltar" layoutX="430.0" layoutY="366.0" onAction="#acaoVoltarMenu" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-text-fill: red; -fx-underline: true; -fx-cursor: hand;" text="Voltar" />
+    </children>
+</AnchorPane>

@@ -28,13 +28,32 @@ public class Alerta {
      * Método 1: Envio de texto simples
      */
     public void enviarEmailSimples(String para, String assunto, String texto) {
-        SimpleMailMessage message = new SimpleMailMessage();
-        message.setFrom(para);
-        message.setTo(para);
-        message.setSubject(assunto);
-        message.setText(texto);
+        try {
+            // --- CORREÇÃO: Proteção contra Nulo ---
+            if (para == null || para.trim().isEmpty()) {
+                System.err.println("Erro: Tentativa de enviar e-mail sem destinatário.");
+                return;
+            }
 
-        mailSender.send(message);
+            // Verifica se o remetente foi carregado corretamente do application.properties
+            if (remetente == null) {
+                System.err.println("Erro: Remetente não configurado no application.properties.");
+                return;
+            }
+
+            SimpleMailMessage message = new SimpleMailMessage();
+            message.setFrom(remetente);
+            message.setTo(para);
+            message.setSubject(assunto);
+            message.setText(texto);
+
+            mailSender.send(message);
+            System.out.println("Email enviado para: " + para);
+
+        } catch (Exception e) {
+            // O catch impede que o programa feche se der erro no email
+            System.err.println("Falha ao enviar email (O sistema continuará rodando): " + e.getMessage());
+        }
     }
 
     /**

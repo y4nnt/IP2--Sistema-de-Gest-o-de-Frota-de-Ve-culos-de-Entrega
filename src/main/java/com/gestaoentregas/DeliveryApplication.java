@@ -33,7 +33,7 @@ public class DeliveryApplication extends Application {
 
     @Override
     public void start(Stage stage) throws IOException, ECException, PCException {
-        FXMLLoader fxmlLoader = new FXMLLoader(DeliveryApplication.class.getResource("/com.gestaoentregas/MenuMotorista.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(DeliveryApplication.class.getResource("/com.gestaoentregas/MenuAdm.fxml"));
 
         fxmlLoader.setControllerFactory(springContext::getBean);
 
@@ -42,7 +42,7 @@ public class DeliveryApplication extends Application {
         stage.setTitle("Menu Inicial ADM");
         stage.setResizable(false);
 
-        MenuMotoristaController controller = fxmlLoader.getController();
+        MenuPrincipalController controller = fxmlLoader.getController();
 
         stage.setScene(scene);
         stage.show();

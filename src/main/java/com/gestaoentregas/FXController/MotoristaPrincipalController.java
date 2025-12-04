@@ -50,9 +50,9 @@ public class MotoristaPrincipalController {
 
     @FXML
     public void initialize() {
-        colunaId.setCellValueFactory(new PropertyValueFactory<>("idEntrega"));
-        colunaEndereco.setCellValueFactory(new PropertyValueFactory<>("endereco"));
-        colunaStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
+        colunaId.setCellValueFactory(new PropertyValueFactory<>("codEntrega"));
+        colunaEndereco.setCellValueFactory(new PropertyValueFactory<>("localEntrega"));
+        colunaStatus.setCellValueFactory(new PropertyValueFactory<>("statusEntrega"));
         tabelaEntregas.setItems(listaDeEntregas);
     }
 
@@ -70,6 +70,7 @@ public class MotoristaPrincipalController {
 
                 // 1. Obtenção correta do Controller
                 DetalhesEntregaController controller = loader.getController();
+                controller.setEntrega(entregaSelecionada);
 
                 // 2. Transferência de Dados
                 controller.setEntrega(entregaSelecionada);

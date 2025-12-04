@@ -56,15 +56,44 @@ public class ServicoEntrega {
         if (entrega == null) {
             throw new EIException("Entrega inválida informada.");
         }
+
         entrega.atualizarStatus(novoStatus);
         repositorioEntrega.atualizarEntrega(entrega);
 
-        if (novoStatus == StatusEntrega.ENTREGUE) {
-            alerta.enviarEmailSimples(entrega.getEmailComprador(), "Pedido Entregue", "Oba! Seu pedido acaba de ser entregue, aproveite! \n\nAtt, \nEntregas POO.");
-        } else if (novoStatus == StatusEntrega.EM_TRANSITO) {
-            alerta.enviarEmailSimples(entrega.getEmailComprador(), "Pedido em trânsito", "Seu pedido acaba de sair em trânsito! Tenha paciência que logo mais ele chega! \n\nAtt, \nEntregas POO.");
-        } else if (novoStatus == StatusEntrega.CANCELADA) {
-            alerta.enviarEmailSimples(entrega.getEmailComprador(), "Pedido cancelado", "Seu pedido foi cancelado. Espero poder ter você como cliente novamente. \n\nAtt, \nEntregas POO.");
+        String emailDestino = entrega.getEmailComprador();
+
+        if (emailDestino == null || emailDestino.trim().isEmpty()) {
+            System.out.println("Aviso: Entrega sem e-mail de comprador. Notificação não enviada.");
+            return;
+        }
+
+        String assunto = null;
+        String mensagem = null;
+
+        switch (novoStatus) {
+            case ENTREGUE:
+                assunto = "Pedido Entregue";
+                mensagem = "Oba! Seu pedido acaba de ser entregue, aproveite! \n\nAtt, \nEntregas POO.";
+                break;
+
+            case EM_TRANSITO:
+                assunto = "Pedido em trânsito";
+                mensagem = "Seu pedido acaba de sair em trânsito! Tenha paciência que logo mais ele chega! \n\nAtt, \nEntregas POO.";
+                break;
+
+            case CANCELADA:
+                assunto = "Pedido cancelado";
+                mensagem = "Seu pedido foi cancelado. Espero poder ter você como cliente novamente. \n\nAtt, \nEntregas POO.";
+                break;
+
+            default:
+                // Se for outro status (ex: PENDENTE), não faz nada e sai
+                return;
+        }
+
+        // 5. Envia o E-mail (Uma única chamada)
+        if (assunto != null) {
+            alerta.enviarEmailSimples(emailDestino, assunto, mensagem);
         }
     }
 
