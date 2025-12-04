@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="350.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gestaoentregas.FXController.CadastroVeiculoController">
+
+    <children>
+        <Label layoutX="128.0" layoutY="23.0" text="Cadastro de Veículo">
+            <font>
+                <Font name="System Bold" size="20.0" />
+            </font>
+        </Label>
+
+        <GridPane hgap="10.0" layoutX="50.0" layoutY="65.0" prefHeight="194.0" prefWidth="343.0" vgap="15.0">
+            <columnConstraints>
+                <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="60.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="200.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="40.400000000000006" minHeight="10.0" prefHeight="31.400000000000006" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="48.400000000000006" minHeight="10.0" prefHeight="35.400000000000006" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+
+                <Label prefHeight="18.0" prefWidth="109.0" text="Marca:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                <TextField fx:id="txtMarca" promptText="Ex: Toyota" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                <Label prefHeight="18.0" prefWidth="111.0" text="Modelo:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                <TextField fx:id="txtModelo" promptText="Ex: Corolla XEi" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                <Label prefHeight="18.0" prefWidth="111.0" text="Ano:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                <TextField fx:id="txtAno" promptText="Ex: 2023" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                <Label prefHeight="18.0" prefWidth="110.0" text="Placa:" GridPane.rowIndex="4" />
+                <TextField fx:id="txtPlaca" promptText="Ex: ABC-1234" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Label prefHeight="18.0" prefWidth="121.0" text="Capacidade" GridPane.rowIndex="3" />
+            <TextField fx:id="txtCapacidade" promptText="Ex: 50" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+            </children>
+        </GridPane>
+
+        <Button layoutX="150.0" layoutY="280.0" mnemonicParsing="false" onAction="#handleCadastrarVeiculo" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-cursor: hand;" text="Cadastrar Veículo">
+            <font>
+                <Font name="System Bold" size="14.0" />
+            </font>
+        </Button>
+
+    </children>
+</AnchorPane>

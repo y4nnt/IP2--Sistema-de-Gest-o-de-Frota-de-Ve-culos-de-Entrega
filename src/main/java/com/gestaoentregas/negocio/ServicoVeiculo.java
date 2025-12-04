@@ -16,13 +16,20 @@ public class ServicoVeiculo {
         this.repositorioVeiculo = repositorioVeiculo;
     }
 
-    public void cadastrarVeiculo(Veiculo veiculo) throws VCException, PlException {
-        if (repositorioVeiculo.buscarVeiculo(veiculo.getIdVeiculo()) != null) {
-            throw new VCException();
-        } else if (repositorioVeiculo.buscarVeiculo(veiculo.getIdVeiculo()).getPlacaVeiculo() == null) {
-            throw new PlException();
+    public void cadastrarVeiculo(Veiculo novoVeiculo) throws Exception {
+
+        // 1. Busca para ver se já existe (supondo que busque por ID ou Placa)
+        // Nota: Se for um cadastro novo, geralmente não se busca por ID, mas sim por PLACA.
+        // Verifique se você não deveria estar usando buscarPorPlaca(String placa).
+
+        Veiculo veiculoExistente = repositorioVeiculo.buscarVeiculo(novoVeiculo.getIdVeiculo());
+
+        // 2. A CORREÇÃO: Verifique se não é nulo antes!
+        if (veiculoExistente != null) {
+            throw new Exception("Erro: Já existe um veículo cadastrado com esse ID.");
         }
-        repositorioVeiculo.cadastrarVeiculo(veiculo);
+
+        repositorioVeiculo.cadastrarVeiculo(novoVeiculo);
     }
 
     public void atualizarVeiculo(Veiculo veiculo) throws VIException {

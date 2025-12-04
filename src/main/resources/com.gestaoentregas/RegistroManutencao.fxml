@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gestaoentregas.FXController.RegistroManutencaoController">
+
+    <children>
+        <Label alignment="CENTER" layoutX="146.0" layoutY="31.0" text="Registro de Manutenção">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </Label>
+
+        <Label layoutX="100.0" layoutY="90.0" text="Placa do Veículo:" />
+        <TextField fx:id="txtPlaca" layoutX="230.0" layoutY="86.0" prefHeight="26.0" prefWidth="200.0" promptText="ABC-1234" />
+
+        <Label layoutX="100.0" layoutY="130.0" text="Motivo Geral:" />
+        <TextField fx:id="txtMotivo" layoutX="230.0" layoutY="126.0" prefWidth="200.0" promptText="Ex: Troca de Pneus, Revisão 10K km" />
+
+        <Label layoutX="100.0" layoutY="170.0" text="Data Início:" />
+        <DatePicker fx:id="dpDataInicio" layoutX="230.0" layoutY="166.0" prefHeight="26.0" prefWidth="200.0" promptText="Início da Indisponibilidade" />
+
+        <Label layoutX="100.0" layoutY="210.0" text="Data Fim:" />
+        <DatePicker fx:id="dpDataFim" layoutX="230.0" layoutY="206.0" prefHeight="26.0" prefWidth="200.0" promptText="Fim da Indisponibilidade" />
+
+        <Button layoutX="145.0" layoutY="282.0" mnemonicParsing="false" onAction="#handleRegistrarManutencao" style="-fx-background-color: #CC0000; -fx-text-fill: white;" text="Registrar Indisponibilidade">
+            <font>
+                <Font name="System Bold" size="14.0" />
+            </font>
+        </Button>
+    </children>
+</AnchorPane>

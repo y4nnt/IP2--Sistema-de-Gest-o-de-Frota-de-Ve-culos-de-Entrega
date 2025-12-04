@@ -1,6 +1,7 @@
 package com.gestaoentregas.negocio;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -15,7 +16,8 @@ import java.io.File;
 public class Alerta {
 
     private final JavaMailSender mailSender; // Tornamos final
-    private final String remetente = "yanntavares123@gmail.com";
+    @Value("${app.mail.remetente}")
+    private String remetente;
 
     @Autowired
     public Alerta(JavaMailSender mailSender) {
@@ -27,7 +29,7 @@ public class Alerta {
      */
     public void enviarEmailSimples(String para, String assunto, String texto) {
         SimpleMailMessage message = new SimpleMailMessage();
-        message.setFrom(remetente);
+        message.setFrom(para);
         message.setTo(para);
         message.setSubject(assunto);
         message.setText(texto);
