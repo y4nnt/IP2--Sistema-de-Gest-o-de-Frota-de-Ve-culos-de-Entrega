@@ -53,6 +53,10 @@ public class MotoristaPrincipalController {
         colunaId.setCellValueFactory(new PropertyValueFactory<>("codEntrega"));
         colunaEndereco.setCellValueFactory(new PropertyValueFactory<>("localEntrega"));
         colunaStatus.setCellValueFactory(new PropertyValueFactory<>("statusEntrega"));
+
+        listaDeEntregas.clear();
+        listaDeEntregas.addAll(servicoEntrega.listarEntregas());
+
         tabelaEntregas.setItems(listaDeEntregas);
     }
 
@@ -99,19 +103,24 @@ public class MotoristaPrincipalController {
     }
 
     @FXML
-    private void handleFinalizarEntrega(ActionEvent event) { // Remova o "throws EIException" daqui
+    private void handleFinalizarEntrega(ActionEvent event) {
         Entrega entregaSelecionada = tabelaEntregas.getSelectionModel().getSelectedItem();
 
         if (entregaSelecionada != null) {
             try {
+                // 1. Atualiza no Banco de Dados / Backend
                 servicoEntrega.atualizarStatusEntrega(entregaSelecionada, StatusEntrega.ENTREGUE);
 
-                tabelaEntregas.refresh();
+                // 2. CORREÇÃO: Remove o item da lista visual para ele sumir da tabela
+                listaDeEntregas.remove(entregaSelecionada);
+
+                // (O refresh não é mais necessário se você removeu o item)
+                // tabelaEntregas.refresh();
 
                 Alert alert = new Alert(AlertType.INFORMATION);
                 alert.setTitle("Entrega confirmada");
                 alert.setHeaderText(null);
-                alert.setContentText("Entrega finalizada e e-mail de aviso enviado!");
+                alert.setContentText("Entrega finalizada e removida da lista!");
                 alert.showAndWait();
 
             } catch (EIException e) {

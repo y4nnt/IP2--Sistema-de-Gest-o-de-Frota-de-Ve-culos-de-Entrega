@@ -40,7 +40,7 @@ public class MenuMotoristaController {
 
             stageAtual.getScene().setRoot(parent);
 
-            stageAtual.setTitle("Tela Principal Motorista");
+            stageAtual.setTitle("Entregas Motorista");
             stageAtual.setResizable(false);
         } catch (IOException e) {
             e.printStackTrace();
@@ -52,7 +52,7 @@ public class MenuMotoristaController {
     private void handleLogout(ActionEvent event) {
         try {
             System.out.println("Logout realizado. Carregando Tela de Logon...");
-            // App.setScene("LogonScreen.fxml", null);
+            abrirTela(event, "/com.gestaoentregas/TelaLogon.fxml", "Tela de Logon");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -76,7 +76,7 @@ public class MenuMotoristaController {
 
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
-            stage.setTitle("Registro Manutencao");
+            stage.setTitle("Cadastrar veículo");
             stage.show();
 
         } catch (IOException e) {
@@ -101,11 +101,36 @@ public class MenuMotoristaController {
 
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
-            stage.setTitle("Registro Manutencao");
+            stage.setTitle("Registro Manutenção");
             stage.show();
 
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
+    private void abrirTela(ActionEvent event, String fxmlPath, String titulo) {
+        try {
+            Stage currentStage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+            currentStage.close();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
+
+            loader.setControllerFactory(context::getBean);
+
+            Parent root = loader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.setTitle(titulo);
+            stage.setResizable(false);
+
+            stage.setResizable(false);
+            stage.show();
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.err.println("Erro ao abrir a tela: " + fxmlPath);
+        }
+    }
+
 }

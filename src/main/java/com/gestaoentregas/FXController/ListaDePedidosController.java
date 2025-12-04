@@ -180,8 +180,30 @@ public class ListaDePedidosController implements Initializable {
     }
 
     public void acaoVoltarMenu(ActionEvent event) {
-        Stage stageAtual = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        abrirTela(event, "/com.gestaoentregas/MenuAdm.fxml", "Menu do Adm");
+    }
 
-        stageAtual.close();
+    private void abrirTela(ActionEvent event, String fxmlPath, String titulo) {
+        try {
+            Stage currentStage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+            currentStage.close();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
+
+            loader.setControllerFactory(context::getBean);
+
+            Parent root = loader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.setTitle(titulo);
+            stage.setResizable(false);
+
+            stage.setResizable(false);
+            stage.show();
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.err.println("Erro ao abrir a tela: " + fxmlPath);
+        }
     }
 }

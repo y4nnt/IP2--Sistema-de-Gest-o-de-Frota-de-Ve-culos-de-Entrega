@@ -11,6 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import org.springframework.context.ApplicationContext;
@@ -46,6 +47,11 @@ public class DetalhesEntregaController {
             try {
                 this.servicoEntrega.atualizarStatusEntrega(entregaAtual, StatusEntrega.EM_TRANSITO);
                 System.out.println("Iniciando rota para: " + entregaAtual.getLocalEntrega());
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Iniciar Rota");
+                alert.setHeaderText("Iniciando Rota");
+                alert.setContentText("Rota iniciada com sucesso!");
+                alert.showAndWait();
             } catch (EIException e) {
                 e.printStackTrace();
             }
@@ -65,7 +71,7 @@ public class DetalhesEntregaController {
 
             stageAtual.getScene().setRoot(parent);
 
-            stageAtual.setTitle("Tela Principal Motorista");
+            stageAtual.setTitle("Menu Motorista");
             stageAtual.setResizable(false);
 
         } catch (IOException e) {

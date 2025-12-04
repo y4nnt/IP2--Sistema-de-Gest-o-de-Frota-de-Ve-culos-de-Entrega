@@ -2,6 +2,7 @@ package com.gestaoentregas.negocio;
 import com.gestaoentregas.dados.beans.Usuario;
 import com.gestaoentregas.dados.beans.TipoUsuario;
 import com.gestaoentregas.dados.beans.motorista.Motorista;
+import com.gestaoentregas.dados.repositorios.RepositorioMotorista;
 import com.gestaoentregas.dados.repositorios.RepositorioUsuario;
 import com.gestaoentregas.excecoes.UIException;
 import org.springframework.stereotype.Service;
@@ -14,9 +15,11 @@ public class ServicoUsuario {
 
     private static volatile int nextId = 0;
     private final RepositorioUsuario repositorioUsuario;
+    private final RepositorioMotorista repositorioMotorista;
 
-    public ServicoUsuario(RepositorioUsuario repositorioUsuario) {
+    public ServicoUsuario(RepositorioUsuario repositorioUsuario, RepositorioMotorista repositorioMotorista) {
         this.repositorioUsuario = repositorioUsuario;
+        this.repositorioMotorista = repositorioMotorista;
     }
 
     public synchronized int pegarProximoId() {
@@ -55,10 +58,19 @@ public class ServicoUsuario {
     }
 
     public Usuario buscarUsuario(int id) throws UIException {
+        // 1. Tenta buscar na tabela geral de usuários
         Usuario usuario = repositorioUsuario.buscarUsuario(id);
-        if (usuario == null){
-            throw new UIException();
+
+        // 2. Se não achar, tenta buscar na tabela de Motoristas (Fallback)
+        if (usuario == null) {
+            usuario = repositorioMotorista.buscarMotorista(id);
         }
+
+        // 4. Se depois de tudo ainda for nulo, aí sim lançamos o erro
+        if (usuario == null) {
+            throw new UIException("Usuário indisponível ou inválido (ID: " + id + ")");
+        }
+
         return usuario;
     }
 

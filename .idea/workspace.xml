@@ -6,32 +6,32 @@
   <component name="ChangeListManager">
     <list default="true" id="911704be-b986-469a-b46c-ae04dd23952b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/DeliveryApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/DeliveryApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/FXController/CadastroMotoristaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/FXController/CadastroMotoristaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/FXController/GerenciarMotoristaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/FXController/GerenciarMotoristaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/FXController/ListaDeMotoristaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/FXController/ListaDeMotoristaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/FXController/CadastroVeiculoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/FXController/CadastroVeiculoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/FXController/DetalhesEntregaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/FXController/DetalhesEntregaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/FXController/ListaDePedidosController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/FXController/ListaDePedidosController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/FXController/LogonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/FXController/LogonController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/FXController/MenuMotoristaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/FXController/MenuMotoristaController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/FXController/MenuPrincipalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/FXController/MenuPrincipalController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/FXController/MotoristaPrincipalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/FXController/MotoristaPrincipalController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/FXController/RegistroManutencaoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/FXController/RegistroManutencaoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/FXController/TelaDetalhesPedidoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/FXController/TelaDetalhesPedidoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/FXController/TelaSelecaoMotoristaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/FXController/TelaSelecaoMotoristaController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/InicializadorDados.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/InicializadorDados.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/dados/beans/entrega/Rota.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/dados/beans/entrega/Rota.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/dados/beans/motorista/Motorista.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/dados/beans/motorista/Motorista.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/negocio/ServicoMotorista.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/negocio/ServicoMotorista.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/negocio/ServicoUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gestaoentregas/negocio/ServicoUsuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com.gestaoentregas/MenuCliente.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com.gestaoentregas/MenuCliente.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/gestaoentregas/DeliveryApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gestaoentregas/DeliveryApplication.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/gestaoentregas/FXController/CadastroMotoristaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gestaoentregas/FXController/CadastroMotoristaController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gestaoentregas/FXController/GerenciarMotoristaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gestaoentregas/FXController/GerenciarMotoristaController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gestaoentregas/FXController/ListaDeMotoristaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gestaoentregas/FXController/ListaDeMotoristaController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gestaoentregas/FXController/ListaDePedidosController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gestaoentregas/FXController/ListaDePedidosController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gestaoentregas/FXController/CadastroVeiculoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gestaoentregas/FXController/CadastroVeiculoController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gestaoentregas/FXController/DetalhesEntregaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gestaoentregas/FXController/DetalhesEntregaController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/gestaoentregas/FXController/LogonController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gestaoentregas/FXController/LogonController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gestaoentregas/FXController/MenuMotoristaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gestaoentregas/FXController/MenuMotoristaController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/gestaoentregas/FXController/MenuPrincipalController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gestaoentregas/FXController/MenuPrincipalController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gestaoentregas/FXController/MotoristaPrincipalController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gestaoentregas/FXController/MotoristaPrincipalController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/gestaoentregas/FXController/RegistroManutencaoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gestaoentregas/FXController/RegistroManutencaoController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gestaoentregas/FXController/TelaSelecaoMotoristaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gestaoentregas/FXController/TelaSelecaoMotoristaController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/gestaoentregas/InicializadorDados.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gestaoentregas/InicializadorDados.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gestaoentregas/dados/beans/cliente/TipoUsuario.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gestaoentregas/dados/beans/entrega/Rota.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gestaoentregas/dados/beans/entrega/Rota.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gestaoentregas/dados/beans/motorista/Motorista.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gestaoentregas/dados/beans/motorista/Motorista.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/gestaoentregas/negocio/ServicoMotorista.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gestaoentregas/negocio/ServicoMotorista.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gestaoentregas/negocio/ServicoUsuario.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gestaoentregas/negocio/ServicoUsuario.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -243,6 +243,7 @@
       <workItem from="1764797073513" duration="3323000" />
       <workItem from="1764800497320" duration="780000" />
       <workItem from="1764808544172" duration="2006000" />
+      <workItem from="1764853759694" duration="8272000" />
     </task>
     <servers />
   </component>

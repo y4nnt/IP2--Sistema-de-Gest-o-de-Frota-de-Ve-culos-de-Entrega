@@ -64,7 +64,7 @@ public class LogonController {
 
             // 2. Login BEM-SUCEDIDO:
             mostrarAlerta(Alert.AlertType.INFORMATION, "Sucesso", "Login de Cliente", "Bem-vindo, " + clienteAutenticado.getEmail() + "!");
-            // TODO: Implementar a navegação para TelaPrincipalCliente (ex: loadScreen("TelaPrincipalCliente.fxml", "Meus Pedidos");)
+            abrirTela(event, "/com.gestaoentregas/MenuCliente.fxml", "Menu do Cliente");
 
         } catch (UIException e) {
             // 3. Login FALHOU: Exibe a mensagem de erro fornecida pelo serviço
@@ -107,19 +107,21 @@ public class LogonController {
 
             mostrarAlerta(Alert.AlertType.INFORMATION, "Sucesso", "Login de Motorista", "Bem-vindo, Motorista!");
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/gestaoentregas/MenuMotorista.fxml"));
-
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com.gestaoentregas/MenuMotorista.fxml"));
             loader.setControllerFactory(context::getBean);
-
             Parent root = loader.load();
 
             MenuMotoristaController controller = loader.getController();
-
             controller.setIdMotorista(usuarioAutenticado.getId());
 
-            Stage stageAtual = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stageAtual.getScene().setRoot(root);
-            stageAtual.setTitle("Menu Principal Motorista");
+            Stage stageNovo = new Stage();
+            stageNovo.setScene(new Scene(root));
+            stageNovo.setTitle("Menu Principal Motorista");
+            stageNovo.setResizable(false);
+            stageNovo.show();
+
+            Stage stageLogin = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stageLogin.close();
 
         } catch (UIException e) {
             mostrarAlerta(Alert.AlertType.ERROR, "Erro de Login", "Falha na Autenticação", e.getMessage());

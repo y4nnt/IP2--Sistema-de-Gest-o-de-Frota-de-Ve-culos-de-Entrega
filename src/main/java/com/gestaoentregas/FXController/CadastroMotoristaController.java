@@ -50,7 +50,7 @@ public class CadastroMotoristaController {
      * Tenta registrar um novo Motorista no sistema.
      */
     @FXML
-    public void acaoCadastrarMotorista(ActionEvent event) {
+    public void acaoSalvar(ActionEvent event) {
         try {
             // 1. Coleta e validação simples dos dados
             String nome = txtNomeMotorista.getText();
@@ -77,6 +77,7 @@ public class CadastroMotoristaController {
 
             // 3. Cadastra o motorista
             servicoMotorista.cadastrarMotorista(novoMotorista);
+            servicoUsuario.cadastrarUsuario(novoMotorista);
 
             // 4. Feedback e navegação
             mostrarAlerta(Alert.AlertType.INFORMATION, "Sucesso!", "Cadastro realizado.", "Motorista " + nome + " cadastrado com sucesso!");

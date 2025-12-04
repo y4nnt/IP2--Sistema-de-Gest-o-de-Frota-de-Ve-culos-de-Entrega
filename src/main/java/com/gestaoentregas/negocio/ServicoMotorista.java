@@ -2,6 +2,7 @@ package com.gestaoentregas.negocio;
 
 import com.gestaoentregas.dados.beans.motorista.Motorista;
 // Não precisa mais de RepositorioUsuario
+import com.gestaoentregas.dados.repositorios.RepositorioMotorista;
 import com.gestaoentregas.excecoes.*;
 import org.springframework.stereotype.Service;
 
@@ -12,9 +13,12 @@ public class ServicoMotorista {
 
     // MANTER APENAS O SERVICO USUARIO
     private final ServicoUsuario servicoUsuario;
+    private final RepositorioMotorista repositorioMotorista;
 
-    public ServicoMotorista(ServicoUsuario servicoUsuario) {
+
+    public ServicoMotorista(ServicoUsuario servicoUsuario, RepositorioMotorista repositorioMotorista) {
         this.servicoUsuario = servicoUsuario;
+        this.repositorioMotorista = repositorioMotorista;
     }
 
     /**
@@ -58,6 +62,12 @@ public class ServicoMotorista {
     }
     public ArrayList<Motorista> listarMotoristas() {
         return servicoUsuario.listarMotoristas();
+    }
+
+    // Em ServicoMotorista.java
+    public Motorista buscarPorId(int id) {
+        // Chama o repositório específico de motoristas
+        return repositorioMotorista.buscarMotorista(id);
     }
 
 

@@ -44,31 +44,34 @@ public class MenuPrincipalController {
 
     @FXML
     void acaoSair(ActionEvent event) {
-        System.exit(0);
-
-        // Ou, se quiser apenas fechar a janela e voltar pro login:
-        // ((Stage)((Node)event.getSource()).getScene().getWindow()).close();
+        abrirTela(event, "/com.gestaoentregas/TelaLogon.fxml", "Tela de Logon");
     }
 
     private void abrirTela(ActionEvent event, String fxmlPath, String titulo) {
         try {
+            // 1. Carrega o Loader da NOVA tela
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
-
             loader.setControllerFactory(context::getBean);
-
             Parent root = loader.load();
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.setTitle(titulo);
-            stage.setResizable(false);
 
-            stage.setResizable(false);
-            stage.show();
+            // 2. Prepara a nova janela
+            Stage stageNovo = new Stage();
+            stageNovo.setScene(new Scene(root));
+            stageNovo.setTitle(titulo);
+            stageNovo.setResizable(false);
 
+            // 3. Mostra a nova janela
+            stageNovo.show();
+
+            // 4. FECHA A JANELA ANTIGA (Só chega aqui se a nova abriu sem erros)
+            // Pegamos a janela atual através do botão que foi clicado
+            Stage stageAtual = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stageAtual.close();
 
         } catch (IOException e) {
             e.printStackTrace();
-            System.err.println("Erro ao abrir a tela: " + fxmlPath);
+            System.err.println("Erro crítico ao abrir a tela: " + fxmlPath);
+            // Aqui você pode mostrar um Alert de erro para o usuário se quiser
         }
     }
 }

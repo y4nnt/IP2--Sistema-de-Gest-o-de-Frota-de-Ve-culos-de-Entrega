@@ -1,7 +1,10 @@
 package com.gestaoentregas.FXController;
 
+import com.gestaoentregas.dados.beans.Usuario;
+import com.gestaoentregas.dados.beans.motorista.Motorista;
 import com.gestaoentregas.excecoes.MIException;
 import com.gestaoentregas.negocio.ServicoMotorista;
+import com.gestaoentregas.negocio.ServicoUsuario;
 import com.gestaoentregas.negocio.ServicoVeiculo;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -32,71 +35,70 @@ public class CadastroVeiculoController {
 
     private final ServicoVeiculo servicoVeiculo;
     private final ServicoMotorista servicoMotorista;
+    private final ServicoUsuario servicoUsuario;
     private int idMotorista;
 
-    public CadastroVeiculoController(ServicoVeiculo servicoVeiculo, ServicoMotorista servicoMotorista) {
+    public CadastroVeiculoController(ServicoVeiculo servicoVeiculo, ServicoMotorista servicoMotorista, ServicoUsuario servicoUsuario) {
         this.servicoVeiculo = servicoVeiculo;
         this.servicoMotorista = servicoMotorista;
+        this.servicoUsuario = servicoUsuario;
     }
 
     public void setIdMotorista(int id) {
         this.idMotorista = id;
     }
+
     @FXML
     protected void handleCadastrarVeiculo(ActionEvent event) {
-        try {
-            // 1. Validação básica antes de tentar converter números (evita erros feios)
-            if (txtMarca.getText().isEmpty() || txtModelo.getText().isEmpty() ||
-                    txtPlaca.getText().isEmpty() || txtAno.getText().isEmpty() ||
-                    txtCapacidade.getText().isEmpty()) { // <--- Verifique se existe txtCapacidade no FXML
+        if (this.idMotorista == 0) {
+            mostrarAlerta("Erro Crítico", "ID do motorista inválido (0). Faça login novamente.");
+            return;
+        }
 
-                mostrarAlerta("Erro de Validação", "Por favor, preencha todos os campos.");
+        try {
+            // 1. Validações de Campos
+            if (txtModelo.getText().isEmpty() || txtPlaca.getText().isEmpty() ||
+                    txtCapacidade.getText().isEmpty()) {
+                mostrarAlerta("Erro de Validação", "Preencha Modelo, Placa e Capacidade.");
                 return;
             }
 
-            String marca = txtMarca.getText();
+            // 2. Coleta de Dados
             String modelo = txtModelo.getText();
             String placa = txtPlaca.getText();
-
-            int ano = Integer.parseInt(txtAno.getText().trim());
             int capacidade = Integer.parseInt(txtCapacidade.getText().trim());
 
-            // 3. Validações lógicas
-            if (ano < 1900 || ano > 2026) {
-                mostrarAlerta("Data Inválida", "O ano do veículo parece incorreto.");
-                return;
-            }
-
-            if (capacidade <= 0) {
-                mostrarAlerta("Capacidade Inválida", "A capacidade deve ser maior que zero.");
-                return;
-            }
-
-            // DEBUG: Verifique qual ID está chegando aqui
-            System.out.println("Tentando cadastrar veículo para o Motorista ID: " + this.idMotorista);
-
-            if (this.idMotorista <= 0) {
-                mostrarAlerta("Erro Interno", "ID do motorista inválido. Faça login novamente.");
-                return;
-            }
-
+            // 3. Criação e Salvamento do Veículo
             Veiculo novoVeiculo = new Veiculo(placa, modelo, capacidade);
-
+            // Se o seu objeto Veiculo tiver marca/ano, sete-os aqui. Caso contrário, ignore.
             this.servicoVeiculo.cadastrarVeiculo(novoVeiculo);
 
-            mostrarMensagemSucesso("Sucesso", "Veículo cadastrado!");
-            limparCampos();
+            // 4. VINCULAÇÃO (A SOLUÇÃO DEFINITIVA)
 
-        } catch (MIException e) {
-            // CAPTURA O ERRO DE NEGÓCIO (Motorista indisponível, Veículo já existe, etc)
-            mostrarAlerta("Erro de Validação", e.getMessage());
+            // --- CORREÇÃO AQUI: Buscamos direto no Serviço de Motorista ---
+            // Isso evita o erro "Usuário não encontrado" e o erro de "ClassCastException"
+            // Certifique-se que o método buscarPorId existe no ServicoMotorista
+            Motorista motorista = servicoMotorista.buscarPorId(this.idMotorista);
+
+            if (motorista != null) {
+                // Faz o vínculo na memória
+                motorista.setVeiculoMotorista(novoVeiculo);
+
+                // Salva a alteração no banco usando o ServicoUsuario (como você pediu)
+                servicoUsuario.atualizarUsuario(motorista);
+
+                mostrarMensagemSucesso("Sucesso", "Veículo cadastrado e vinculado!");
+                limparCampos();
+            } else {
+                mostrarAlerta("Erro Crítico", "Motorista ID " + this.idMotorista + " não encontrado no cadastro de motoristas.");
+            }
 
         } catch (NumberFormatException e) {
-            mostrarAlerta("Formato Inválido", "Verifique os números digitados.");
-
+            mostrarAlerta("Erro de Formato", "Capacidade deve ser um número.");
         } catch (Exception e) {
-            mostrarAlerta("Erro Crítico", "Ocorreu um erro inesperado: " + e.getMessage());
+            System.err.println("ERRO REAL:");
             e.printStackTrace();
+            mostrarAlerta("Erro Crítico", "Falha: " + e.getMessage());
         }
     }
 

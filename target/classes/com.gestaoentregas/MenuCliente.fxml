@@ -70,18 +70,6 @@
                             </font>
                         </Button>
 
-                        <Button contentDisplay="TOP" mnemonicParsing="false" prefHeight="80.0" prefWidth="130.0" style="-fx-background-color: white; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 0); -fx-cursor: hand; -fx-background-radius: 8;" text="Meu Perfil" textFill="#2d3447" wrapText="true">
-                            <font>
-                                <Font name="System Bold" size="13.0" />
-                            </font>
-                        </Button>
-
-                        <Button contentDisplay="TOP" mnemonicParsing="false" prefHeight="80.0" prefWidth="130.0" style="-fx-background-color: white; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 0); -fx-cursor: hand; -fx-background-radius: 8;" text="Ajuda" textFill="#2d3447" wrapText="true">
-                            <font>
-                                <Font name="System Bold" size="13.0" />
-                            </font>
-                        </Button>
-
                     </children>
                 </HBox>
             </children>
