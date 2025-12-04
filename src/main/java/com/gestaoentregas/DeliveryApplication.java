@@ -51,4 +51,8 @@ public class DeliveryApplication extends Application {
         springContext.close();
     }
 
+    public static ConfigurableApplicationContext getContext() {
+        return springContext;
+    }
+
 }

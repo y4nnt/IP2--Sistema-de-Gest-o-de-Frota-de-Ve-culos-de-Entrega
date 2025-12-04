@@ -10,7 +10,6 @@ import java.util.ArrayList;
 @Repository
 public class RepositorioMotorista implements IRepositorioMotorista {
     private ArrayList<Motorista> motoristas;
-    private int contadorId = 101;
 
     private RepositorioMotorista() {
         this.motoristas = new ArrayList<>();
@@ -18,10 +17,6 @@ public class RepositorioMotorista implements IRepositorioMotorista {
 
     @Override
     public void cadastrarMotorista(Motorista motorista) {
-        if (motorista.getId() == 0) {
-            motorista.setId(contadorId);
-            contadorId++;
-        }
         motoristas.add(motorista);
     }
 
@@ -43,12 +38,21 @@ public class RepositorioMotorista implements IRepositorioMotorista {
 
     @Override
     public Motorista buscarMotorista(int id) {
-        Motorista motorista = null;
-        int i = procurarIndice(id);
-        if (i != -1) {
-            motorista = this.motoristas.get(i);
+        System.out.println("=== RAIO-X DO REPOSITÓRIO ===");
+        System.out.println("Procurando por Motorista ID: " + id);
+        System.out.println("Tamanho da lista de motoristas: " + this.motoristas.size());
+
+        for (Motorista m : this.motoristas) {
+            System.out.println(" -> Encontrei na lista: [Nome: " + m.getNomeMotorista() + " | ID: " + m.getId() + "]");
+
+            if (m.getId() == id) {
+                System.out.println("=== ENCONTRADO! ===");
+                return m;
+            }
         }
-        return motorista;
+
+        System.out.println("=== NÃO ENCONTRADO ===");
+        return null;
     }
 
     // busca o índice do motorista pelo ID

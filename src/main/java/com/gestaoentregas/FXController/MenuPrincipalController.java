@@ -1,5 +1,6 @@
 package com.gestaoentregas.FXController;
 
+import com.gestaoentregas.DeliveryApplication;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -28,8 +29,27 @@ public class MenuPrincipalController {
 
     @FXML
     void irParaMonitoramento(ActionEvent event) {
-        abrirTela(event, "/com.gestaoentregas/MapaView.fxml", "Monitoramento");
-        System.out.println("Funcionalidade de Monitoramento clicada!");
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com.gestaoentregas/MapaView.fxml"));
+
+            loader.setControllerFactory(DeliveryApplication.getContext()::getBean);
+
+            Parent root = loader.load();
+
+            Stage stageMonitoramento = new Stage();
+            stageMonitoramento.setTitle("Monitoramento");
+            stageMonitoramento.setScene(new Scene(root));
+
+            stageMonitoramento.setResizable(false);
+
+            stageMonitoramento.show();
+
+            System.out.println("Janela de Monitoramento aberta em paralelo!");
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.err.println("Erro ao abrir tela de monitoramento.");
+        }
     }
 
     @FXML

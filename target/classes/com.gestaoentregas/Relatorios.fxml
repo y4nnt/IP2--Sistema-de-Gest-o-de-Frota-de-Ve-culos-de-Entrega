@@ -108,6 +108,7 @@
                 <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
             </padding>
             <children>
+            <Button fx:id="btnVoltar" mnemonicParsing="false" onAction="#handleVoltar" text="Voltar" />
                 <Label text="Exportar resultados:" textFill="#666666" />
                 <Button mnemonicParsing="false" onAction="#handleExportarCSV" style="-fx-base: #28a745;" text="📄 Exportar CSV" />
                 <Button mnemonicParsing="false" onAction="#handleExportarPDF" style="-fx-base: #dc3545;" text="📑 Exportar PDF" />

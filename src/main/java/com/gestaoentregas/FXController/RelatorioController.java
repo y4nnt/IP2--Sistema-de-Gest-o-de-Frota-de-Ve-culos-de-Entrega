@@ -8,17 +8,24 @@ import com.lowagie.text.Paragraph;
 import com.lowagie.text.pdf.PdfPTable;
 import com.lowagie.text.pdf.PdfWriter;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVPrinter;
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
+import javafx.event.ActionEvent;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.time.LocalDate;
@@ -46,6 +53,13 @@ public class RelatorioController {
     // Adicione a coluna KM se tiver no FXML
     @FXML private TableColumn<RelatorioEntregaDTO, Double> colKm;
 
+    @FXML private Button btnVoltar;
+
+    private final ApplicationContext context;
+
+    public RelatorioController (ApplicationContext context){
+        this.context = context;
+    }
     @FXML
     public void initialize() {
         // Vincula as colunas aos atributos do DTO
@@ -130,6 +144,11 @@ public class RelatorioController {
     }
 
     @FXML
+    private void handleVoltar(ActionEvent event) {
+        abrirTela(event, "/com.gestaoentregas/MenuAdm.fxml", "Menu do Adm");
+    }
+
+    @FXML
     private void handleExportarCSV() {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Salvar Relatório em CSV");
@@ -172,5 +191,33 @@ public class RelatorioController {
         alert.setHeaderText(null);
         alert.setContentText(mensagem);
         alert.showAndWait();
+    }
+
+    private void abrirTela(javafx.event.ActionEvent event, String fxmlPath, String titulo) {
+        try {
+            // 1. Carrega o Loader da NOVA tela
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
+            loader.setControllerFactory(context::getBean);
+            Parent root = loader.load();
+
+            // 2. Prepara a nova janela
+            Stage stageNovo = new Stage();
+            stageNovo.setScene(new Scene(root));
+            stageNovo.setTitle(titulo);
+            stageNovo.setResizable(false);
+
+            // 3. Mostra a nova janela
+            stageNovo.show();
+
+            // 4. FECHA A JANELA ANTIGA (Só chega aqui se a nova abriu sem erros)
+            // Pegamos a janela atual através do botão que foi clicado
+            Stage stageAtual = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stageAtual.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.err.println("Erro crítico ao abrir a tela: " + fxmlPath);
+            // Aqui você pode mostrar um Alert de erro para o usuário se quiser
+        }
     }
 }

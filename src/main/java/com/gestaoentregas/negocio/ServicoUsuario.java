@@ -38,11 +38,20 @@ public class ServicoUsuario {
         repositorioUsuario.cadastrarUsuario(novoUsuario);
     }
 
-    public void atualizarUsuario(Usuario Usuario) throws UIException {
-        if (repositorioUsuario.buscarUsuario(Usuario.getId()) == null){
-            throw new UIException();
+    public void atualizarUsuario(Usuario usuario) throws UIException {
+        try {
+            // Tenta atualizar no repositório
+            this.repositorioUsuario.atualizarUsuario(usuario);
+
+        } catch (RuntimeException e) {
+            // Se o repositório reclamar que não achou:
+            if (e.getMessage().equals("UsuarioNaoEncontrado")) {
+                throw new UIException("Usuário indisponível ou inválido (ID não encontrado).");
+            } else {
+                e.printStackTrace();
+                throw new UIException("Erro desconhecido ao atualizar usuário.");
+            }
         }
-        repositorioUsuario.atualizarUsuario(Usuario);
     }
 
     public void removerUsuario(int id) throws UIException {

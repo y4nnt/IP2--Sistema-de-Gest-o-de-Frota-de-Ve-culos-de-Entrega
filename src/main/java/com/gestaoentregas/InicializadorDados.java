@@ -88,11 +88,13 @@ public class InicializadorDados implements CommandLineRunner {
 
     private void cadastrarMotoristaSeguro(Motorista m) {
         try {
+            // APENAS chame o serviço do motorista.
+            // Ele deve ser inteligente o suficiente para gerar o ID e salvar o usuário.
             servicoMotorista.cadastrarMotorista(m);
-            servicoUsuario.cadastrarUsuario(m); // Essencial para o Login funcionar
-            System.out.println("Motorista " + m.getNomeMotorista() + " cadastrado (sem veículo).");
+
+            System.out.println("Motorista " + m.getNomeMotorista() + " cadastrado. ID: " + m.getId());
         } catch (Exception e) {
-            System.out.println("Motorista " + m.getNomeMotorista() + " erro ao cadastrar: " + e.getMessage());
+            System.out.println("Erro ao cadastrar " + m.getNomeMotorista() + ": " + e.getMessage());
         }
     }
 }

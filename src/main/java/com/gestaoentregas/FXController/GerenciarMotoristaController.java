@@ -1,6 +1,7 @@
 package com.gestaoentregas.FXController;
 
 import com.gestaoentregas.dados.beans.motorista.Motorista;
+import com.gestaoentregas.dados.beans.veiculo.Veiculo;
 import com.gestaoentregas.excecoes.MIException;
 import com.gestaoentregas.negocio.ServicoMotorista;
 
@@ -55,6 +56,8 @@ public class GerenciarMotoristaController implements Initializable {
     private Label lblDetalhesCNH;
     @FXML
     private Label lblDetalhesTelefone;
+    @FXML
+    private Label lblDetalhesVeiculo;
 
     // --- Botões ---
     @FXML
@@ -116,6 +119,16 @@ public class GerenciarMotoristaController implements Initializable {
         lblDetalhesCNH.setText(motorista.getCnhMotorista());
         lblDetalhesTelefone.setText(motorista.getTelefoneMotorista());
 
+        Veiculo veiculo = motorista.getVeiculoMotorista();
+
+        if (veiculo != null) {
+            // Se tiver veículo, mostra Modelo e Placa
+            lblDetalhesVeiculo.setText(veiculo.getModeloVeiculo() + " (" + veiculo.getPlacaVeiculo() + ")");
+        } else {
+            // Se for null, avisa que está a pé
+            lblDetalhesVeiculo.setText("Sem veículo");
+        }
+
         // Mostra o painel
         painelDetalhes.setVisible(true);
         painelDetalhes.setManaged(true);
@@ -141,8 +154,7 @@ public class GerenciarMotoristaController implements Initializable {
 
     @FXML
     public void acaoVoltarMenu(ActionEvent event) {
-        Stage stageAtual = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stageAtual.close();
+        abrirTela(event, "/com.gestaoentregas/MenuAdm.fxml", "Menu do Adm");
     }
 
     // Método auxiliar para abrir tela de cadastro (mantido do exemplo anterior)
@@ -176,6 +188,34 @@ public class GerenciarMotoristaController implements Initializable {
 
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    private void abrirTela(ActionEvent event, String fxmlPath, String titulo) {
+        try {
+            // 1. Carrega o Loader da NOVA tela
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
+            loader.setControllerFactory(context::getBean);
+            Parent root = loader.load();
+
+            // 2. Prepara a nova janela
+            Stage stageNovo = new Stage();
+            stageNovo.setScene(new Scene(root));
+            stageNovo.setTitle(titulo);
+            stageNovo.setResizable(false);
+
+            // 3. Mostra a nova janela
+            stageNovo.show();
+
+            // 4. FECHA A JANELA ANTIGA (Só chega aqui se a nova abriu sem erros)
+            // Pegamos a janela atual através do botão que foi clicado
+            Stage stageAtual = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stageAtual.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.err.println("Erro crítico ao abrir a tela: " + fxmlPath);
+            // Aqui você pode mostrar um Alert de erro para o usuário se quiser
         }
     }
 }

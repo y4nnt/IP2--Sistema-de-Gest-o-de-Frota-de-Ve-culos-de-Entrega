@@ -123,7 +123,7 @@
                         <Label text="VEÍCULO:">
                             <font><Font name="System Bold" size="14.0" /></font>
                         </Label>
-                        <Label fx:id="lblDetalhesPlaca" text="---" GridPane.columnIndex="1">
+                        <Label fx:id="lblDetalhesVeiculo" text="---" GridPane.columnIndex="1">
                             <font><Font size="14.0" /></font>
                         </Label>
                     </children>

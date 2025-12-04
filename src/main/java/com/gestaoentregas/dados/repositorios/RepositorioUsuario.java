@@ -43,11 +43,32 @@ public class RepositorioUsuario implements IRepositorioUsuario {
         }
         return null;
     }
+
     @Override
-    public void atualizarUsuario(Usuario Usuario) {
-        int i = procurarIndice(Usuario.getId());
-        if (i != -1) {
-            this.usuarios.set(i, Usuario);
+    public void atualizarUsuario(Usuario usuarioAtualizado) {
+        boolean encontrou = false;
+
+        // Varre a lista procurando pelo ID
+        for (int i = 0; i < this.usuarios.size(); i++) {
+            if (this.usuarios.get(i).getId() == usuarioAtualizado.getId()) {
+                // ACHOU! Substitui o objeto antigo pelo novo (que tem o veículo vinculado)
+                this.usuarios.set(i, usuarioAtualizado);
+                encontrou = true;
+                System.out.println("DEBUG: Usuário ID " + usuarioAtualizado.getId() + " atualizado com sucesso no RepoUsuario.");
+                break;
+            }
+        }
+
+        // Se varreu tudo e não achou, lançamos uma RuntimeException para o Serviço pegar
+        if (!encontrou) {
+            // Imprime o que tem na lista para ajudar a debugar
+            System.out.println("DEBUG ERRO: Tentando atualizar ID " + usuarioAtualizado.getId());
+            System.out.println("DEBUG ERRO: Lista atual de usuários tem " + this.usuarios.size() + " itens:");
+            for(Usuario u : this.usuarios) {
+                System.out.println(" - ID: " + u.getId() + " Nome: " + u.getId());
+            }
+
+            throw new RuntimeException("UsuarioNaoEncontrado");
         }
     }
     @Override
