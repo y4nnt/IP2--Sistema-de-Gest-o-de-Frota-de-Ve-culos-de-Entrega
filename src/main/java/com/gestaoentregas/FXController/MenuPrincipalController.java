@@ -38,6 +38,11 @@ public class MenuPrincipalController {
     }
 
     @FXML
+    void irParaRelatorio(ActionEvent event) {
+
+    }
+
+    @FXML
     void acaoSair(ActionEvent event) {
         System.exit(0);
 
